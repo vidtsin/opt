@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acesss_crm_lead_iddocs,crm.lead.iddocs,model_crm_lead_iddocs,group_crm_lead_student,1,1,1,1
-acesss_crm_lead_educational_background,crm.lead.educational.background,model_crm_lead_educational_background,group_crm_lead_student,1,1,1,1
-acesss_crm_lead_edu_files,crm.lead.edu.files,model_crm_lead_edu_files,group_crm_lead_student,1,1,1,1
-acesss_res_partner_businessdocs,res.partner.businessdocs,model_res_partner_businessdocs,group_crm_lead_student,1,1,1,1
-acesss_res_partner_agent,res.partner.agent,model_res_partner_agent,group_crm_lead_student,1,1,1,1
-access_crm_lead_book_tour,crm.lead.book.tour,model_crm_lead_book_tour,group_crm_lead_student,1,1,1,1
-access_merged_crm_leads,merged.crm.leads,model_merged_crm_leads,group_crm_lead_student,1,1,1,1

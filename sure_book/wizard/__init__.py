@@ -1,2 +1,0 @@
-import create_booking
-import update_room
