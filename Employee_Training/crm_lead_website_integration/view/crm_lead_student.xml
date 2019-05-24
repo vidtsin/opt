@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_crm.crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.inherited.crm</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                </div>
+            </field>
+        </record>
+
+        <record id="website_crm_partner_assign.view_crm_opportunity_geo_assign_form" model="ir.ui.view">
+            <field name="name">crm.lead.geo_assign.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='lead']" position="after">
+                </xpath>
+            </field>
+        </record>
+
+        <record id="website_crm_partner_assign.view_crm_opportunity_geo_assign_tree" model="ir.ui.view">
+            <field name="name">crm.lead.geo_assign.tree.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                 </field>
+            </field>
+        </record>
+
+        <record id="view_mark_delayed" model="ir.ui.view">
+        <field name="name">crm.lead.delayed.form</field>
+        <field name="model">crm.lead</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+        <form string="Mark Delayed" create="0" edit="0">
+            <sheet>
+                <style>
+                            .modal .modal-dialog .modal-content .modal-body{overflow: hidden;}
+                        </style>
+            <group>
+                <group>
+                <field name="reason_of_delay"/>
+                <field name="delay_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                <field name="new_start_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                <field name="expected_return_date" attrs="{'invisible': [('team_id_name', '=','Local Sales')]}"/>
+                <field name="team_id_name" invisible="1"/>
+                    </group>
+            </group>
+            </sheet>
+            <footer>
+                <button name="action_set_delayed" string="Mark Delayed"
+                                type="object" class="oe_highlight"/>
+            </footer>
+            </form>
+        </field>
+    </record>
+
+        <record id="action_mark_delayed" model="ir.actions.act_window">
+        <field name="name">Mark Delayed</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_mark_delayed"/>
+        <field name="target">new</field>
+        </record>
+
+
+        <record id="view_mark_lost" model="ir.ui.view">
+        <field name="name">crm.lead.lost.form</field>
+        <field name="model">crm.lead</field>
+        <field name="priority">51</field>
+        <field name="arch" type="xml">
+        <form string="Mark Lost" create="0" edit="0">
+            <sheet>
+                <style>
+                            .modal .modal-dialog .modal-content .modal-body{overflow: hidden;}
+                        </style>
+            <group>
+            <group>
+                <field name="lost_reason"/>
+                <field name="lost_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                <field name="team_id_name" invisible="1"/>
+            </group>
+            </group>
+            </sheet>
+            <footer>
+                <button name="action_set_lost" string="Mark lost"
+                                type="object" class="oe_highlight"/>
+            </footer>
+            </form>
+        </field>
+    </record>
+
+        <record id="action_mark_lost" model="ir.actions.act_window">
+        <field name="name">Mark Lost</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_mark_lost"/>
+         <field name="context">{'res_id': self.id}</field>
+        <field name="target">new</field>
+        </record>
+
+        <record model="ir.ui.view" id="website_crm_partner_assign.crm_opportunity_partner_filter">
+            <field name="name">crm.opportunity.partner.filter.assigned</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <filter name="stage" position="after">
+                </filter>
+                <filter name="unassigned" position="after">
+                </filter>
+                <field name="partner_id" position="after">
+                </field>
+            </field>
+        </record>
+
+        <record id="website_crm_partner_assign.view_crm_lead_geo_assign_form" model="ir.ui.view">
+            <field name="name">crm.lead.lead.geo_assign.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='extra']" position="after">
+                </xpath>
+            </field>
+        </record>
+
+        <record id="website_crm_partner_assign.view_crm_lead_geo_assign_tree" model="ir.ui.view">
+            <field name="name">crm.lead.lead.geo_assign.tree.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                </field>
+            </field>
+        </record>
+
+        <record id="crm.crm_case_tree_view_leads" model="ir.ui.view">
+            <field name="name">crm.lead.tree.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <tree string="Leads" decoration-bf="new_lead==True">
+                    <field name="date_deadline" invisible="1"/>
+                    <field name="create_date"/>
+                    <field name="name" string="Lead"/>
+                    <field name="mode_of_contact"/>
+                    <field name="program" string="Program"/>
+                    <field name="new_lead" invisible="1"/>
+                    <field name="city"/>
+                    <field name="country_id"/>
+                    <field name="email_from"/>
+                    <field name="phone"/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="team_id"/>
+                    <field name="active" invisible="1"/>
+                    <field name="probability" invisible="1"/>
+                    <field name="campaign_id" invisible="1"/>
+                    <field name="referred" invisible="1"/>
+                    <field name="medium_id" invisible="1"/>
+                    <field name="message_needaction" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="crm.crm_case_tree_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.tree.opportunity</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <tree string="Opportunities">
+                    <field name="create_date"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="name" string="Opportunity"/>
+                    <field name="country_id"/>
+                    <field name="mode_of_contact"/>
+                    <field name="program" string="Program"/>
+                    <field name="stage_id"/>
+                    <field name="team_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="crm_local_opportunity_tree" model="ir.ui.view">
+            <field name="name">crm.opportunity.tree</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <tree string="Opportunities">
+                    <field name="create_date"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="name" string="Opportunity"/>
+                    <field name="country_id"/>
+                    <field name="mode_of_contact"/>
+                    <field name="program" string="Program"/>
+                    <field name="stage_id"/>
+                    <field name="team_id"/>
+                    <field name="user_id"/>
+                    <field name="program_start_date"/>
+                    <field name="deadline_to_apply"/>
+                    <field name="scholarship"/>
+                    <field name="total_program_cost"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="website_crm_partner_assign.view_crm_opportunity_geo_assign_tree" model="ir.ui.view">
+            <field name="name">crm.lead.geo_assign.tree.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                 </field>
+            </field>
+        </record>
+
+        <record id="crm.crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.form.opportunity</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <form string="Opportunities" class="o_opportunity_form">
+                    <header>
+                        <button name="action_mark_lost_wizard" string="Mark Lost"
+                                type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('stage_id_name','in',['Lost','Delayed'])]}"/>
+                        <button name="action_mark_delayed_wizard" string="Mark Delayed"
+                                type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|', ('stage_id_name','in',['Lost','Delayed'])]}"/>
+                        <field name="stage_id" widget="statusbar" clickable="True"
+                            options="{'fold_field': 'fold'}"
+                            domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"/>
+                    </header>
+                    <sheet>
+                        <style>
+                            .o_form_view .o_horizontal_separator {
+                                font-size: 15px;
+                                margin: 5px 0;
+                                }
+                            .o_form_view .o_group .o_td_label .o_form_label{
+                             width:180px !important;
+                            }
+                            .o_form_view  .header{
+                                height:100px !important;
+                            }
+                        </style>
+                        <div class="oe_button_box" name="button_box">
+
+                        </div>
+                        <group>
+                        <group>
+                            <field name="probability" invisible="1"/>
+                            <field name="stage_id_name" invisible="1"/>
+                            <field name="team_id_name" invisible="1"/>
+                            <field name="name" string="Name"/>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street" />
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip" />
+                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                        <group>
+                            <group string="Contact Details" colspan="4">
+                                <field name="email_from" widget="email"/>
+                                <field name="phone" widget="phone"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="occupation"/>
+                            </group>
+                        </group>
+                        </group>
+                        <group>
+                            <group>
+                            <group colspan="4">
+                                <field name="app_id"/>
+                                <field name="form_no"/>
+                                <field name="x_funding"/>
+                                <field name="select_button"/>
+
+                                <field name="mode_of_contact"/>
+                                <field name="type" invisible="1"/>
+                            </group>
+                            <group string="Referral Details" colspan="4">
+                                <field name="referral_name"/>
+                                <field name="referral_phone" />
+                            </group>
+                            </group>
+                        <group>
+                            <group colspan="4" >
+                                <label for="residency_status"></label>
+                                <div class="o_row">
+                                  <field name="residency_status"/>
+                                  <field name="residency_status_specify" placeholder="Please Specify"/>
+                                </div>
+                                <field name="marital_status"/>
+                                <field name="dependent_children" string="Dependent Children"/>
+                                <field name="knowledge_of_computers"/>
+                                <field name="knowledge_of_english"/>
+                            </group>
+                            <group string="Course Time Preference" colspan="4" >
+                                <field name="course_time_preference_first"/>
+                                <field name="course_time_preference_second"/>
+                            </group>
+                        </group>
+                        </group>
+                        <group string="Message" colspan="4" attrs="{'invisible': [('mode_of_contact','!=','asked_question')]}">
+                                <field name="student_message"/>
+                            </group>
+                        <group string="Book A Tour Details" colspan="4" attrs="{'invisible': [('mode_of_contact','!=','book_a_tour')]}">
+                                <field name="preferred_date"/>
+                                <field name="preferred_time"/>
+                                <field name="comments"/>
+                            </group>
+                    <group>
+                        <group string="Program">
+
+                            <field name="program" string="Program" attrs="{'invisible': ['&amp;','&amp;','&amp;',('mode_of_contact','!=','book_a_tour'),('mode_of_contact','!=','asked_question'),('mode_of_contact','!=','requested_catalog'),('select_button', 'not in', ['domestic_student'])]}"/>
+
+                            <field name="program_1" string="program 1" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_1"  placeholder="Start Date 1 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+
+                            <field name="program_2" string="program 2" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_2" placeholder="Start Date 2 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+
+                            <field name="program_3" string="program 3" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_3" placeholder="Start Date 3 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                        </group>
+                        <group string="How did you hear about us">
+                                <field name="google" />
+                                <field name="facebook" />
+                                <field name="radio" />
+                                <field name="tv" />
+                                <field name="jobfair" />
+                                <label for="newspaper"></label>
+                                <div class="o_row">
+                                    <field name="newspaper" />
+                                    <field name="hear_about_newspaper" placeholder="Specify Newspaper Name"/>
+                                </div>
+                                <label for="other_hear" ></label>
+                                <div class ="o_row">
+                                    <field name="other_hear" />
+                                    <field name="hear_about_other" placeholder="Specify other Name"/>
+                                </div></group>
+                    </group>
+                        <group string="Opportunity">
+                            <group attrs="{'invisible': [('team_id_name', '=','Local Sales')]}">
+                                <field name="inquiry_follow_up_date"/>
+                                <field name="admission_app_req"/>
+                                <field name="date_received"/>
+                                <field name="agent"/>
+                                <field name="app_fee_paid"/>
+                            </group>
+                            <group string="Academic Requirements" attrs="{'invisible': [('team_id_name', '=','International Sales')]}">
+                                <field name="academic_requirements"/>
+                                <!--<field name="academic_requirements_text"/>-->
+                                <field name="academic_requirements_date"/>
+                                <field name="academic_requirements_user"/>
+                            </group>
+                            <group string="Other Requirements" attrs="{'invisible': [('team_id_name', '=','International Sales')]}">
+                                <field name="other_requirements"/>
+                                <!--<field name="other_requirements_text"/>-->
+                                <field name="other_requirements_date"/>
+                                <field name="other_requirements_user"/>
+                            </group>
+                            <group string="Seat Deposit" attrs="{'invisible': [('team_id_name', '=','International Sales')]}">
+                                <field name="seat_deposit"/>
+                                <field name="seat_deposit_date"/>
+                                <field name="seat_deposit_user"/>
+                            </group>
+                            <!--<group string="Fees details">-->
+                                <!--<field name="tuition_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="texts_book_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="seat_deposit_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="lab_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="lab_supply_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="major_equipment_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="professional_exam_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="total_fees" widget='monetary' options="{'currency_field': 'currency_id'}"/>-->
+                            <!--</group>-->
+                            <!--<group string="Other Details">-->
+                                <!--<field name="duration_in_weeks"/>-->
+                                <!--<field name="duration_in_hours"/>-->
+                                <!--<field name="class_schedule"/>-->
+                                <!--<field name="scholarship"/>-->
+                                <!--<field name="program_start_date"/>-->
+                                <!--<field name="deadline_to_apply"/>-->
+                            <!--</group>-->
+                        </group>
+                        <group string="Prospect" attrs="{'invisible': [('stage_id_name','in', ['Opportunity'])]}">
+                            <group attrs="{'invisible': [('team_id_name', '=','Local Sales')]}">
+                                <field name="pre_requisite_material_submitted"/>
+                                <field name="esl_message_submitted"/>
+                                <field name="offer_of_admission_date"/>
+                                <field name="net_amount_due"/>
+                                <field name="due_date"/>
+                            </group>
+                            <group attrs="{'invisible': [('team_id_name', '=','Local Sales')]}">
+                                <field name="net_payment_recieved"/>
+                                <field name="payment_type"/>
+                                <field name="offer_signed_and_returned"/>
+                                <field name="bank_transaction_charges"/>
+                                <field name="in_file"/>
+                            </group>
+                            <group string="Supporting Academic Docs" attrs="{'invisible': [('team_id_name', '=','International Sales')]}">
+                                <field name="supporting_academic_docs"/>
+                                <field name="supporting_academic_docs_date"/>
+                                <field name="supporting_academic_docs_user"/>
+                            </group>
+                            <group string="Other Details" attrs="{'invisible': [('team_id_name', '=','International Sales')]}">
+                                <field name="other_consideration" string="Notes"/>
+                                <field name="program_start_date"/>
+                                <field name="class_schedule"/>
+                            </group>
+                        </group>
+                        <group string="Admitted" attrs="{'invisible': ['|',('stage_id_name','in', ['Opportunity','Prospect']),('team_id_name', '=','Local Sales')]}">
+                            <group>
+                                <field name="international_student_letter_of_acceptance"/>
+                                <field name="date_of_issue"/>
+                                <field name="letter_expiry_date"/>
+                                <field name="copy_in_file"/>
+                            </group>
+                        </group>
+                        <group string="Visa Granted" attrs="{'invisible': ['|',('stage_id_name','in', ['Opportunity','Prospect','Admitted']),('team_id_name', '=','Local Sales')]}">
+                            <group>
+                                <field name="study_permit_issued"/>
+                                <field name="copy_of_permit_in_file"/>
+                                <field name="enrollment_date"/>
+                                <field name="expected_arrival_date"/>
+                            </group>
+                        </group>
+                        <group string="Confirmed prospect with full offer letter" attrs="{'invisible': ['|',('stage_id_name','in', ['Opportunity','Prospect']),('team_id_name', '=','International Sales')]}">
+                            <group string="Details">
+                                <field name="assessment_test_date"/>
+                                <field name="seat_deposit_amount"/>
+                                <field name="deposit_payment_date"/>
+                                <field name="method_of_payment"/>
+                            </group>
+                        </group>
+                        <group string="Confirmed prospect with conditional offer letter" attrs="{'invisible': ['|',('stage_id_name','not in', ['Confirmed Prospect Conditional','Lost','Delayed']),('team_id_name', '=','International Sales')]}">
+                            <group>
+                            <field name="pending_docs"/>
+                                </group>
+                        </group>
+                        <group string="Pre-Enrollment" attrs="{'invisible': ['|',('stage_id_name','in', ['Opportunity','Prospect','Confirmed Prospect Full','Confirmed Prospect Conditional']),('team_id_name', '=','International Sales')]}">
+                            <group string="Details">
+                                <label for="financial_aid_provided"></label>
+                                <div class="o_row">
+                                    <field name="financial_aid_provided" />
+                                    <field name="financial_aid_provided_reason" placeholder="Reason" attrs="{'invisible': [('financial_aid_provided','=',True)]}"/>
+                                </div>
+                                <label for="payment_plan"></label>
+                                <div class="o_row">
+                                    <field name="payment_plan" />
+                                    <field name="payment_plan_reason" placeholder="Reason" attrs="{'invisible': [('payment_plan','=',True)]}"/>
+                                </div>
+                                <label for="police_clearance"></label>
+                                <div class="o_row">
+                                    <field name="police_clearance" />
+                                    <field name="police_clearance_reason" placeholder="Reason" attrs="{'invisible': [('police_clearance','=',True)]}"/>
+                                </div>
+                                <label for="health_immunization_record"></label>
+                                <div class="o_row">
+                                    <field name="health_immunization_record" />
+                                    <field name="health_immunization_record_reason" placeholder="Reason" attrs="{'invisible': [('health_immunization_record','=',True)]}"/>
+                                </div>
+                            </group>
+                        </group>
+                        <group string="Enrollment" attrs="{'invisible': ['|',('stage_id_name','in', ['Opportunity','Prospect','Confirmed Prospect Full','Confirmed Prospect Conditional','Pre-Enrollment']),('team_id_name', '=','International Sales')]}">
+                            <group string="Details">
+                            <field name="date_of_enrollment"/>
+                            </group>
+                        </group>
+
+                        <notebook colspan="4">
+                        <page string="Internal Notes">
+                            <field name="description"/>
+                        </page>
+                        <page name="lead" string="Contact Information" invisible="1">
+                            <group>
+                                <group string="Marketing">
+                                    <field name="campaign_id" />
+                                    <field name="medium_id" />
+                                    <field name="source_id" />
+                                </group>
+                                <group string="Misc" name="Misc">
+                                    <field name="day_open" groups="base.group_no_one"/>
+                                    <field name="day_close" groups="base.group_no_one"/>
+                                    <field name="referred"/>
+                                    <field name="type" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Other Details">
+                            <group>
+                                <field name="user_id" domain="[('share', '=', False)]"
+                                    context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'sales_team.group_sale_salesman_all_leads'], 'team_id': team_id}"/>
+                                <field name="team_id" widget="selection" domain="[('use_leads','=',True)]"/>
+                                <field name="form_page_url" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Merged Leads">
+                            <field name="merged_lead_ids">
+                                <tree create="0">
+                                    <field name="crm_lead"/>
+                                    <field name="mode_of_contact"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="International Student" attrs="{'invisible': [('select_button', 'in', ['domestic_student'])]}">
+                            <group>
+                            <group name="" string="Personal INFORMATION">>
+                            <field name="name_as_passport" placeholder="Passport Name "/>
+                            <field name="country_residence" placeholder="Country Residence "/>
+                            <field name="nationality" placeholder="Nationality "/>
+                            <field name="dob" placeholder="Date of Birth "/>
+                            <field name="gender" placeholder="Gender "/>
+
+
+                        </group>
+
+
+                         <group name="apply01" string="Applied Before BizTech College ">
+                            <label for="apply_check"></label>
+                                <div class="o_row">
+                            <field name="apply_check" widget="radio" />
+                            <field name="student_id" placeholder="Specify Student Id " />
+                            </div>
+                        </group>
+
+
+                        <group name="address01" string="Current Mailing Address ">
+
+                            <field name="same_as_above"  />
+                            <label for="curr_street_name"></label>
+                                <div class="o_row">
+                                <field name="curr_street_name" placeholder="Stree Name And Number* " />
+                                <!--<field name="curr_unit_apt" placeholder="Unit/Apt(Optional) " />-->
+                            </div>
+                             <label for="curr_country_id"></label>
+                                <div class="o_row">
+                            <field name="curr_country_id" placeholder="Country " />
+                            <field name="curr_state_id" placeholder="State" />
+                                </div>
+                            <label for="curr_city_id"></label>
+                                <div class="o_row">
+                            <field name="curr_city_id" placeholder="City " />
+                            <field name="curr_postal_code" placeholder="Postal Code* " />
+                                </div>
+                            <field name="curr_home_telephone_number" placeholder="Telephone Number* " />
+                            <field name="curr_cell_number" placeholder="Cell Number*" />
+
+                        </group>
+                            <group string="Educational Background" colspan="4">
+                           <field name="ref_education" nolabel="1" placeholder="Qualification " >
+                                <tree string="Add Qualification">
+                                    <field name="from_year"/>
+                                    <field name="to_year"/>
+                                    <field name="institution_name"/>
+                                    <field name="qualifications"/>
+                                </tree>
+                           </field>
+                      </group>
+
+
+                       <group name="etest" string="English Language Test">
+                              <label for="eng_lang_test_name"></label>
+                            <div class="o_row">
+                                     <field name="eng_lang_test_name"/>
+                                     <field name="eng_lang_date_taken" placeholder="Date Taken"/>
+                            </div>
+                                     <field name="eng_lang_total_score" placeholder="Total Score "/>
+                             <label for="eng_lang_country" ></label>
+                                 <div class ="o_row">
+                                      <field name="eng_lang_city" placeholder="City "/>
+                                     <field name="eng_lang_country" placeholder="Country "/>
+                                 </div>
+                             <field name="eng_score_doc_id" placeholder="Score Report "/>
+                        </group>
+
+                       <group name="agent1" string="Agent Information">
+                             <field name="agent_name" placeholder="Agent Name " attrs="{'invisible': [('select_button', 'in', ['domestic_student'])]}"/>
+                             <field name="agent_id" placeholder="Agent ID " attrs="{'invisible': [('select_button', 'in', ['domestic_student','registered_agent'])]}"/>
+                            <field name="agency_name" placeholder="Name of the Agency" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                             <field name="agent_email" placeholder="Agent's Email" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                             <field name="agent_home_number" placeholder="Agent's Home Number" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                        </group>
+
+                        <group name="iddoc" string="Identification Documents">
+                             <field name="photograph_id" />
+                            <field name="iddocids">
+                            <tree string="Identification Documents" editable="bottom">
+                                <field name="identification_doc_id" />
+                                </tree>
+                            </field>
+                        </group>
+                         </group>
+                        </page>
+                        <page string="Lost &amp; Delayed Info">
+                            <group string="Delayed">
+                                <group>
+                                    <field name="reason_of_delay"/>
+                                    <field name="delay_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                                    <field name="new_start_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                                    <field name="expected_return_date" attrs="{'invisible': [('team_id_name', '=','Local Sales')]}"/>
+                                </group>
+                            </group>
+                            <group string="Lost">
+                                <group>
+                                    <field name="lost_reason"/>
+                                    <field name="lost_date" attrs="{'invisible': [('team_id_name', '=','International Sales')]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+            <record id="view_crm_lead_book_tour" model="ir.ui.view">
+        <field name="name">crm.lead.book.tour.form</field>
+        <field name="model">crm.lead.book.tour</field>
+        <field name="arch" type="xml">
+        <form string="BOOK A CAMPUS TOUR">
+            <sheet>
+            <group>
+
+               <group name="first_name"  colspan="4" string="Name ">
+                        <label for="first_name"></label>
+                       <div class ="o_row">
+                        <field name="first_name"  colspan="4"  placeholder="First Name*"/>
+                        <field name="last_name"  colspan="4"  placeholder="Last Name*"/>
+                      </div>
+                    </group>
+
+                    <group name="phone_no"  colspan="4" string=" Contact Details">
+                        <label for="phone_no"></label>
+                         <div class ="o_row">
+                        <field name="phone_no"  colspan="4"  placeholder="Phone No*"/>
+                        <field name="email"  colspan="4"  placeholder="Email*"/>
+                         </div>
+                        </group>
+                        <group name="state_id"  colspan="4" >
+                         <label for="state_id"></label>
+                        <div class ="o_row">
+                        <field name="state_id"  colspan="4"  placeholder="State*"/>
+
+                        <field name="city"  colspan="4"  placeholder="City*"/>
+                        <field name="form_page_url" colspan="4"  placeholder="url" readonly="1"/>
+                        </div>
+                    </group>
+
+                    <group name="program_id"  colspan="4" string="I Am Interested in">
+                         <label for="program_id"></label>
+                        <div class ="o_row">
+                        <field name="program_id" />
+                        </div>
+                    </group>
+
+                      <group name="preferred_date"  colspan="4"  string="Preferred Date And Time*" >
+                         <label for="preferred_date"></label>
+                        <div class ="o_row">
+                        <field name="preferred_date" colspan="4" placeholder="Preferred Date*" />
+
+                        <field name="preferred_time" colspan="4" placeholder="Preferred Time*"/>
+                        </div>
+                    </group>
+                      <group name="comments"  colspan="4" string="Comments">
+                          <label for="comments"></label>
+                          <div class ="o_row">
+                        <field name="comments"  colspan="4" placeholder="Comments*"/>
+                          </div>
+                     </group>
+            </group>
+            </sheet>
+            </form>
+
+        </field>
+    </record>
+
+        <record id="view_merged_crm_leads" model="ir.ui.view">
+        <field name="name">merged.crm.leads.form</field>
+        <field name="model">merged.crm.leads</field>
+        <field name="arch" type="xml">
+        <form string="Merged Leads">
+            <sheet>
+            <group>
+                <field name="crm_lead"/>
+                <field name="mode_of_contact"/>
+            </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+     <record id="view_book_tour" model="ir.ui.view">
+        <field name="name">crm.lead.book.tour.tree</field>
+       <field name="model">crm.lead.book.tour</field>
+        <field name="arch" type="xml">
+            <tree string="Book Tour" >
+
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="phone_no"/>
+                <field name="program_id"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_book_tour" model="ir.actions.act_window">
+        <field name="name">Book Tour</field>
+        <field name="res_model">crm.lead.book.tour</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_book_tour"/>
+    </record>
+
+
+
+    <!--<menuitem-->
+        <!--id="menu_book_tour_1"-->
+        <!--name="Book Tour"-->
+        <!--parent="sales_team.menu_sales"-->
+        <!--sequence="8"-->
+        <!--action="action_book_tour"/>-->
+
+        <record id="crm.crm_case_form_view_leads" model="ir.ui.view">
+            <field name="name">crm.lead.form.lead</field>
+            <field name="model">crm.lead</field>
+            <!--<field name="inherit_id" ref="crm.crm_case_form_view_leads"/>-->
+            <field name="arch" type="xml">
+                <form string="Leads Form">
+                <header>
+                    <button name="%(crm.action_crm_lead2opportunity_partner)d" string="Convert to Opportunity" type="action"
+                            help="Convert to Opportunity" class="oe_highlight"/>
+                    <button name="mark_as_read" string="Mark as Read" type="object" class="oe_highlight" attrs="{'invisible': ['|',('name','=',False),('new_lead', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <style>
+                            .o_form_view .o_horizontal_separator {
+                                font-size: 15px;
+                                margin: 5px 0;
+                            }
+                            .o_form_view .o_group .o_td_label .o_form_label{
+                             width:180px !important;
+                            }
+                        </style>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="label label-success pull-right" attrs="{'invisible': [('probability', '&lt;', 100)]}">Won</div>
+                    <group>
+                        <group>
+                            <field name="new_lead" invisible="1"/>
+                            <field name="probability" invisible="1"/>
+                            <field name="stage_id_name" invisible="1"/>
+                            <field name="team_id_name" invisible="1"/>
+                            <field name="name" string="Name"/>
+                            <label for="street" string="Address" attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street" attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                                <field name="city" placeholder="City" class="o_address_city" attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"/>
+                            </div>
+                        </group>
+                        <group>
+                            <group string="Contact Details" colspan="4">
+                                <field name="email_from" widget="email"/>
+                                <field name="phone" widget="phone"/>
+                            </group>attrs="{'invisible': ['|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog')]}"
+                            <group colspan="4" attrs="{'invisible': ['|','|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog'),('mode_of_contact','=','book_a_tour')]}">
+                                <field name="occupation"/>
+                            </group>
+                        </group>
+                        </group>
+                        <group>
+                            <group>
+                            <group colspan="4">
+                                <field name="x_funding"/>
+                                <field name="select_button"/>
+                                <field name="mode_of_contact"/>
+                                <field name="type" invisible="1"/>
+                            </group>
+                            <group string="Referral Details" colspan="4" attrs="{'invisible': ['|','|',('mode_of_contact', '=', 'asked_question'),('mode_of_contact', '=','requested_catalog'),('mode_of_contact','=','book_a_tour')]}">
+                                <field name="referral_name"/>
+                                <field name="referral_phone" />
+                            </group>
+                            </group>
+                        <group attrs="{'invisible': ['|','|',('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('mode_of_contact','=','book_a_tour')]}">
+                            <group colspan="4" >
+                                <label for="residency_status"></label>
+                                <div class="o_row">
+                                  <field name="residency_status"/>
+                                  <field name="residency_status_specify" placeholder="Please Specify"/>
+                                </div>
+                                <field name="marital_status"/>
+                                <field name="dependent_children" string="Dependent Children"/>
+                                <field name="knowledge_of_computers"/>
+                                <field name="knowledge_of_english"/>
+
+                            </group>
+                            <group string="Course Time Preference" colspan="4" >
+                                <field name="course_time_preference_first"/>
+                                <field name="course_time_preference_second"/>
+                            </group>
+                        </group>
+                        </group>
+                    <group string="Message" colspan="4" attrs="{'invisible': [('mode_of_contact','!=','asked_question')]}">
+                                <field name="student_message"/>
+                    </group>
+                    <group string="Book A Tour Details" colspan="4" attrs="{'invisible': [('mode_of_contact','!=','book_a_tour')]}">
+                                <field name="preferred_date"/>
+                                <field name="preferred_time"/>
+                                <field name="comments"/>
+                    </group>
+                    <group>
+                        <group string="Program">
+
+                            <field name="program" string="Program" attrs="{'invisible': ['&amp;','&amp;','&amp;',('mode_of_contact','!=','book_a_tour'),('mode_of_contact','!=','asked_question'),('mode_of_contact','!=','requested_catalog'),('select_button', 'not in', ['domestic_student'])]}"/>
+
+                            <field name="program_1" string="program 1" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_1"  placeholder="Start Date 1 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+
+                            <field name="program_2" string="program 2" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_2" placeholder="Start Date 2 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+
+                            <field name="program_3" string="program 3" placeholder="1st Choice " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                            <field name="start_date_3" placeholder="Start Date 3 " attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog'),('select_button', 'in', ['domestic_student'])]}"/>
+                        </group>
+                        <group string="How did you hear about us" attrs="{'invisible': ['|','|',('mode_of_contact','=','book_a_tour'),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog')]}">
+                                <field name="google" />
+                                <field name="facebook" />
+                                <field name="radio" />
+                                <field name="tv" />
+                                <field name="jobfair" />
+                                <label for="newspaper"></label>
+                                <div class="o_row">
+                                    <field name="newspaper" />
+                                    <field name="hear_about_newspaper" placeholder="Specify Newspaper Name"/>
+                                </div>
+                                <label for="other_hear" ></label>
+                                <div class ="o_row">
+                                    <field name="other_hear" />
+                                    <field name="hear_about_other" placeholder="Specify other Name"/>
+                                </div></group>
+                    </group>
+                    <notebook>
+                        <page string="Internal Notes">
+                            <field name="description"/>
+                        </page>
+                        <page name="extra" string="Extra Info">
+                            <group>
+                                <group string="Email">
+                                    <field name="opt_out"/>
+                                    <field name="message_bounce" readonly="1" groups="base.group_no_one"/>
+                                </group>
+                                <group string="Tracking" groups="base.group_multi_company,base.group_no_one" name="categorization">
+                                    <field name="company_id"
+                                        groups="base.group_multi_company"
+                                        options="{'no_create': True}"/>
+                                    <field name="campaign_id" />
+                                    <field name="medium_id"/>
+                                    <field name="source_id"/>
+                                    <field name="referred"/>
+                                </group>
+                                <group string="Analysis" groups="base.group_no_one">
+                                    <field name="date_open"/>
+                                    <field name="date_closed"/>
+                                </group>
+                                <group>
+                                <field name="user_id" domain="[('share', '=', False)]"
+                                    context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'sales_team.group_sale_salesman_all_leads'], 'team_id': team_id}"/>
+                                <field name="team_id" widget="selection" domain="[('use_leads','=',True)]"/>
+                                    <field name="form_page_url" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="International Student" attrs="{'invisible': ['|','|','|',('mode_of_contact','=','book_a_tour'),('select_button', 'in', ['domestic_student']),('mode_of_contact','=','asked_question'),('mode_of_contact','=','requested_catalog')]}">
+                            <group>
+                            <group name="" string="Personal INFORMATION">>
+                            <field name="name_as_passport" placeholder="Passport Name "/>
+                            <field name="country_residence" placeholder="Country Residence "/>
+                            <field name="nationality" placeholder="Nationality "/>
+                            <field name="dob" placeholder="Date of Birth "/>
+                            <field name="gender" placeholder="Gender "/>
+
+
+                        </group>
+
+
+                         <group name="apply01" string="Applied Before BizTech College ">
+                            <label for="apply_check"></label>
+                                <div class="o_row">
+                            <field name="apply_check" widget="radio" />
+                            <field name="student_id" placeholder="Specify Student Id " />
+                            </div>
+                        </group>
+
+
+                        <group name="address01" string="Current Mailing Address ">
+                            <field name="same_as_above"  />
+                            <label for="curr_street_name"></label>
+                                <div class="o_row">
+                                <field name="curr_street_name" placeholder="Stree Name And Number* " />
+                                <!--<field name="curr_unit_apt" placeholder="Unit/Apt(Optional) " />-->
+                            </div>
+                             <label for="curr_country_id"></label>
+                                <div class="o_row">
+                            <field name="curr_country_id" placeholder="Country " />
+                            <field name="curr_state_id" placeholder="State" />
+                                </div>
+                            <label for="curr_city_id"></label>
+                                <div class="o_row">
+                            <field name="curr_city_id" placeholder="City " />
+                            <field name="curr_postal_code" placeholder="Postal Code* " />
+                                </div>
+                            <field name="curr_home_telephone_number" placeholder="Telephone Number* " />
+                            <field name="curr_cell_number" placeholder="Cell Number*" />
+
+                        </group>
+                            <group string="Educational Background" colspan="4">
+                           <field name="ref_education" nolabel="1" placeholder="Qualification " >
+                                <tree string="Add Qualification">
+                                    <field name="from_year"/>
+                                    <field name="to_year"/>
+                                    <field name="institution_name"/>
+                                    <field name="qualifications"/>
+                                </tree>
+                           </field>
+                      </group>
+
+
+                       <group name="etest" string="English Language Test">
+                              <label for="eng_lang_test_name"></label>
+                            <div class="o_row">
+                                     <field name="eng_lang_test_name"/>
+                                     <field name="eng_lang_date_taken" placeholder="Date Taken"/>
+                            </div>
+                                     <field name="eng_lang_total_score" placeholder="Total Score "/>
+                             <label for="eng_lang_country" ></label>
+                                 <div class ="o_row">
+                                      <field name="eng_lang_city" placeholder="City "/>
+                                     <field name="eng_lang_country" placeholder="Country "/>
+                                 </div>
+                             <field name="eng_score_doc_id" placeholder="Score Report "/>
+                        </group>
+
+                       <group name="agent1" string="Agent Information">
+                             <field name="agent_name" placeholder="Agent Name " attrs="{'invisible': [('select_button', 'in', ['domestic_student'])]}"/>
+                             <field name="agent_id" placeholder="Agent ID " attrs="{'invisible': [('select_button', 'in', ['domestic_student','registered_agent'])]}"/>
+                            <field name="agency_name" placeholder="Name of the Agency" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                             <field name="agent_email" placeholder="Agent's Email" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                             <field name="agent_home_number" placeholder="Agent's Home Number" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}"/>
+                        </group>
+
+                        <group name="iddoc" string="Identification Documents">
+                             <field name="photograph_id" />
+                            <field name="iddocids">
+                            <tree string="Identification Documents" editable="bottom">
+                                <field name="identification_doc_id" />
+                                </tree>
+                            </field>
+                        </group>
+                         </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+            </field>
+        </record>
+
+        <!--<template id="assets_backend" name="crm lead assets" inherit_id="web.assets_backend">-->
+            <!--<xpath expr="." position="inside">-->
+                <!--&lt;!&ndash; Salesteam dashboard asset &ndash;&gt;-->
+                <!--<script type="text/javascript" src="/crm_lead_website_integration/static/src/js/sales_team_dashboard.js"></script>-->
+            <!--</xpath>-->
+        <!--</template>-->
+
+        <delete model="ir.ui.menu" id="crm.crm_lead_menu_activities" />
+        <delete model="ir.ui.menu" id="sale.menu_sale_quotations" />
+        <delete model="ir.ui.menu" id="sale.menu_sale_order"/>
+        <delete model="ir.ui.menu" id="sale.menu_product_template_action"/>
+        <delete model="ir.ui.menu" id="sale.menu_sale_invoicing"/>
+        <delete model="ir.ui.menu" id="sale.menu_sale_order_invoice"/>
+        <delete model="ir.ui.menu" id="sale.menu_sale_order_upselling"/>
+
+
+
+
+          <record id="res_partner_agent_details" model="ir.ui.view">
+            <field name="name">res.partner.agent</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                       <xpath expr="//field[@name='category_id']" position="after">
+                        <field name="form_page_url" readonly="1"/>
+                         <field name="select_button" string="Is a Agent"/>
+
+                </xpath>
+
+
+                <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                    <page name="Agent Details" string="Agent Details" attrs="{'invisible': [('select_button', '!=',True)]}">
+
+                            <group>
+                                <group string="Agency Information" colspan="4">
+                                    <group>
+                                    <field name="agency_name"/>
+                                    <field name="agency_address"/>
+                                    <field name="agency_city_id"/>
+                                    <field name="agency_state_id"/>
+                                    <field name="agency_country_id"/>
+                                    <field name="agency_postal_code"/>
+                                    <field name="agency_alt_phone_number"/>
+                                    </group>
+                                    <group>
+                                    <field name="agency_fax_number"/>
+                                    <field name="website"/>
+                                    <field name="year_established"/>
+                                    <field name="business_team"/>
+                                    <field name="ownership"/>
+                                    <field name="contact_details"/>
+                                    </group>
+                                </group>
+                                <group name="agent_detail" string="How long have you" colspan="4">
+                                       <field name="worked_immigration" nolabel="1" placeholder="Worked in the Immigration"/>
+                                       <field name="assist_int_students" nolabel="1" placeholder="been assisting International Student"/>
+                                       <field name="designation" nolabel="1" placeholder="What are your designation/Credential"/>
+                                </group>
+
+
+                            <group name="head_office" colspan="4" string="Are you registered to function as an education agency or business?">
+                                  <field name="head_office" nolabel="1" placeholder="Head office, Location of other office"/>
+                             </group>
+                            <group name="partner_sub_agencies" colspan="4" string="Do you have partnerships with sub-agencies?">
+                                  <field name="partner_sub_agencies" nolabel="1" placeholder="Specify"/>
+                             </group>
+                            <group name="recruit_post_secondary" colspan="4" string="How does your agency recruit post-secondary applicants?">
+                                  <field name="recruit_post_secondary" nolabel="1" placeholder="Specify tool used"/>
+                             </group>
+                            <group name="assist_last_year" colspan="4" string="How many students did you assist last year?">
+                                  <field name="assist_last_year" nolabel="1" placeholder="Number"/>
+                             </group>
+                            <group name="stu_sent_overseas" colspan="4" string="How many students were successfully sent overseas last year?">
+                                  <field name="stu_sent_overseas" nolabel="1" placeholder="Number/ Percentage"/>
+                             </group>
+                            <group name="country_send_stu_to" colspan="4" string="Which countries did you send students to?">
+                                  <field name="country_send_stu_to" nolabel="1" placeholder="Countries"/>
+                             </group>
+                             <group name="programs_interest" colspan="4" string="Which programs are of particular interest?">
+                                  <field name="programs_interest" nolabel="1" placeholder="Specify order" />
+                             </group>
+                             <group name="stu_anticipate_annually" colspan="4" string="How many students do you anticipate sending to us annually?">
+                                  <field name="stu_anticipate_annually" nolabel="1" />
+                             </group>
+
+
+                            <group name="familiar_permit_requirements" colspan="4" string="Are you familiar with Canada Study Permit requirements?">
+                                  <field name="familiar_permit_requirements" widget="radio" nolabel="1" />
+                             </group>
+                            <group name="edu_counselling_stu" colspan="4" string="Does your business belong to recognized, governing bodies concerning education counselling/student recruitment? ">
+                                  <field name="edu_counselling_stu" nolabel="1" />
+                             </group>
+
+
+
+
+                             <group name=""  string="Services Provided">
+                                           <field name="pro_coun" />
+                                           <field name="gath_req" />
+                                           <field name="pre_sub" />
+                                           <field name="gui_app" />
+                                           <field name="permit_pre" />
+                                           <field name="pre_ser" />
+                                           <field name="sou_gov" />
+                                           <field name="esl_test" />
+                             </group>
+                             <group name="hear_about" string="Is there assistance for students obtaining the following">
+                                           <field name="housing" />
+                                           <field name="med_ins" />
+                                           <field name="trav_iti" />
+                                           <field name="can_arr" />
+                                        <label for="esl_test"></label>
+                                        <div class="o_row">
+                                       <field name="esl_test" />
+                                       <field name="other_services_available" placeholder="Details"/>
+                                        </div>
+                                   </group>
+                                 <group name="stu_package_cost" colspan="4" string="Do you charge a fee for these services? Are students offered a package cost or are all fees separate? ">
+                                  <field name="stu_package_cost"  nolabel="1"/>
+                             </group>
+                             <group name="service_beside_recruit" colspan="4" string="Does your agency offer other services besides recruitment/education counselling ">
+                                  <field name="service_beside_recruit" nolabel="1" />
+                             </group>
+                                <group  name="hear_about1" string="How did you hear about us">
+                                       <field name="google" />
+                                       <field name="facebook" />
+                                       <field name="radio" />
+                                       <field name="tv" />
+                                       <field name="jobfair" />
+                                       <label for="newspaper"></label>
+                                       <div class="o_row">
+                                           <field name="newspaper" />
+                                           <field name="hear_about_newspaper" placeholder="Specify Newspaper Name"/>
+                                       </div>
+                                       <label for="other_hear" ></label>
+                                       <div class ="o_row">
+                                           <field name="other_hear" />
+                                           <field name="hear_about_other" placeholder="Specify other Name"/>
+                                       </div>
+                                   </group>
+
+                                <group string="References" colspan="4">
+                                  <field name="ref_contact" nolabel="1" placeholder="References" >
+                                       <tree string="References" editable="bottom" >
+                                           <field name="ref_contact_name"/>
+                                           <field name="ref_position"/>
+                                           <field name="ref_agency"/>
+                                           <field name="ref_address"/>
+                                           <field name="ref_phone_number"/>
+                                           <field name="ref_fax_number"/>
+                                           <field name="ref_website"/>
+                                           <field name="ref_email"/>
+                                           <field name="ref_years_known"/>
+                                       </tree>
+                                  </field>
+                             </group>
+                                 <group string="Marketing Strategy" colspan="4">
+                                  <field name="marketing_strategy" nolabel="1" placeholder="Marketing Strategy" />
+                             </group>
+                             <group name="business_doc_id" colspan="4" string="Records of Excellence and Good Standing">
+                                  <field name="bussinessdocids" >
+                                      <tree string="Records of Excellence and Good Standing" editable="bottom">
+                                        <field name="business_doc_id"/>
+                                      </tree>
+                                  </field>
+                             </group>
+                        </group>
+
+
+
+
+
+
+
+                    </page>
+                </xpath>
+            </field>
+          </record>
+
+
+         <!-- Case Teams Salesteams dashboard view -->
+   <record id="sales_team.crm_team_salesteams_view_kanban" model="ir.ui.view" >
+        <field name="name">crm.team.dashboard</field>
+        <field name="model">crm.team</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban" create="0" js_class="sales_team_dashboard">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="member_ids"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <t t-if="1&gt;2">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><field name="name"/></div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">More <i class="fa fa-caret-down"/></a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content o_visible">
+                                <div class="row">
+                                    <div class="col-xs-6 o_kanban_primary_left" name="to_replace_in_sale_crm">
+                                    </div>
+                                    <div class="col-xs-6 o_kanban_primary_right">
+                                    </div>
+                                </div>
+                            </div><div class="container o_kanban_card_manage_pane o_invisible">
+                                <div class="row">
+                                    <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_view">
+                                        <div class="o_kanban_card_manage_title">
+                                            <span>View</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_new">
+                                        <div class="o_kanban_card_manage_title">
+                                            <span>New</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_reports">
+                                        <div class="o_kanban_card_manage_title">
+                                            <span>Reports</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div t-if="widget.editable" class="o_kanban_card_manage_settings row" groups="sales_team.group_sale_manager">
+                                    <div class="col-xs-8">
+                                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                    </div>
+                                    <div class="col-xs-4 text-right">
+                                        <a type="edit">Settings</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+        <record id="account.view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+
+                           <xpath expr="//notebook/page[@name='sales_purchases']" position="after">
+                       <page string="Accounting" name="accounting" attrs="{'invisible': ['|','|',('is_company','=',False),('parent_id','!=',False),('select_button','=',True)]}">
+                    <group>
+                        <group string="Sale" name="acc_sale">
+                            <field name="property_payment_term_id" widget="selection"/>
+                            <field name="credit" groups="base.group_no_one"/>
+                            <field name="trust"/>
+                        </group>
+                        <group string="Purchase" name="acc_purchase">
+                            <field name="property_supplier_payment_term_id" widget="selection"/>
+                            <field name="debit" groups="base.group_no_one"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Fiscal Information" name="fiscal_information">
+                            <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Accounting Entries" name="accounting_entries" groups="account.group_account_manager">
+                            <field name="property_account_receivable_id"/>
+                            <field name="property_account_payable_id"/>
+                        </group>
+                    </group>
+                </page>
+<page string="Accounting" name="accounting_disabled" attrs="{'invisible': ['|','|',('is_company','=',True),('parent_id','=',False),('select_button','=',True)]}">
+                                    <div>
+                                        <p>Accounting-related settings are managed on <button name="open_commercial_entity" type="object" string="the parent company" class="oe_link"/></p>
+                                    </div>
+                                </page>
+                    </xpath>
+
+            </field>
+        </record>
+
+
+
+        <record id="view_partner_crm_form" model="ir.ui.view">
+            <field name="name">res.partner.crm.form</field>
+            <field name="model">res.partner</field>
+
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+
+                       <xpath expr="//notebook/page[@name='sales_purchases']" position="replace">
+                            <page name='sales_purchases' string="Sales &amp; Purchases" attrs="{'invisible': [('select_button','=',True)]}">
+                            <group name="container_row_2">
+                                <group string="Sale" name="sale">
+                                    <field name="customer"/>
+                                    <field name="user_id"/>
+                                </group>
+                                <group string="Purchase" name="purchase">
+                                    <field name="supplier"/>
+                                </group>
+                                <group string="Misc">
+                                    <field name="ref"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                       </xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_lead_education_background" model="ir.ui.view">
+            <field name="name">crm.lead.educational.background.form</field>
+            <field name="model">crm.lead.educational.background</field>
+            <field name="arch" type="xml">
+                <form string="Education background">
+                    <group>
+                        <field name="from_year"/>
+                        <field name="to_year"/>
+                        <field name="institution_name"/>
+                        <field name="qualifications"/>
+                    </group>
+                    <field name="file">
+                        <tree string="Files" editable="bottom">
+                            <field name="file"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="crm_leads_search_1" model="ir.ui.view">
+            <field name="name">crm.lead.view.search</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" string="Opportunity" filter_domain="['|','|','|',('partner_id','ilike',self),('partner_name','ilike',self),('email_from','ilike',self),('name', 'ilike', self)]"/>
+                    <field name="team_id"/>
+                    <field name="user_id"/>
+                    <field name="partner_id" operator="child_of" string="Customer"/>
+                    <field name="stage_id" domain="[]"/>
+                    <filter string="My Opportunities" name="assigned_to_me"
+                            domain="[('user_id', '=', uid)]"
+                            help="Opportunities that are assigned to me"/>
+                    <filter string="Unassigned" name="unassigned"
+                            domain="[('user_id','=', False)]" help="No salesperson"/>
+                    <separator/>
+                    <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Salesperson" context="{'group_by':'user_id'}"/>
+                        <filter string="Sales Team" context="{'group_by':'team_id'}"/>
+                        <filter string="Country" context="{'group_by':'country_id'}" />
+                        <filter string="Company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                        <filter name="stage" string="Stage" context="{'group_by':'stage_id'}"/>
+                        <separator orientation="vertical" />
+                        <filter string="Creation Month" context="{'group_by':'create_date:month'}" name="month"/>
+                    </group>
+                    <filter string="Hot Leads" name="local_hot"
+                             domain="[('lead_rating', '=', 'Hot')]"/>
+                    <filter string="Cold Leads" name="local_cold"
+                            domain="[('lead_rating', '=', 'Cold')]"/>
+                    <filter string="Warm Leads" name="local_warm"
+                            domain="[('lead_rating', '=', 'Warm')]"/>
+                </search>
+            </field>
+        </record>
+
+
+     <record model="ir.actions.act_window" id="action_your_local_pipeline">
+            <field name="name">Opportunities</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,graph,pivot,form,calendar</field>
+            <field name="domain">[('type','=','opportunity'),('team_id.name','ilike','local')]</field>
+            <field name="search_view_id" ref="crm_lead_website_integration.crm_leads_search_1"/>
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'default_user_id': uid
+                }
+            </field>
+            <field name="help" type="html">
+                <p>
+                    Odoo helps you keep track of your sales pipeline to follow
+                    up potential sales and better forecast your future revenues.
+                </p><p>
+                    You will be able to plan meetings and phone calls from
+                    opportunities, convert them into quotations, attach related
+                    documents, track all discussions, and much more.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_local_kanban_view_oppor11">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="act_window_id" ref="action_your_local_pipeline"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_local_tree_view_oppor11">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="crm_lead_website_integration.crm_local_opportunity_tree"/>
+            <field name="act_window_id" ref="action_your_local_pipeline"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_local_form_view_oppor11">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="act_window_id" ref="action_your_local_pipeline"/>
+        </record>
+
+
+    <menuitem
+            id="menu_crm_opportunities_local"
+            action="action_your_local_pipeline"
+            parent="sales_team.menu_sales"
+            sequence="6"
+            name="Pipeline(Local)"/>
+
+    <record id="crm_leads_search_2" model="ir.ui.view">
+            <field name="name">crm.lead.view.search.international</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" string="Opportunity" filter_domain="['|','|','|',('partner_id','ilike',self),('partner_name','ilike',self),('email_from','ilike',self),('name', 'ilike', self)]"/>
+                    <field name="team_id"/>
+                    <field name="user_id"/>
+                    <field name="partner_id" operator="child_of" string="Customer"/>
+                    <field name="stage_id" domain="[]"/>
+                    <filter string="My Opportunities" name="assigned_to_me"
+                            domain="[('user_id', '=', uid)]"
+                            help="Opportunities that are assigned to me"/>
+                    <filter string="Unassigned" name="unassigned"
+                            domain="[('user_id','=', False)]" help="No salesperson"/>
+                    <separator/>
+                    <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Salesperson" context="{'group_by':'user_id'}"/>
+                        <filter string="Sales Team" context="{'group_by':'team_id'}"/>
+                        <filter string="Country" context="{'group_by':'country_id'}" />
+                        <filter string="Company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                        <filter name="stage" string="Stage" context="{'group_by':'stage_id'}"/>
+                        <separator orientation="vertical" />
+                        <filter string="Creation Month" context="{'group_by':'create_date:month'}" name="month"/>
+                    </group>
+                    <filter string="Hot Leads" name="International_hot"
+                             domain="[('lead_rating', '=', 'Hot')]"/>
+                    <filter string="Cold Leads" name="International_cold"
+                            domain="[('lead_rating', '=', 'Cold')]"/>
+                    <filter string="Warm Leads" name="International_warm"
+                            domain="[('lead_rating', '=', 'Warm')]"/>
+                </search>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="action_your_international_pipeline">
+            <field name="name">Opportunities</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,graph,pivot,form,calendar</field>
+            <field name="domain">[('type','=','opportunity'),('team_id.name','ilike','international')]</field>
+            <field name="search_view_id" ref="crm_lead_website_integration.crm_leads_search_2"/>
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'default_user_id': uid
+                }
+            </field>
+            <field name="help" type="html">
+                <p>
+                    Odoo helps you keep track of your sales pipeline to follow
+                    up potential sales and better forecast your future revenues.
+                </p><p>
+                    You will be able to plan meetings and phone calls from
+                    opportunities, convert them into quotations, attach related
+                    documents, track all discussions, and much more.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_international_kanban_view_oppor11">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="act_window_id" ref="action_your_international_pipeline"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_international_tree_view_oppor11">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="act_window_id" ref="action_your_international_pipeline"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_crm_tag_international_form_view_oppor11">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="act_window_id" ref="action_your_international_pipeline"/>
+        </record>
+
+    <delete model="ir.ui.menu" id="crm.menu_crm_opportunities" />
+
+    <menuitem
+            id="menu_crm_opportunities_international"
+            action="action_your_international_pipeline"
+            parent="sales_team.menu_sales"
+            sequence="7"
+            name="Pipeline(International)"/>
+
+    </data>
+</odoo>

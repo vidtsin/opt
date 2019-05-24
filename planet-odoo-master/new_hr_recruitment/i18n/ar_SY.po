@@ -1,0 +1,1638 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* new_hr_recruitment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20170706\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-19 07:47+0000\n"
+"PO-Revision-Date: 2017-12-19 07:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,relieving_type:0
+msgid "Absconding"
+msgstr "الهروب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_account_holder
+msgid "Account Holder"
+msgstr "صاحب الحساب"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Accounting"
+msgstr "الحسابات"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_hr_contract_inherit_form
+msgid "Accrual Rate(Vacation and Sick leave)"
+msgstr "معدل الاستحقاق (الإجازة المرضية والإجازات المرضية)"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Address"
+msgstr "العنوان"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr_payslip.py:146
+#: code:addons/new_hr_recruitment/models/hr_payslip.py:162
+#, python-format
+msgid "Adjustment Entry"
+msgstr "إدخال التعديل"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_admin_clearance
+msgid "Admin Clearance"
+msgstr "التخليص الإداري"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_age
+msgid "Age"
+msgstr "عمر"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_alternative_mob_no
+msgid "Alternative Mobile No."
+msgstr "رقم الجوال البديل"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_amount
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_amount
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_analytical
+msgid "Analytical"
+msgstr "تحليلية"
+
+#. module: new_hr_recruitment
+#: selection:emp.pension,schedule_pay:0
+msgid "Annually"
+msgstr "سنويا"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,premium_type:0
+msgid "Annualy"
+msgstr "سنويا"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payroll_structure_applicable
+msgid "Applicable for"
+msgstr "تنطبق على"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,help:new_hr_recruitment.crm_case_inherit_act_job
+msgid "Applicants and their attached CV are created automatically when an email is sent.\n"
+"            If you install the document management modules, all resumes are indexed automatically,\n"
+"            so that you can easily search through their content."
+msgstr "يتم إنشاء المتقدمين والسيرة الذاتية المرفقة تلقائيا عند إرسال بريد إلكتروني.\n"
+"            إذا قمت بتثبيت وحدات إدارة الوثائق، تتم فهرسة كافة السير الذاتية تلقائيا,\n"
+"            بحيث يمكنك البحث بسهولة من خلال محتواها."
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,name:new_hr_recruitment.crm_case_inherit_act_job
+msgid "Applications"
+msgstr "طلبات"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Approve"
+msgstr "تصديق"
+
+#. module: new_hr_recruitment
+#: selection:emp.compensation,state:0
+#: selection:resource.request,state:0
+msgid "Approved"
+msgstr "وافق"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_approver
+msgid "Approver"
+msgstr "الموافق"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr.py:55
+#, python-format
+msgid "Attachments"
+msgstr "مرفقات"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_availability
+msgid "Availability"
+msgstr "متاح"
+
+#. module: new_hr_recruitment
+#: selection:hr.resource,availability:0
+msgid "Available"
+msgstr "متاح"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,analytical:0
+#: selection:hr.employee,communication:0
+#: selection:hr.employee,functional:0
+#: selection:hr.employee,technical:0
+msgid "Average"
+msgstr "معدل"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,relieving_type:0
+msgid "BGV Fails"
+msgstr "BGV فشل"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,analytical:0
+#: selection:hr.employee,communication:0
+#: selection:hr.employee,functional:0
+#: selection:hr.employee,technical:0
+msgid "Bad"
+msgstr "سيئة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Bank"
+msgstr "المصرف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_bank_account_no
+msgid "Bank Account No."
+msgstr "رقم الحساب البنكي."
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "Bank Address"
+msgstr "عنوان البنك"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_bank_identifier_code
+msgid "Bank Identifier Code"
+msgstr "رمز مُعرِّف المصرف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_name_of_bank
+msgid "Bank Name"
+msgstr "اسم البنك"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,state:0
+msgid "Cancelled"
+msgstr "ألغيت"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_resource_category_view
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_employee_category
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_category_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_category
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_category_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_name
+#: model:ir.ui.menu,name:new_hr_recruitment.main_menu_resource_and_category
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_category
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_category_form
+msgid "Category"
+msgstr "الفئة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_category_id
+msgid "Category Code"
+msgstr "رمز الفئة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_category_form
+msgid "Category Form"
+msgstr "نموذج الفئة"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,dependent:0
+msgid "Children"
+msgstr "الأطفال"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_city
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "City"
+msgstr "المدينة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_code
+msgid "Code"
+msgstr "الكود"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "Comment"
+msgstr "تعليق"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_communication
+msgid "Communication"
+msgstr "الاتصالات"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_company
+msgid "Company"
+msgstr "المؤسسة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_line_is_comp_con
+msgid "Company Contribution"
+msgstr "مساهمة الشركة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+msgid "Compensate"
+msgstr "تعويض"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_compensation_view
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+msgid "Compensation"
+msgstr "تعويضات"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_compensation_date
+msgid "Compensation Date"
+msgstr "تاريخ التعويض"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+msgid "Compensation Form"
+msgstr "نموذج التعويض"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_compensation_type
+msgid "Compensation Type"
+msgstr "نوع التعويض"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_compensation
+msgid "Compensatory Work"
+msgstr "العمل التعويضي"
+
+#. module: new_hr_recruitment
+#: selection:emp.compensation,state:0
+#: selection:emp.resignation,state:0
+msgid "Completed"
+msgstr "منجز"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: new_hr_recruitment
+#: selection:emp.compensation,state:0
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_experience
+msgid "Countable Experience(Months)"
+msgstr "تجربة العد (أشهر)"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "Country"
+msgstr "دولة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_create_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_create_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_current_expr
+msgid "Curr. Expr.(Months)"
+msgstr "التجربة الحالية (أشهر)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_close_date
+msgid "Date Closed"
+msgstr "التاريخ مغلق"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_start_date
+msgid "Date Started"
+msgstr "بدأ الموعد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_last_class_change
+msgid "Date of Last Class Change"
+msgstr "تاريخ آخر تغيير كلاس"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_last_raise
+msgid "Date of Last Raise"
+msgstr "تاريخ آخر رفع"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_last_paycheck
+msgid "Date of Paycheck"
+msgstr "تاريخ الراتب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_review_date
+msgid "Date of Review"
+msgstr "تاريخ مراجعة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_salary_rule_category_type
+msgid "Deduction Type"
+msgstr "نوع الخصم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_salary_rule_category_other_premium_type
+msgid "Define Premium Type"
+msgstr "تحديد نوع بريميوم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_degree
+msgid "Degree"
+msgstr "المؤهل"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_department
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_department
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_department
+msgid "Department"
+msgstr "القسم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_dependent
+msgid "Dependent"
+msgstr "يعتمد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_description
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_display_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_ir_attachment_doc_id
+msgid "Document"
+msgstr "وثيقة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Done"
+msgstr "منتهي"
+
+#. module: new_hr_recruitment
+#: selection:emp.compensation,state:0
+#: selection:resource.request,state:0
+msgid "Draft"
+msgstr "مشروع"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "Duration"
+msgstr "المدة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_edu_id
+msgid "Edu id"
+msgstr "Edu id"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Education Details"
+msgstr "تفاصيل التعليم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_emp_details
+msgid "Emp details"
+msgstr "تفاصيل فارغة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_emp_education_data
+msgid "Emp education data"
+msgstr "بيانات التعليم الخالي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_emp_id
+msgid "Emp id"
+msgstr "معرف إمب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_emp_skills_details
+msgid "Emp skills details"
+msgstr "تفاصيل المهارات إمب"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_employee
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_employee
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_employee
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقود الموظف"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Employee Details"
+msgstr "تفاصيل الموظف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_employment_date
+msgid "Employment Date"
+msgstr "تاريخ التوظيف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_end_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_date_end
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,employee_category:0
+msgid "Exempt"
+msgstr "معفى"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_exit_clearance_provided
+msgid "Exit Clearance Form Provided"
+msgstr "إنهاء نموذج التخليص المقدمة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_exit_clearance_received
+msgid "Exit Clearance Form Received"
+msgstr "استلم نموذج التخليص المستلم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_exit_policy
+msgid "Exit Policy Verification"
+msgstr "الخروج من سياسة التحقق"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Experience Information"
+msgstr "معلومات الخبرة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Experience and Skills"
+msgstr "الخبرة والمهارات"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Family Details"
+msgstr "تفاصيل عائلية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_family_details
+msgid "Family details"
+msgstr "تفاصيل عائلية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_family_id
+msgid "Family id"
+msgstr "معرف العائلة"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,dependent:0
+msgid "Father"
+msgstr "الآب"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,type:0
+msgid "Federal/Provincial"
+msgstr "الاتحادية / مقاطعة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_finance_clearance
+msgid "Finance Clearance"
+msgstr "المالية التخليص"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,shift:0
+msgid "First shift"
+msgstr "الوردية الأولى"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_fixed_amount
+msgid "Fixed Amount"
+msgstr "مبلغ ثابت"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "From"
+msgstr "منذ"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_dependent_name
+msgid "Full Name of Dependent"
+msgstr "الاسم الكامل للمعالين"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Full Name.."
+msgstr "الاسم الكامل.."
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_functional
+msgid "Functional"
+msgstr "وظيفي"
+
+#. module: new_hr_recruitment
+#: selection:hr.payroll.structure,applicable:0
+msgid "GCC"
+msgstr "GCC"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_line_is_gcc_app
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_salary_rule_is_gcc_app
+msgid "GCC Applicable"
+msgstr "GCC قابل للتطبيق"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_line_gcc_percent
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_salary_rule_gcc_percent
+msgid "GCC variable Percent"
+msgstr "GCC متغير النسبة المئوية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_gap
+msgid "Gap(Months)"
+msgstr "جاب (أشهر)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_grade
+msgid "Grade/Class"
+msgstr "الصف"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,priority:0
+msgid "High"
+msgstr "مرتفع"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_hire_date
+msgid "Hire Date"
+msgstr "موعد التوظيف"
+
+#. module: new_hr_recruitment
+#: selection:hr.contract,pay_type:0
+msgid "Hourly"
+msgstr "باستمرار"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_hours
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_ifsc_code
+msgid "IFSC Code"
+msgstr "IFSC شفرة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_it_clearance
+msgid "IT Clearance"
+msgstr "IT التصفية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_identification_no
+msgid "Identification No."
+msgstr "رقم التعريف"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,state:0
+msgid "In Progress"
+msgstr "دائر"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_inform_rm_hr
+msgid "Informed RM and HR"
+msgstr "أبلغ آرإم و هر"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_institute
+msgid "Institute"
+msgstr "جمعية"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,type:0
+msgid "Insurance"
+msgstr "ناعة التأمين"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Insurance Details"
+msgstr "تفاصيل التأمين"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_insurance_id
+msgid "Insurance/ Security ID"
+msgstr "التأمين / معرف الأمان"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Involved Members"
+msgstr "الأعضاء المشاركين"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_issue_date
+msgid "Issue Date"
+msgstr "تاريخ الاصدار"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_job_description
+msgid "Job Description"
+msgstr "وصف العمل"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Job Period"
+msgstr "فترة العمل"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_ir_attachment_job_position
+msgid "Job Position"
+msgstr "المناصب الوظيفية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_job_title
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_job_title
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_joining_date
+msgid "Joining Date"
+msgstr "تاريخ الانضمام"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_account_journal
+msgid "Journal"
+msgstr "اليومية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_journal_type
+msgid "Journal Type"
+msgstr "نوع المجلة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members___last_update
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_last_promotion
+msgid "Last Promotion Date"
+msgstr "تاريخ الترويج الأخير"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_write_uid
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_category_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_write_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "Leave Type"
+msgstr "نوع الاجازة"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,priority:0
+msgid "Low"
+msgstr "أدنى"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_subject
+msgid "Major Subjects"
+msgstr "المواضيع الرئيسية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Medical Checklists"
+msgstr "قوائم المراجعة الطبية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_medical_test
+msgid "Medical Test"
+msgstr "اختبار طبي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_medical_data
+msgid "Medical data"
+msgstr "البيانات الطبية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_medical_id
+msgid "Medical id"
+msgstr "Medical id"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,priority:0
+msgid "Medium"
+msgstr "بيئة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_members_data
+msgid "Members data"
+msgstr "بيانات الأعضاء"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_mobile_no
+msgid "Mobile Number"
+msgstr "رقم الهاتف المحمول"
+
+#. module: new_hr_recruitment
+#: selection:emp.pension,schedule_pay:0
+#: selection:hr.salary.rule.category,premium_type:0
+msgid "Monthly"
+msgstr "شهريا"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,dependent:0
+msgid "Mother"
+msgstr "مصدر"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.menu_crm_case_inherit_act_job
+msgid "My Applications"
+msgstr "تطبيقاتي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: new_hr_recruitment
+#: selection:hr.payroll.structure,applicable:0
+msgid "Non Saudi"
+msgstr "غير سعودي"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,employee_category:0
+msgid "Non-exempt"
+msgstr "غير معفاة"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,analytical:0
+#: selection:hr.employee,communication:0
+#: selection:hr.employee,functional:0
+#: selection:hr.employee,technical:0
+msgid "Normal"
+msgstr "طبيعي"
+
+#. module: new_hr_recruitment
+#: selection:hr.resource,availability:0
+msgid "Not availavle"
+msgstr "غير متاح"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_approved_notice_period
+msgid "Notice Period Approved"
+msgstr "تمت الموافقة على فترة الإشعار"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_doc_count
+msgid "Number of documents attached"
+msgstr "عدد الوثائق المرفقة"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,help:new_hr_recruitment.crm_case_inherit_act_job
+msgid "Odoo helps you track applicants in the recruitment\n"
+"            process and follow up all operations: meetings, interviews, etc."
+msgstr "Odoo helps you track applicants in the recruitment\n"
+"            process and follow up all operations: meetings, interviews, etc."
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_organization
+msgid "Organization"
+msgstr "تنظيم"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,premium_type:0
+#: selection:hr.salary.rule.category,type:0
+msgid "Other"
+msgstr "آخر"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Other Info"
+msgstr "معلومات أخرى"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_overtime_hours
+msgid "Overtime Hours"
+msgstr "ساعات العمل الإضافي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_pan_code
+msgid "PAN Code"
+msgstr "رمز بان"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_passing_year
+msgid "Passing Year"
+msgstr "مرور السنة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_pay_rate_on_sick_leave
+msgid "Pay Rate(Hourly)"
+msgstr "معدل الدفع (بالساعة)"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_payslip
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_new_slip_id
+msgid "Pay Slip"
+msgstr "ظرف المرتب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_pay_type
+msgid "Pay Type"
+msgstr "نوع الدفع"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_pay_rate
+msgid "Pay rate(Hourly)"
+msgstr "معدل الدفع (بالساعة)"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_payslip_line
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_payslip_inherit_form
+msgid "Payslip Line"
+msgstr "خط قسيمة الدفع"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_new_line_ids
+msgid "Payslip Lines"
+msgstr "مفرادات المرتب"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr_payslip.py:96
+#, python-format
+msgid "Payslip of %s"
+msgstr "قسيمة الدفع %s"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,state:0
+msgid "Pending"
+msgstr "ريثما"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,type:0
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_pension_view
+msgid "Pension"
+msgstr "تقاعد"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_pension_form
+msgid "Pension Form"
+msgstr "نموذج المعاشات التقاعدية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_pension_journal
+msgid "Pension Journal"
+msgstr "بنسيون جورنال"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_pension
+msgid "Pension Management"
+msgstr "إدارة المعاشات التقاعدية"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.main_menu_employee_and_pension
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_sub_menu_pension
+msgid "Pension Plan"
+msgstr "خطة المعاشات التقاعدية"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Performance"
+msgstr "إنجاز"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_permit_no
+msgid "Permit"
+msgstr "تصريح"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_phone
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_phone_number
+msgid "Phone"
+msgstr "هاتف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_image
+msgid "Photo"
+msgstr "الصورة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_policy
+msgid "Policy"
+msgstr "سياسة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_salary_rule_category_premium_type
+msgid "Premium Type"
+msgstr "نوع بريميوم"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_previous_expr
+msgid "Prev. Expr.(Months)"
+msgstr "السابق. إكسبريريانس (أشهر)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_priority
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_provide_document
+msgid "Provide Relieving Document"
+msgstr "تقديم وثيقة تخفيف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_purpose
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Purpose"
+msgstr "غرض"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_quantity
+msgid "Quantity"
+msgstr "كمية"
+
+#. module: new_hr_recruitment
+#: selection:emp.pension,schedule_pay:0
+#: selection:hr.salary.rule.category,premium_type:0
+msgid "Quarterly"
+msgstr "مجلة فصلية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_rate
+msgid "Rate (%)"
+msgstr "المعدل (%)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_rating
+msgid "Rate out of 10"
+msgstr "معدل من 10"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: new_hr_recruitment
+#: selection:emp.compensation,state:0
+#: selection:emp.resignation,state:0
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_relation
+msgid "Relation"
+msgstr "صلة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Relieving"
+msgstr "مسكن"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_relieving_date
+msgid "Relieving Date"
+msgstr "تاريخ التخفيف"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.main_menu_employee_and_resignation
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_resignation
+msgid "Relieving Management"
+msgstr "تخفيف الإدارة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_sub_menu_resignation
+msgid "Relieving Request"
+msgstr "Relieving Request"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_relieving_request_created_by
+msgid "Relieving Request Created By"
+msgstr "تخفيف الطلب تم الإنشاء بواسطة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_relieving_created_date
+msgid "Relieving Request Date"
+msgstr "تخفيف تاريخ الطلب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_relieving_type
+msgid "Relieving Type"
+msgstr "نوع تخفيف"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_remarks
+msgid "Remarks"
+msgstr "تعليق"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_reporting_manager
+msgid "Reporting Manager"
+msgstr "مدير التقارير"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_request
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Request"
+msgstr "التماس"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_sub_menu_request
+msgid "Request For Resource"
+msgstr "طلب للحصول على الموارد"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Request Form"
+msgstr "نموذج طلب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_name
+msgid "Request No"
+msgstr "رقم الطلب"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_resource_request_view
+msgid "Request Resource"
+msgstr "طلب الموارد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_requestor
+msgid "Requested By"
+msgstr "بتوصية من"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Reset to Draft"
+msgstr "إعادة التعيين لمسودة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Reset to New"
+msgstr "إعادة التعيين إلى جديد"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,relieving_type:0
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_resignation_view
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Resignation"
+msgstr "استعفاء"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Resignation Form"
+msgstr "استمارة الاستقالة"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.act_window,name:new_hr_recruitment.action_hr_resource_view
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_name
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_resource
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_hr_resource_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "Resource"
+msgstr "الكائن"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_hr_resource_form
+msgid "Resource Form"
+msgstr "نموذج الموارد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_resource_resource_id
+msgid "Resource ID"
+msgstr "معرف الكائن"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.main_menu_resource_and_request
+msgid "Resource Management"
+msgstr "إدارة الموارد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_resource_manager
+msgid "Resource Manager"
+msgstr "مدير موارد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_resource_member_id
+msgid "Resource member id"
+msgstr "Resource member id"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.menu,name:new_hr_recruitment.main_menu_hr_and_resource
+#: model:ir.ui.menu,name:new_hr_recruitment.sub_menu_resource
+msgid "Resources"
+msgstr "الموارد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_responsibilities
+msgid "Responsibilities"
+msgstr "مسئولية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_result
+msgid "Result"
+msgstr "حصيلة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_salary_rule_id
+msgid "Rule"
+msgstr "قاعدة"
+
+#. module: new_hr_recruitment
+#: selection:hr.contract,pay_type:0
+msgid "Salary"
+msgstr "راتب"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_salary_rule_category
+msgid "Salary Rule Category"
+msgstr "فئة قاعدة المرتب"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr.py:109
+#, python-format
+msgid "Salary Slip of %s for %s"
+msgstr "انزلاق الراتب %s ل %s"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_payroll_structure
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_payslip_inherit_form
+msgid "Salary Structure"
+msgstr "هيكل المرتب"
+
+#. module: new_hr_recruitment
+#: selection:hr.contract,pay_type:0
+msgid "Salary/exempt"
+msgstr "الراتب / معفى"
+
+#. module: new_hr_recruitment
+#: selection:hr.payroll.structure,applicable:0
+msgid "Saudi"
+msgstr "سعودي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_schedule_pay
+msgid "Scheduled Pay"
+msgstr "الدفع المجدول "
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Second Bank Details"
+msgstr "تفاصيل البنك الثاني"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,shift:0
+msgid "Second shift"
+msgstr "التحول الثاني"
+
+#. module: new_hr_recruitment
+#: selection:emp.pension,schedule_pay:0
+msgid "Semi-annually"
+msgstr "نصف سنوى"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resignation_form
+msgid "Send Clearance Form"
+msgstr "إرسال نموذج التخليص"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_sequence
+msgid "Sequence"
+msgstr "المسلسل"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_compensation_form
+msgid "Set to Draft"
+msgstr "ضبط كمسودة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_shift
+msgid "Shift"
+msgstr "تناوب"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_sick_leave_used
+msgid "Sick Leave Used"
+msgstr "الإجازة المرضية المستخدمة"
+
+#. module: new_hr_recruitment
+#: model:ir.actions.report.xml,name:new_hr_recruitment.sick_report_temp
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "Sick Report"
+msgstr "تقرير مريض"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_sick_leave_per_year
+msgid "Sick leave per year(In hours)"
+msgstr "الإجازة المرضية في السنة (بالساعات)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_skill
+msgid "Skill"
+msgstr "براعة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_skill_id
+msgid "Skill id"
+msgstr "Skill id"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_description
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+msgid "Skills"
+msgstr "براعة"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,dependent:0
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_spouse
+msgid "Spouse"
+msgstr "الزوجة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_start_date
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_pension_date_start
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "State"
+msgstr "المحافظة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_compensation_state
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_state
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_request_state
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "Status"
+msgstr "الحاله "
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_street
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_street
+msgid "Street"
+msgstr "الشارع"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "Street 2..."
+msgstr "الشارع 2"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "Street..."
+msgstr "الشارع..."
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_street2
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_street2
+msgid "Street2"
+msgstr "الشارع ٢"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_education_supervisor
+msgid "Supervisor"
+msgstr "مشرف"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,type:0
+msgid "Taxes"
+msgstr "ضريبة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_technical
+msgid "Technical"
+msgstr "تقني"
+
+#. module: new_hr_recruitment
+#: selection:emp.resignation,relieving_type:0
+msgid "Termination"
+msgstr "فسخ عقد"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_termination_date
+msgid "Termination Date"
+msgstr "تاريخ الإنهاء"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr_payslip.py:143
+#, python-format
+msgid "The Expense Journal \"%s\" has not properly configured the Credit Account!"
+msgstr "The Expense Journal \"%s\" has not properly configured the Credit Account!"
+
+#. module: new_hr_recruitment
+#: code:addons/new_hr_recruitment/models/hr_payslip.py:159
+#, python-format
+msgid "The Expense Journal \"%s\" has not properly configured the Debit Account!"
+msgstr "The Expense Journal \"%s\" has not properly configured the Debit Account!"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,help:new_hr_recruitment.field_new_hr_payslip_line_code
+msgid "The code of salary rules can be used as reference in computation of other rules. In that case, it is case sensitive."
+msgstr "يمكن استخدام رمز من قواعد الراتب كمرجع في حساب قواعد أخرى. في هذه الحالة، هو قضية حساسة"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,shift:0
+msgid "Third shift"
+msgstr "النوبة الثالثة"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "To"
+msgstr "نحو"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_new_hr_payslip_line_total
+msgid "Total"
+msgstr "الإجمالي "
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_total_hours
+msgid "Total Hours"
+msgstr "عدد الساعات الكلية"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_payslip_total_timesheet_hours
+msgid "Total Timesheet Hours"
+msgstr "إجمالي ساعات الجدول الزمني"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_total_expr
+msgid "Total. Expr.(Months)"
+msgstr "مجموع. إكسيريانس (أشهر)"
+
+#. module: new_hr_recruitment
+#: selection:hr.salary.rule.category,type:0
+msgid "Unemployment"
+msgstr "بطالة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_vacation_per_year
+msgid "Vacation per year(In hours)"
+msgstr "عطلة في السنة (في ساعات)"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_contract_vacation_used
+msgid "Vacation used"
+msgstr "عطلة المستخدمة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_visa_no
+msgid "Visa"
+msgstr "فيزا"
+
+#. module: new_hr_recruitment
+#: selection:resource.request,state:0
+msgid "Waiting for approval"
+msgstr "بانتظار الموافقة"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_work_email
+msgid "Work Email"
+msgstr "البريد الإلكتروني للعمل"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_resource_members_work_phone
+msgid "Work Phone"
+msgstr "هاتف العمل"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_employee_inherit_form
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_journal_inherit_form
+msgid "ZIP"
+msgstr "الرمز البريدي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_zip
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_zip
+msgid "Zip"
+msgstr "الرمز البريدي"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_country_id
+msgid "country_id"
+msgstr "country_id"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.employee_sick_report
+msgid "days"
+msgstr "أيام"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_salary_inherit_form
+msgid "define your premium type.."
+msgstr "تحديد نوع قسطك .."
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_emp_compensation
+msgid "emp.compensation"
+msgstr "emp.compensation"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_emp_education
+msgid "emp.education"
+msgstr "emp.education"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_emp_pension
+msgid "emp.pension"
+msgstr "emp.pension"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_emp_resignation
+msgid "emp.resignation"
+msgstr "emp.resignation"
+
+#. module: new_hr_recruitment
+#: selection:hr.employee,analytical:0
+#: selection:hr.employee,communication:0
+#: selection:hr.employee,functional:0
+#: selection:hr.employee,technical:0
+msgid "good"
+msgstr "صالح"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_resource
+msgid "hr.resource"
+msgstr "hr.resource"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr "hr.salary.rule"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_emp_resignation_test
+msgid "make visible"
+msgstr "يجعله مرئي"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_new_hr_payslip_line
+msgid "new.hr.payslip.line"
+msgstr "new.hr.payslip.line"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_resource_category
+msgid "resource.category"
+msgstr "resource.category"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_resource_members
+msgid "resource.members"
+msgstr "resource.members"
+
+#. module: new_hr_recruitment
+#: model:ir.model,name:new_hr_recruitment.model_resource_request
+msgid "resource.request"
+msgstr "resource.request"
+
+#. module: new_hr_recruitment
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_account_journal_state_id
+#: model:ir.model.fields,field_description:new_hr_recruitment.field_hr_employee_state_id
+msgid "state_id"
+msgstr "state_id"
+
+#. module: new_hr_recruitment
+#: model:ir.ui.view,arch_db:new_hr_recruitment.view_resource_request_form
+msgid "wait"
+msgstr "انتظر"
+

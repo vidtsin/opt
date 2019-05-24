@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+                    <record id="view_attachment_inherit_form" model="ir.ui.view">
+            <field name="name">ir.attachment.inherit.form</field>
+            <field name="model">ir.attachment</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_attachment_form"/>
+            <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='public']" position="after">
+                <field name="job_position"/>
+                <!--<field name="skills"/>-->
+                <!--<field name="experience"/>-->
+
+                </xpath>
+
+                <!--<xpath expr="//menuitem[@name='Resumes and Letters']" position="inside">-->
+                    <!--<menuitem name="Resumes and Letters" parent="hr_recruitment.menu_hr_recruitment_root" id="menu_crm_case_categ0_act_job02" invisible="1" action="hr_applicant_resumes" sequence="3"/>-->
+
+
+
+
+            </field>
+        </record>
+
+         <!--<record id="action_ir_attachment_tree" model="ir.actions.act_window">-->
+                        <!--<field name="name">ir attachment</field>-->
+                        <!--<field name="res_model">ir.attachment</field>-->
+                        <!--<field name="context">{}</field>-->
+                        <!--<field name="domain">[('doc_count_id','=', active_id)]</field>-->
+                        <!--<field name="view_id" ref="view_attachment_search"/>-->
+                <!--</record>-->
+
+         <!--<record id="action_ir_attachment_new_tree" model="ir.actions.act_window">-->
+                        <!--<field name="name">ir attachment</field>-->
+                        <!--<field name="res_model">ir.attachment</field>-->
+                        <!--<field name="context">{}</field>-->
+                        <!--<field name="domain">[('doc_count_id','=', active_id)]</field>-->
+                        <!--<field name="view_id" ref="base.view_attachment_search"/>-->
+                <!--</record>-->
+
+
+
+
+
+        </data>
+    </odoo>

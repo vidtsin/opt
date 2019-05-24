@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+         <record id="view_hr_contract_inherit_form" model="ir.ui.view">
+            <field name="name">hr.contract.inherit.form.</field>
+            <field name="model">hr.contract</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                     <xpath expr="//field[@name='working_hours']" position="after">
+                             <field name="pay_type"/>
+
+
+                             </xpath>
+
+                <xpath expr="//page[@name='information']" position="inside">
+                <group  string="Accrual Rate(Vacation and Sick leave)">
+              <group>
+                     <field name="vacation_per_year"/>
+                     <field name="pay_rate"/>
+                     <field name="vacation_used"/>
+
+                </group>
+                    <group>
+                         <field name="sick_leave_per_year"/>
+                     <field name="pay_rate_on_sick_leave"/>
+                     <field name="sick_leave_used"/>
+                    </group>
+                </group>
+                </xpath>
+
+                <xpath expr="//field[@name='type_id']" position="after">
+                        <field name="insurance_id"/>
+                        </xpath>
+                    </field>
+        </record>
+        </data>
+    </openerp>

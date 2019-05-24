@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="report_wizard_form_view" model="ir.ui.view">
+            <field name="name">crm.report.wizard.form</field>
+            <field name="model">crm.report.wizard</field>
+            <field name="arch" type="xml">
+             <form string="Program Details" >
+                 <sheet>
+                     <group>
+                         <field name="all_programs"/>
+                         <field name="program" attrs="{'invisible': [('all_programs', '=', True)]}"/>
+                         <field name="start_date"/>
+                         <field name="end_date"/>
+                     </group>
+                     <footer>
+                         <button string="Generate Report" name="generate_report" type="object"  attrs="{'invisible': ['|',('start_date', '=', False),('end_date', '=', False)]}" />
+                     </footer>
+                 </sheet>
+             </form>
+            </field>
+     </record>
+
+
+        <record id="report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Program Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem id="report_wizard_menu" action="report_wizard_action" name="Programs Report" parent="sales_team.menu_sale_report"/>
+
+    <record id="list_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">crm.list.reports.wizard.form</field>
+            <field name="model">crm.list.reports.wizard</field>
+            <field name="arch" type="xml">
+             <form string="Program Details" >
+                 <sheet>
+                     <group>
+                         <field name="all_programs"/>
+                         <field name="program" attrs="{'invisible': [('all_programs', '=', True)]}"/>
+                         <field name="start_date"/>
+                         <field name="end_date"/>
+                     </group>
+                     <footer>
+                         <button string="Generate Report" name="generate_report" type="object"  attrs="{'invisible': ['|',('start_date', '=', False),('end_date', '=', False)]}" />
+                     </footer>
+                 </sheet>
+             </form>
+            </field>
+     </record>
+
+
+        <record id="list_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Program Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.list.reports.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem id="list_report_wizard_menu" action="list_report_wizard_action" name="Programs List Report" parent="sales_team.menu_sale_report"/>
+
+
+
+    </data>
+</odoo>

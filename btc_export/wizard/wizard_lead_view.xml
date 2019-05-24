@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_wizard_lead">
+            <field name="name">wizard.lead.import.form</field>
+            <field name="model">wizard.lead.import</field>
+            <field name="arch" type="xml">
+                <form string="Lead">
+                    <group>
+                    <field name="import_csv"/>
+
+
+                    <!--<field name="students"/>-->
+
+                    </group>
+
+                    <footer>
+                    <button string="next" type="object" name="action_next1"/>
+                    </footer>
+                </form>
+                </field>
+            </record>
+     <act_window  id="action_wizard_crm_lead"
+                  name="Update Date"
+                 res_model="wizard.lead.import"
+                src_model="crm.lead"
+                view_mode="form"
+                view_type="form"
+                multi="True"
+                target="new"
+                 key2="client_action_multi"
+                 />
+
+</data>
+    </odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+         <record id="view_product_inherit_form" model="ir.ui.view">
+            <field name="name">product.template.inherit.form.</field>
+            <field name="model">product.template</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='general_information']" position="before">
+                        <page string="Course Details" name="course_datails">
+                                <group string="Course Info">
+                                       <field name="course"/>
+                                       <field name="study_type"/>
+                                       <field name="course_duration"/>
+                                       <field name="study_hours"/>
+                            </group>
+                            <group string="Expected Schedule">
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="orientation_date"/>
+                            </group>
+                            </page>
+
+                </xpath>
+
+
+                </field>
+             </record>
+        </data>
+    </openerp>

@@ -1,0 +1,21 @@
+from odoo import fields, models, tools,api, _
+from odoo.exceptions import UserError, AccessError
+from odoo.exceptions import UserError,ValidationError
+from odoo.tools import email_re, email_split
+
+
+class LeadtoOpportunity(models.TransientModel):
+    _name='convert.lead.opportunity'
+
+
+
+
+
+    name = fields.Selection([
+        ('convert', 'Convert to opportunity'),
+        ('merge', 'Merge with existing opportunities')
+    ], 'Conversion Action', required=True)
+    opportunity_ids = fields.Many2many('crm.lead', string='Opportunities')
+    user_id = fields.Many2one('res.users', 'Salesperson', index=True)
+    team_id = fields.Many2one('crm.team', 'Sales Team', oldname='section_id', index=True)
+

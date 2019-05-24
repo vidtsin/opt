@@ -1,0 +1,19 @@
+#chartdiv1 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv2 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv3 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv4 {
+  width: 80%;
+  height:200px;
+}

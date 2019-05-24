@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve"> 
+	<t t-extend="Product" name="ProductStockWidget">
+	    <t t-jquery="div.product-name" t-operation="after">
+			 <div class="product-qty">
+			     <t t-esc="product.qty_available" />                     
+			 </div>                     
+	    </t>
+	</t>
+</templates>

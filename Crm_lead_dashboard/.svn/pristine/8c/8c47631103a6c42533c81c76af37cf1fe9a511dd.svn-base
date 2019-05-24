@@ -1,0 +1,446 @@
+from odoo import models,fields,api,_
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from odoo.exceptions import ValidationError
+from calendar import Calendar
+
+
+class crmlead(models.Model):
+    _inherit = 'crm.lead'
+
+
+
+
+    name = fields.Char('Opportunity', required=False, invisible=1)
+
+
+
+
+
+    @api.model
+    def retrieve_sales_dashboard(self):
+        """ Fetch data to setup Sales Dashboard """
+
+        result = {
+            'meeting': {
+                'today': 0,
+                'next_7_days': 0,
+            },
+            'activity': {
+                'today': 0,
+                'overdue': 0,
+                'next_7_days': 0,
+            },
+            'closing': {
+                'today': 0,
+                'overdue': 0,
+                'next_7_days': 0,
+            },
+            'done': {
+                'this_month': 0,
+                'last_month': 0,
+            },
+            'won': {
+                'this_month': 0,
+                'last_month': 0,
+            },
+
+
+
+            'new_opportunity':0 ,
+
+            'lost_opportunity':0,
+
+            'opportunity_total':0,
+
+            'prospect_total':0,
+
+            'admitted_total':0,
+
+            'enrolled_total':0,
+
+            'delayed_total': 0,
+
+            'lead_con_ratio':0,
+
+            'lead_to_sales_ratio':0,
+
+            'lead_to_opp_ratio':0,
+
+            'lead_to_opp_ratio1':0,
+
+            # 'lead_to_sale_ratio': 0,
+            #
+            # 'opp_to_prospect_ratio':0,
+            #
+            # 'no_follow':0,
+            #
+            # 'enrolled_last_three_month':0,
+            #
+            # 'rev_last_three_months': 0,
+            #
+            # 'rate_last_three_months':0,
+            #
+            # 'prospect_after_three_month':0,
+            #
+            # 'rev_after_three_months':0,
+            #
+            # 'lead_diploma_local_per_weeks':0,
+            #
+            # 'lead_diploma_inter_per_weeks':0,
+            #
+            # 'lead_certificate_local_per_weeks':0,
+            #
+            # 'lead_certificate_inter_per_weeks':0,
+            #
+            # 'lead_diploma_total_per_weeks':0,
+            #
+            # 'lead_certification_total_per_weeks':0,
+            #
+            # 'lead_local_total_per_weeks':0,
+            #
+            # 'lead_international_total_per_weeks':0,
+            #
+            # 'lead_grand_total_per_weeks':0,
+            #
+            # 'oppo_diploma_local_per_weeks':0,
+            #
+            # 'oppo_diploma_inter_per_weeks': 0,
+            #
+            # 'oppo_diploma_total_per_weeks': 0,
+            #
+            # 'oppo_certificate_local_per_weeks': 0,
+            #
+            # 'oppo_certificate_inter_per_weeks': 0,
+            #
+            # 'oppo_certification_total_per_weeks': 0,
+            #
+            # 'oppo_local_total_per_weeks': 0,
+            #
+            # 'oppo_international_total_per_weeks': 0,
+            #
+            # 'oppo_grand_total_per_weeks': 0,
+            #
+            # 'lead_diploma_local_per_months':0,
+            #
+            # 'lead_diploma_inter_per_months':0,
+            #
+            # 'lead_certificate_local_per_months':0,
+            #
+            # 'lead_certificate_inter_per_months':0,
+            #
+            # 'lead_diploma_total_per_months':0,
+            #
+            # 'lead_certification_total_per_months':0,
+            #
+            # 'lead_local_total_per_months':0,
+            #
+            # 'lead_international_total_per_months':0,
+            #
+            # 'lead_grand_total_per_months':0,
+            #
+            # 'oppo_diploma_local_per_months':0,
+            #
+            # 'oppo_diploma_inter_per_months': 0,
+            #
+            # 'oppo_diploma_total_per_months': 0,
+            #
+            # 'oppo_certificate_local_per_months': 0,
+            #
+            # 'oppo_certificate_inter_per_months': 0,
+            #
+            # 'oppo_certification_total_per_months': 0,
+            #
+            # 'oppo_local_total_per_months': 0,
+            #
+            # 'oppo_international_total_per_months': 0,
+            #
+            # 'oppo_grand_total_per_months': 0,
+            #
+            #
+            #
+            #
+            #
+            # 'lead_diploma_local_per_year': 0,
+            #
+            # 'lead_diploma_inter_per_year': 0,
+            #
+            # 'lead_certificate_local_per_year': 0,
+            #
+            # 'lead_certificate_inter_per_year': 0,
+            #
+            # 'lead_diploma_total_per_year': 0,
+            #
+            # 'lead_certification_total_per_year': 0,
+            #
+            # 'lead_local_total_per_year': 0,
+            #
+            # 'lead_international_total_per_year': 0,
+            #
+            # 'lead_grand_total_per_year': 0,
+            #
+            # 'oppo_diploma_local_per_year': 0,
+            #
+            # 'oppo_diploma_inter_per_year': 0,
+            #
+            # 'oppo_diploma_total_per_year': 0,
+            #
+            # 'oppo_certificate_local_per_year': 0,
+            #
+            # 'oppo_certificate_inter_per_year': 0,
+            #
+            # 'oppo_certification_total_per_year': 0,
+            #
+            # 'oppo_local_total_per_year': 0,
+            #
+            # 'oppo_international_total_per_year': 0,
+            #
+            # 'oppo_grand_total_per_year': 0,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        current_date=datetime.now()
+        lead_gen_date=current_date-relativedelta(days=1)
+        opp_gen_date=current_date-relativedelta(days=1)
+        new_lead_date=datetime.strftime(lead_gen_date,"%Y-%m-%d")
+        new_oppo_date=datetime.strftime(opp_gen_date,"%Y-%m-%d")
+        one_year=current_date-relativedelta(years=1)
+        one_month=current_date-relativedelta(months=1)
+        one_week=current_date-relativedelta(weeks=1)
+        bf_three_month=current_date-relativedelta(months=3)
+        af_three_month=current_date+relativedelta(months=3)
+        af_three_month=current_date+relativedelta(months=3)
+        date1=datetime.strftime(one_month,"%Y-%m-%d")
+        date2=datetime.strftime(bf_three_month,"%Y-%m-%d")
+        date3=datetime.strftime(af_three_month,"%Y-%m-%d")
+        date4=datetime.strftime(one_week,"%Y-%m-%d")
+        date5=datetime.strftime(one_year,"%Y-%m-%d")
+
+
+        # #New leads generated records
+        #
+        # leads=self.search([
+        #     ('new_lead','=',True)])
+        # if leads:
+        #     result['new_leads']=len(leads)
+        #
+        #
+        # # New opportunity generated record
+        #
+        # opportunitys = self.search([
+        #     ('create_date', '>=', date1),
+        #     ('new_lead', '!=', True),])
+        # if opportunitys:
+        #
+        #     result['new_opportunity'] = len(opportunitys)
+        #
+        #
+        # #Opportunities records
+        #
+        # opportunities=self.search([('stage_id.name','=','Opportunity'),('type','!=','lead')])
+        # if opportunities:
+        #     result['opportunity_total']=len(opportunities)
+        #
+        # #Prospects records
+        #
+        # prospects=self.search([('stage_id.name','=','Prospect')])
+        # if prospects:
+        #     result['prospect_total']=len(prospects)
+        #
+        #
+        # # Admitted  records
+        #
+        # admitted=self.search([('stage_id.name','=','Admitted')])
+        # if admitted:
+        #     result['admitted_total']=len(admitted)
+        #
+        #
+        # # Enrolled records
+        #
+        # enrolled=self.search([('stage_id.name','=','Enrolled')])
+        # if enrolled:
+        #
+        #     result['enrolled_total']=len(enrolled)
+        #
+        #
+        # # Delayed  records
+        #
+        # delayed=self.search([('stage_id.name','=','Delayed')])
+        # if delayed:
+        #     result['delayed_total']=len(delayed)
+        #
+        #
+        # # Lost records
+        #
+        # lost = self.search([('stage_id.name','=','Lost')])
+        # if lost:
+        #     result['lost_opportunity'] = len(lost)
+
+
+        # Lead Opportunity Ratio
+
+        leads=self.search([
+            ('create_date','>=',date1),
+            ('type','=','lead'),
+        ])
+        ld=len(leads)
+        if leads:
+            opportunity = self.search([
+                ('type','!=','lead'),
+                # ('stage_id.name','=','Opportunity'),
+            ])
+            opp=len(opportunity)
+            ratio=str((opp*100)/ld)
+            opp_ratio=ratio +'%'
+            result['lead_to_opp_ratio']=opp_ratio
+
+        # Lead to Sales Ratio
+
+        leads = self.search([
+            ('create_date', '>=', date1),
+            ('type', '=', 'lead'),
+        ])
+        ld = len(leads)
+        if leads:
+            opportunity = self.search([
+                ('type', '!=', 'lead'),
+                ('stage_id.name','=','Closed'),
+            ])
+            sales = len(opportunity)
+            ratio = str((sales * 100) / ld)
+            sale_ratio = ratio + '%'
+            result['lead_to_sales_ratio'] = sale_ratio
+
+
+        retrieve_dip_data = """select p.product_name,c.type,count(c.id) from crm_lead c join product_detail p on c.product_id = p.id  group by c.type,p.product_name ORDER BY count desc limit 5 ;"""
+        self.env.cr.execute(retrieve_dip_data)
+        lead_by_diploma = self.env.cr.dictfetchall()
+        lead_by_diploma_list=[]
+        opportunity = lead = 0
+        if lead_by_diploma[0]['type'] == 'opportunity':
+            opportunity = lead_by_diploma[0]['count']
+        else:
+            lead = lead_by_diploma[0]['count']
+        first_rec={'product_name':lead_by_diploma[0]['product_name'],'lead':lead,'opportunity':opportunity}
+        lead_by_diploma_list.append(first_rec)
+        for rec in lead_by_diploma:
+            rec_exists=False
+            for recs in lead_by_diploma_list:
+                if rec['product_name'] ==recs['product_name']:
+                    rec_exists=True
+                    if rec['type'] == 'opportunity':
+                        recs['opportunity'] = rec['count']
+                    else:
+                        recs['lead'] = rec['count']
+            if not rec_exists:
+                opportunity = lead = 0
+                if rec['type'] == 'opportunity':
+                    opportunity = rec['count']
+                else:
+                    lead = rec['count']
+                lead_by_diploma_list.append(
+                    {'product_name': rec['product_name'], 'opportunity': opportunity, 'lead': lead})
+
+
+        if len(lead_by_diploma_list) == 0:
+            return '0'
+        else:
+            print("adasdfsfsdfdsfsd", lead_by_diploma_list)
+            result['lead_to_opp_ratio1']= lead_by_diploma_list
+
+
+
+
+
+
+
+
+
+
+
+
+        return result
+
+
+
+
+    @api.model
+    def retrieve_monthly_lead_product_data(self):
+        today = datetime.today()
+        months=today-relativedelta(months=1)
+        retrieve_mon_lead_product_data="""select p.product_name,count(c.id) from crm_lead c join product_detail p on c.product_id = p.id where type='lead' AND c.create_date >='%s' AND c.create_date <= '%s' group by c.type,p.product_name ORDER BY count desc limit 5 ;"""%(months,today)
+        self.env.cr.execute(retrieve_mon_lead_product_data)
+        lead_monthly_product=self.env.cr.dictfetchall()
+        if len(lead_monthly_product)== 0:
+            return 'None'
+        else:
+            print("adasdfsfsdfdsfsd",lead_monthly_product)
+            return lead_monthly_product
+
+    @api.model
+    def retrieve_monthly_lead_source_data(self):
+        today = datetime.today()
+        months = today - relativedelta(months=1)
+        retrieve_mon_lead_source_data = """select source_of_lead,count(*) from crm_lead where type='lead' AND create_date >='%s' AND create_date <='%s' group by source_of_lead ORDER BY count desc limit 5 """ % (
+        months, today)
+        self.env.cr.execute(retrieve_mon_lead_source_data)
+        lead_monthly_source = self.env.cr.dictfetchall()
+        if len(lead_monthly_source) == 0:
+            return 'None'
+        else:
+            print("adasdfsfsdfdsfsd", lead_monthly_source)
+            return lead_monthly_source
+
+    @api.model
+    def retrieve_opportunity_product_data(self):
+
+        retrieve_opportunity_product_data = """select p.product_name,count(c.id) from crm_lead c join product_detail p on c.product_id = p.id where type='opportunity' group by c.type,p.product_name ORDER BY count ;"""
+        self.env.cr.execute(retrieve_opportunity_product_data)
+        opportunity_product = self.env.cr.dictfetchall()
+        if len(opportunity_product) == 0:
+            return 'None'
+        else:
+            print("adasdfsfsdfdsfsd", opportunity_product)
+            return opportunity_product
+
+    @api.model
+    def retrieve_leads_product_data(self):
+
+        retrieve_leads_product_data = """select p.product_name,count(c.id) from crm_lead c join product_detail p on c.product_id = p.id where type='lead' group by c.type,p.product_name ORDER BY count ;"""
+        self.env.cr.execute(retrieve_leads_product_data)
+        leads_product = self.env.cr.dictfetchall()
+        if len(leads_product) == 0:
+            return 'None'
+        else:
+            print("adasdfsfsdfdsfsd", leads_product)
+            return leads_product
+
+    @api.model
+    def retrieve_healthy_oppo_data(self):
+
+        retrieve_healthy_oppo_data = """select c.stage_id_name,count(c.id) from crm_lead c join product_detail p on c.product_id = p.id where type='opportunity' group by c.type,c.stage_id_name ORDER BY count;"""
+        self.env.cr.execute(retrieve_healthy_oppo_data)
+        healthy_opportunity = self.env.cr.dictfetchall()
+        if len(healthy_opportunity) == 0:
+            return 'None'
+        else:
+            print("adasdfsfsdfdsfsd", healthy_opportunity)
+            return healthy_opportunity

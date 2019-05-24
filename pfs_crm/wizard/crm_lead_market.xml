@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+
+
+        <!--<record id="crm_direct_mail_tree_view" model="ir.ui.view">-->
+            <!--<field name="name">crm.direct.mail.tree view</field>-->
+            <!--<field name="model">crm.direct.mail</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<tree >-->
+                    <!--<field name="leads_ids" />-->
+                    <!--<field name="recipents" />-->
+                    <!--<field name="subject" />-->
+                    <!--<field name="body" />-->
+
+                <!--</tree>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record id="crm_direct_mail_form_view" model="ir.ui.view">
+            <field name="name">crm.direct.mail.form view</field>
+            <field name="model">crm.direct.mail</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group>
+                        <group>
+                             <field name="leads" />
+                         </group>
+                        <group>
+                            <field name="opportunity"/>
+                        </group>
+                        </group>
+                        <group>
+
+                            <field name="leads_ids" widget="many2many_tags"  options="{'no_create_edit': True,'no_create':True}" attrs="{'invisible':[('leads','=', True)]}"/>
+                            <field name="opportunity_ids" widget="many2many_tags"  options="{'no_create_edit': True,'no_create':True}" attrs="{'invisible':[('opportunity','=', True)]}" />
+                            <field name="recipents" invisible="1"/>
+                            <field name="subject" />
+                           <field name="body" />
+
+                        </group>
+                        <footer>
+                        <button string="Email Send" name="send_mail" type="object"  class="oe_highlight btn-group button"/>
+                    </footer>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="crm_direct_mail_action" model="ir.actions.act_window">
+            <field name="name">Direct Mail</field>
+            <field name="res_model">crm.direct.mail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+        </record>>
+
+
+        <menuitem id="crm_direct_mail"  sequence="0" action="crm_direct_mail_action" parent="crm.menu_sale_market" name="Direct Mail"/>
+       <!--<menuitem id="crm.menu_sale_market"  sequence="6"  parent="sales_team.menu_base_partner" name="Market"/>-->
+    </data>
+</odoo>

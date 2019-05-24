@@ -1,0 +1,67 @@
+from odoo import models, fields, api, _
+import json
+import urllib
+from odoo.exceptions import UserError
+
+
+
+
+class btc_export(models.Model):
+    _inherit = 'crm.lead'
+    _order = 'create_date desc'
+
+    x_program = fields.Char('Program of Interest', size=160)
+    app_id = fields.Char('Application ID')
+    form_no = fields.Char('Inquiry Form Number')
+    # program = fields.Char('Program of Interest')
+    x_funding = fields.Selection([('family', 'Family'),
+                                       ('osap', 'OSAP'),
+                                       ('self_funded', 'Self Funded'),
+                                       ('career', 'Second Career'),
+                                       ('wsib', 'WSIB'),
+                                       ('retirement', 'Registered Retiremnet Saving Paln RRSP'),
+                                       ('education', 'Registered Education Saving Paln RRSP'),
+                                       ('province_funding', 'Out of Province Funding'),
+                                       ('bank_loan', 'Bank Loan'),
+                               ('other', 'Other')],
+                              string='Funding Source')
+
+    # x_dob = fields.Date('Date of Birth')
+
+    date_deadline = fields.Date('Expected Closing')
+    partner_latitude = fields.Float('Geo Latitude', digits=(16, 5))
+    partner_longitude = fields.Float('Geo Longitude', digits=(16, 5))
+    prospect_id = fields.Integer('Prospect ID')
+
+    # date_action = fields.Date('Next Activity')
+    # title_action = fields.Char('Next Activity')
+    # time = fields.Char('Next Activity')
+    # next_act = fields.Many2one('crm.activity',String='Next Activity')
+    # next_act = fields.Many2one('crm.activity',String='Next Activity')
+
+    comment = fields.Text('Comments')
+
+
+    x_career_option = fields.Char('Career Option')
+    x_qualification = fields.Char('Qualifications')
+    x_prospect_id = fields.Integer('Prospect ID')
+
+
+
+    state = fields.Selection([('draft', 'Draft'),
+                              ('lost', 'Lost')],
+                             string='Status', readonly=True, copy=False, index=True, default='draft')
+
+    @api.multi
+    def lost_lead(self):
+        self.state = 'lost'
+
+
+
+
+
+            # program_id = fields.Many2one
+
+
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!--products Label report (for product.product view)-->
+        <!--Replace Barcode to Inrernal Reference-->
+        <template id="replace_barcode_into_default_code" inherit_id="product.report_simple_label">
+                <xpath expr="//table/tbody/tr/td/span" position="replace">
+                        <span t-field="product.default_code"/>
+                </xpath>
+        </template>
+
+
+</odoo>
+
+
+
+
+
+
+
+

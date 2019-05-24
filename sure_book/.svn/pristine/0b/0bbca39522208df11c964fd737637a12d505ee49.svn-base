@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Pos Config -->
+
+        <record id="point_of_sale.pos_config_main" model="pos.config">
+            <field name="iface_room_no">True</field>
+        </record>
+
+    </data>
+</odoo>
+

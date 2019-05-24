@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!--
+        This template is the ribbon at the top of the salesteam dashboard that adds
+        some figures to it. We call this rubbon the "SalesDashboard".
+    -->
+    <t t-name="sales_team.SalesDashboard" t-extend="sales_team.SalesDashboard">
+        <t t-jquery=".o_sales_dashboard" t-operation="after">
+            <div t-if="show_demo or values" class="o_sales_dashboard">
+                <div t-attf-class="#{show_demo ? 'o_demo' : ''}">
+                <table class="table table-condensed">
+                    <tr>
+                        <td class="o_main" title="To Hot Leads">
+                            <a href="#" class="o_dashboard_action_new" name="crm.action_your_pipeline" data-extra="hot" >
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['leads']['hot']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span><br/>
+                                Hot Leads
+                            </a>
+                        </td>
+                        <td class="o_main" title="To Warm Leads">
+                            <a href="#" class="o_dashboard_action_new" name="crm.action_your_pipeline" data-extra="warm">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['leads']['warm']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span><br/>
+                                Warm Leads
+                            </a>
+                        </td>
+                        <td class="o_main" title="To Cold Leads">
+                            <a href="#" class="o_dashboard_action_new" name="crm.action_your_pipeline" data-extra="cold">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['leads']['cold']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span><br/>
+                                Cold Leads
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+        </t>
+    </t>
+</templates>

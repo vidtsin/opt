@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* document_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20170706\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-19 13:18+0000\n"
+"PO-Revision-Date: 2017-12-19 13:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: document_extend
+#: model:ir.ui.view,arch_db:document_extend.view_document_config_directory_dms
+msgid "*Make sure that the parent directory path given"
+msgstr "*Make sure that the parent directory path given"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_res_partner_is_attached_doc
+#: model:ir.model.fields,field_description:document_extend.field_res_users_is_attached_doc
+msgid "Attached"
+msgstr "مرتبط"
+
+#. module: document_extend
+#: model:ir.actions.act_window,name:document_extend.action_doc_dir_config
+#: model:ir.ui.view,arch_db:document_extend.view_document_config_directory_dms
+msgid "Configure Document Directory"
+msgstr "تكوين دليل المستند"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: document_extend
+#: model:ir.ui.view,arch_db:document_extend.document_config_directory_dms_tree
+msgid "Document Directory"
+msgstr "دليل الوثائق"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_parent_path
+msgid "Document Parent Path"
+msgstr "مسار الوالد المستند"
+
+#. module: document_extend
+#: model:ir.ui.menu,name:document_extend.menu_doc_directory_config_settings_new
+msgid "Document Store"
+msgstr "مخزن الوثائق"
+
+#. module: document_extend
+#: model:ir.ui.view,arch_db:document_extend.view_document_config_directory_dms
+#: model:ir.ui.view,arch_db:document_extend.view_res_partner_document_filter
+msgid "Documents"
+msgstr "الوثائق"
+
+#. module: document_extend
+#: code:addons/document_extend/models/filestore_generic.py:21
+#: code:addons/document_extend/models/filestore_generic.py:29
+#, python-format
+msgid "File size exceeds the specified size limit!\n"
+" Kindly upload files of proper size.."
+msgstr "File size exceeds the specified size limit!\n"
+" Kindly upload files of proper size.."
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: document_extend
+#: model:ir.model.fields,field_description:document_extend.field_document_config_dir_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: document_extend
+#: model:ir.model,name:document_extend.model_res_partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: document_extend
+#: model:ir.ui.view,arch_db:document_extend.view_document_config_directory_dms
+msgid "accurate and exists in the system."
+msgstr "accurate and exists in the system."
+
+#. module: document_extend
+#: model:ir.model,name:document_extend.model_document_config_dir
+msgid "document.config.dir"
+msgstr "document.config.dir"
+
+#. module: document_extend
+#: model:ir.model,name:document_extend.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+

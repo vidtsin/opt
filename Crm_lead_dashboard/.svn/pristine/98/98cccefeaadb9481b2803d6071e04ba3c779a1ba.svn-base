@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="sales_team.SalesDashboard">
+
+        <!--<t t-debug="pubg"/>-->
+        <t t-if="show_demo or values" class="o_sales_dashboard">
+
+            <div t-attf-class="#{show_demo ? 'o_demo' : ''}">
+                <table>
+                    <tr>
+                        <!--<div class="dropdown col-sm-11" align="right" style="color:black;position:absolute;">-->
+                        <!--<div class="dropdown">-->
+                        <!--<div>-->
+                        <!--<button class="btn btn-sm btn" data-bind="daterangepicker: dateRange2" onclick="myFunction()">Date</button>-->
+                        <!--<button type="button" class="fa fa-chevron-left"></button>-->
+                        <!--<button type="button" class="fa fa-chevron-right"></button>-->
+                        <!--</div>-->
+                        <!--<div class="dropdown-menu" style="color:black;" id="myDropdown">-->
+                        <!--<p class="dropdown-item">Custom</p>-->
+                        <!--<a class="divider"></a>-->
+                        <!--<a class="dropdown-item" onclick="myFunction()">Today</a>-->
+                        <!--<a class="dropdown-item">Yesterday</a>-->
+                        <!--<a class="dropdown-item">This Week(Sun-Today) </a>-->
+                        <!--<a class="dropdown-item">Last 7 Days</a>-->
+                        <!--<a class="dropdown-item">Last Week(Sun-Sat)</a>-->
+                        <!--<a class="dropdown-item">Last 14 Days</a>-->
+                        <!--<a class="dropdown-item">This Month</a>-->
+                        <!--<a class="dropdown-item">Last 30 days</a>-->
+                        <!--<a class="dropdown-item">Last Month</a>-->
+                        <!--<a class="dropdown-item">All time</a>-->
+                        <!--<p class="divider"></p>-->
+                        <!--<a><input style="width:30px;" class="daterangepicker-field">days up to today</input></a>-->
+                        <!--<a><input style="width:30px;" class="daterangepicker-field">days up to yesterday</input></a>-->
+                        <!--<a class="divider"></a>-->
+                        <!--<a>Compare </a>-->
+                        <!--<p class="divider"></p>-->
+                        <!--<div>-->
+                        <!--<button class="btn btn-sm" type="button">Cancel</button>-->
+                        <!--<button class="btn btn-sm" type="button">Apply</button>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<style>-->
+                        <!--i {-->
+                        <!--border: solid black;-->
+                        <!--border-width: 0 3px 3px 0;-->
+                        <!--display: inline-block;-->
+                        <!--padding: 3px;-->
+                        <!--}-->
+
+                        <!--.right {-->
+                        <!--transform: rotate(-45deg);-->
+                        <!-- -webkit-transform: rotate(-45deg);-->
+                        <!--}-->
+
+                        <!--.left {-->
+                        <!--transform: rotate(135deg);-->
+                        <!-- -webkit-transform: rotate(135deg);-->
+                        <!--}-->
+                        <!--.dropdown {-->
+                        <!--position: relative;-->
+                        <!--display: inline-block;-->
+                        <!--}-->
+
+                        <!--.dropdown-content {-->
+                        <!--display: none;-->
+                        <!--position: absolute;-->
+                        <!--background-color: #f9f9f9;-->
+                        <!--min-width: 160px;-->
+                        <!--box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);-->
+                        <!--padding: 12px 16px;-->
+                        <!--z-index: 1;-->
+                        <!--}-->
+                        <!--.dropdown:hover .dropdown-content {-->
+                        <!--display: block;-->
+                        <!--}-->
+                        <!--.dropdown-submenu {-->
+                        <!--position: relative;-->
+                        <!--}-->
+
+                        <!--.dropdown-submenu .dropdown-menu {-->
+                        <!--top: 0;-->
+                        <!--left: 100%;-->
+                        <!--margin-top: -1px;-->
+                        <!--}-->
+                        <!--</style>-->
+
+                        <!--<script>-->
+                        <!--/* When the user clicks on the button,-->
+                        <!--toggle between hiding and showing the dropdown content */-->
+                        <!--function myFunction() {-->
+                        <!--document.getElementById("myDropdown").classList.toggle("show");-->
+                        <!--}-->
+                        <!--</script>-->
+                        <!--</div>-->
+                    </tr>
+
+                    <tr>
+
+                        <div class="container">
+
+                            <div class="well well-lg col-sm-6" style="background-color:#75e873;font-size:13px">
+                                <span class="o_highlight " style="font-size:20px;color:black">
+                                     PFS/CPA Dashboard
+                                </span>
+                             </div>
+
+                        </div>
+                        <div class="container">
+                            <div class="well well-lg col-sm-4" style="background-color: #8a8788;
+    font-size: 39px;
+    width: 334px;">
+                                <span class="o_highlight " style="font-size: 20px;
+    color: black;
+    margin-top: -18px;">
+                                     New Leads/Opportunities with <br/>
+                                            last 7 days
+                                </span>
+                             </div>
+
+                        </div>
+
+                        <div class="container">
+                            <div class="well well-lg col-sm-2" style="text-align: center;background-color: #66b3ff;margin-top: -20px;width: 167px;height: 73px; ">
+
+                                <span class="o_highlight " style="font-size: 16px;
+    margin-left: -17px;
+    margin-top: -19px;
+    color: black;">
+                                    Lead/
+                                    <br/>Oppportunity <br/>
+                                    Ratio
+                                </span>
+                            </div>
+                            <div class="well well-lg col-sm-2" style="text-align: center;font-size: 23px;color: #39ac41;margin-top: -21px;width: 167px;height: 73px;">
+                                <t t-if="!show_demo" >
+                                    <t t-esc="values['lead_to_opp_ratio']" />
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </div>
+                              <div class="well well-lg col-sm-4"  style="height:231px;width: 411px;font-size:13px;color:black; margin-top: -108px;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -107px;
+    margin-top: -17px;
+    font-size: 19px;">Product</div>
+                            <div class="col-sm-3" style="    margin-top: -18px;
+    font-size: 19px;
+    margin-left: 31px;">Leads</div>
+                            <div class="col-sm-4"  style="    margin-top: -17px;
+    margin-left: 4px;
+    font-size: 19px;">Opportunity</div>
+
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">Diploma</div>-->
+                              <div class="col-sm-3" style="color:green;     margin-left: -16px;">
+                            <t t-foreach="values['lead_to_opp_ratio1']" t-as="opp">
+
+
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="opp['product_name']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+
+
+
+                                 </t>
+                                   </div>
+                                   <div class="col-sm-3" style="color:green;     margin-left: 63px;">
+                                  <t t-foreach="values['lead_to_opp_ratio1']" t-as="opp">
+
+
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="opp['lead']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+
+
+
+                                 </t>
+                                   </div>
+                                  <div class="col-sm-3" style="color:green;     margin-left: 29px;">
+                                  <t t-foreach="values['lead_to_opp_ratio1']" t-as="opp">
+
+
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="opp['opportunity']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+
+
+
+                                 </t>
+                                   </div>
+
+
+
+                            <!--<div class="col-sm-3" style="color:green; ">-->
+                                <!--<span class="o_highlight">-->
+                                    <!--<t t-if="!show_demo">-->
+                                        <!--<t t-esc="values['lead_diploma_inter_per_weeks']"/>-->
+                                    <!--</t>-->
+                                    <!--<t t-if="show_demo">-->
+                                        <!--0-->
+                                    <!--</t>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        </div>
+
+                        </div>
+                         <div class="container">
+                            <div class="well well-lg col-sm-2" style="text-align: center;
+    font-size: 30px;
+    background-color: #66b3ff;
+
+    margin-top: -92px;
+    width: 167px;
+    height: 73px;">
+
+                                <span class="o_highlight " style="font-size: 18px;
+    color: black;
+    margin-top: -16px;">
+                                    Lead/Sales <br/>
+                                    Ratio
+                                </span>
+                            </div>
+                            <div class="well well-lg col-sm-2" style="    text-align: center;
+    font-size: 31px;
+    color: #39ac41;
+
+
+    margin-top: -92px;
+    width: 167px;
+    height: 73px;">
+                                <t t-if="!show_demo" >
+                                    <t t-esc="values['lead_to_sales_ratio']" />
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </div>
+
+
+                        </div>
+                    </tr>
+                </table>
+            </div>
+
+            <div t-attf-class="#{show_demo ? 'o_demo' : ''}">
+
+                <!--<div style="color: black;width: 339px;border-style: groove;background-color: grey;margin-left: 18px;">-->
+                    <!--<h1 style="margin-left: 19px;">Monthly Leads/Product</h1>-->
+                <!--</div>-->
+                <div class="container">
+                    <div class="col-md-6" style="color: black; width: 449px; border-style: groove;background-color: grey; margin-left: 2px;">
+                        <h1>Leads</h1><br></br>
+                   </div>
+                    <div class="col-md-6" style="color: black; width: 449px;border-style: groove;background-color: grey; margin-left: 118px;">
+                        <h1>Opportunity</h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="chartleads"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartopportunity"></div>
+                    </div>
+                </div>
+                <div class="container">
+
+                   <div class="col-md-6" style="color: black; width: 449px; border-style: groove;background-color: grey;margin-left: 2px; margin-top: -8px;">
+                        <h1>Monthly Leads/Product</h1><br></br>
+                   </div>
+                    <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 67px; margin-top: -8px;">
+                        <h1>Monthly Leads/Source</h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="chartleadproduct"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartleadsource"></div>
+                    </div>
+                </div>
+                <div class="container">
+
+                   <div class="col-md-6" style="color: black; width: 449px; border-style: groove;background-color: grey;margin-left: 2px; margin-top: -8px;">
+                        <h1>Health Opportunities</h1><br></br>
+                   </div>
+                    <div class="col-md-6">
+                        <h1></h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="charthealthoppo"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartleadsource"></div>
+                    </div>
+                </div>
+                <div class="container">
+
+                   <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 2px; margin-top: -344px;" >
+                        <h1>Current month leads</h1><br></br>
+                   </div>
+                    <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 517px; margin-top: -345px;">
+                        <h1>Monthly Leads</h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="chartcurrentmonth"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartmonthlylead"></div>
+                    </div>
+                </div>
+                <div class="container">
+
+                   <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 2px; margin-top: -8px;" >
+                        <h1>Current month source</h1><br></br>
+                   </div>
+                    <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 67px; margin-top: -8px;">
+                        <h1>Monthly source</h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="chartcurrentmonthsource"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartmonthlysource"></div>
+                    </div>
+                </div>
+                <div class="container">
+
+                   <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 2px; margin-top: -8px;" >
+                        <h1>Health Opportunity</h1><br></br>
+                   </div>
+                    <div class="col-md-6" style="color: black; width: 449px; border-style: groove; background-color: grey; margin-left: 67px; margin-top: -8px;">
+                        <h1>Monthly Health Opportunity</h1><br></br>
+                    </div>
+                     <div class="col-sm-6" >
+                         <div id="chartmonthlyhealthoppo"></div>
+                     </div>
+
+                     <div class="col-sm-6">
+                        <div style="align:justify" id="chartmonthlyhealthoppodata"></div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </t>
+    </t>
+</templates>

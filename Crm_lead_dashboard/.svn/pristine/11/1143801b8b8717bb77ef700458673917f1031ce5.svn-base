@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="sales_team.SalesDashboard">
+
+        <!--<t t-debug="pubg"/>-->
+        <t t-if="show_demo or values" class="o_sales_dashboard">
+
+            <div t-attf-class="#{show_demo ? 'o_demo' : ''}">
+                <table>
+                    <tr>
+                        <!--<div class="dropdown col-sm-11" align="right" style="color:black;position:absolute;">-->
+                        <!--<div class="dropdown">-->
+                        <!--<div>-->
+                        <!--<button class="btn btn-sm btn" data-bind="daterangepicker: dateRange2" onclick="myFunction()">Date</button>-->
+                        <!--<button type="button" class="fa fa-chevron-left"></button>-->
+                        <!--<button type="button" class="fa fa-chevron-right"></button>-->
+                        <!--</div>-->
+                        <!--<div class="dropdown-menu" style="color:black;" id="myDropdown">-->
+                        <!--<p class="dropdown-item">Custom</p>-->
+                        <!--<a class="divider"></a>-->
+                        <!--<a class="dropdown-item" onclick="myFunction()">Today</a>-->
+                        <!--<a class="dropdown-item">Yesterday</a>-->
+                        <!--<a class="dropdown-item">This Week(Sun-Today) </a>-->
+                        <!--<a class="dropdown-item">Last 7 Days</a>-->
+                        <!--<a class="dropdown-item">Last Week(Sun-Sat)</a>-->
+                        <!--<a class="dropdown-item">Last 14 Days</a>-->
+                        <!--<a class="dropdown-item">This Month</a>-->
+                        <!--<a class="dropdown-item">Last 30 days</a>-->
+                        <!--<a class="dropdown-item">Last Month</a>-->
+                        <!--<a class="dropdown-item">All time</a>-->
+                        <!--<p class="divider"></p>-->
+                        <!--<a><input style="width:30px;" class="daterangepicker-field">days up to today</input></a>-->
+                        <!--<a><input style="width:30px;" class="daterangepicker-field">days up to yesterday</input></a>-->
+                        <!--<a class="divider"></a>-->
+                        <!--<a>Compare </a>-->
+                        <!--<p class="divider"></p>-->
+                        <!--<div>-->
+                        <!--<button class="btn btn-sm" type="button">Cancel</button>-->
+                        <!--<button class="btn btn-sm" type="button">Apply</button>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<style>-->
+                        <!--i {-->
+                        <!--border: solid black;-->
+                        <!--border-width: 0 3px 3px 0;-->
+                        <!--display: inline-block;-->
+                        <!--padding: 3px;-->
+                        <!--}-->
+
+                        <!--.right {-->
+                        <!--transform: rotate(-45deg);-->
+                        <!-- -webkit-transform: rotate(-45deg);-->
+                        <!--}-->
+
+                        <!--.left {-->
+                        <!--transform: rotate(135deg);-->
+                        <!-- -webkit-transform: rotate(135deg);-->
+                        <!--}-->
+                        <!--.dropdown {-->
+                        <!--position: relative;-->
+                        <!--display: inline-block;-->
+                        <!--}-->
+
+                        <!--.dropdown-content {-->
+                        <!--display: none;-->
+                        <!--position: absolute;-->
+                        <!--background-color: #f9f9f9;-->
+                        <!--min-width: 160px;-->
+                        <!--box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);-->
+                        <!--padding: 12px 16px;-->
+                        <!--z-index: 1;-->
+                        <!--}-->
+                        <!--.dropdown:hover .dropdown-content {-->
+                        <!--display: block;-->
+                        <!--}-->
+                        <!--.dropdown-submenu {-->
+                        <!--position: relative;-->
+                        <!--}-->
+
+                        <!--.dropdown-submenu .dropdown-menu {-->
+                        <!--top: 0;-->
+                        <!--left: 100%;-->
+                        <!--margin-top: -1px;-->
+                        <!--}-->
+                        <!--</style>-->
+
+                        <!--<script>-->
+                        <!--/* When the user clicks on the button,-->
+                        <!--toggle between hiding and showing the dropdown content */-->
+                        <!--function myFunction() {-->
+                        <!--document.getElementById("myDropdown").classList.toggle("show");-->
+                        <!--}-->
+                        <!--</script>-->
+                        <!--</div>-->
+                    </tr>
+
+                    <tr>
+                        <div class="container">
+                            <div>
+                                <div class="well well col-sm-3 text-white" style="background-color:#39ac41;text-align: center;font-size:13px">Lead Conversion Ratio
+                                    <span class="o_highlight" style="text-align: center;font-size:20px">
+                                        <t t-if="!show_demo">
+                                            <t t-esc="values['lead_con_ratio']"/>
+                                        </t>
+                                        <t t-if="show_demo">
+                                            0:0
+                                        </t>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="well well col-sm-3 text-white" style="background-color:#0080ff;text-align: center;font-size:13px">New Leads
+                                <span class="o_highlight" style="text-align: center;font-size:20px">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['new_leads']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="well well col-sm-3 text-white" style="background-color:#FF8A65;text-align: center;font-size:13px">New Opportunity
+                                <span class="o_highlight" style="text-align: center;font-size:20px">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['new_opportunity']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+
+            <div t-attf-class="#{show_demo ? 'o_demo' : ''}">
+
+                <div style="color:black">
+                    <h1 style="margin-left: 19px;">Count by Stages</h1>
+                </div>
+
+                <div class="container">
+                    <div class="panel-group-collapse">
+                        <div class="well well col-sm-3 text-white " style="background-color:#008040;font-size:13px">Opportunities
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['opportunity_total']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <!--<div class="well well-lg col-sm-4"  style="text-align:center;font-size:30px;color:#39ac41">-->
+                          <div style="color:black">
+                             <h1 style="margin-top: -36px;">Leads(week)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_local_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_inter_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_local_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_inter_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certification_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_local_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_international_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_grand_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="color:black">
+                             <h1 style="margin-top: -37px; margin-left: 369px;">Opportunity(week)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_local_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_inter_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_local_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_inter_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certification_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_local_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_international_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_grand_total_per_weeks']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="panel-group-collapse" >
+                        <div class="well well col-sm-3 text-white" style="background-color:#008040;font-size:13px;margin-top: 28px;">Prospects
+
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['prospect_total']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <!--<div class="well well-lg col-sm-4"  style="text-align:center;font-size:30px;color:#39ac41">-->
+                          <div style="color:black">
+                             <h1 style="margin-top: -9px;">Leads(month)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_local_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_inter_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_local_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_inter_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certification_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_local_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_international_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_grand_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="color:black">
+                             <h1 style="margin-top: -37px; margin-left: 369px;">Opportunity(month)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_local_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_inter_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_local_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_inter_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certification_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_local_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_international_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_grand_total_per_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="panel-group-collapse">
+                        <div class="well well col-sm-3 text-white" style="background-color:#008040;font-size:13px;margin-top: 28px;">Admitted
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['admitted_total']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-8">
+                        <!--<div class="well well-lg col-sm-4"  style="text-align:center;font-size:30px;color:#39ac41">-->
+                          <div style="color:black">
+                             <h1 style="margin-top: -9px;">Leads(year)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_local_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_inter_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_diploma_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_local_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certificate_inter_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_certification_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_local_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_international_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['lead_grand_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                         <div style="color:black">
+                             <h1 style="margin-top: -37px;margin-left: 369px;">Opportunity(year)</h1>
+                        </div>
+                        <div class="well well-lg col-sm-6"  style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+
+                            <div class="col-sm-2" style="margin-left: -15px;margin-top: -17px;">Local</div>
+                            <div class="col-sm-3" style="margin-top: -17px;">International</div>
+                            <div class="col-sm-4"  style="margin-top: -17px; margin-left: 10px;">grand Total</div>
+                            <!--<div class="col-sm-3" style="margin-left: -28px;">LEADS</div>-->
+                            <div class="col-sm-3" style="margin-left: -28px;">Diploma</div>
+
+                            <div class="col-sm-3" style="color:green;     margin-left: 26px;">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_local_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_inter_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green; ">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_diploma_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -29px;">Certificate</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_local_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certificate_inter_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_certification_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="margin-left: -28px">grand Total</div>
+                            <div class="col-sm-3" style="color:green;margin-left: 26px;">
+                                <span class="o_highlight" style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_local_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green;">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_international_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight"  style="margin-top: 8px;">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['oppo_grand_total_per_year']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="container">
+                    <div class="panel-group-collapse">
+                        <div class="well well col-sm-3 text-white" style="background-color:#008040;font-size:13px">Enrolled
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['enrolled_total']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-8 " >
+                        <div class="well well-lg col-sm-4" style="text-align:center;font-size:30px;color:#39ac41">
+                            <t t-if="!show_demo" >
+                                <t t-esc="values['lead_to_opp_ratio']" />
+                            </t>
+                            <t t-if="show_demo">
+                                0
+                            </t>
+                            <span class="o_highlight " style="font-size:14px;color:black">
+                                Lead to Oppportunity Ratio
+                            </span>
+                        </div>
+
+                        <div class="well well-lg col-sm-4" style="text-align: center;font-size:30px;color:#39ac41">
+                            <t t-if="!show_demo">
+                                <t t-esc="values['opp_to_prospect_ratio']"/>
+                            </t>
+
+                            <t t-if="show_demo">
+                                0
+                            </t>
+                            <span class="o_highlight" style="font-size:14px;color:black">
+                                Oppportunity to Prospect Ratio
+                            </span>
+                        </div>
+                         <div class="well well-lg col-sm-4" style="text-align: center;font-size:30px;color:#39ac41">
+                            <t t-if="!show_demo">
+                                <t t-esc="values['lead_to_sale_ratio']"/>
+                            </t>
+
+                            <t t-if="show_demo">
+                                0
+                            </t>
+                            <span class="o_highlight" style="font-size:14px;color:black">
+                               Lead to Sale Ratio
+                            </span>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="container">
+                    <div class="panel-group-collapse">
+                        <div class="well well col-sm-3 text-white"  style="background-color:#008040;font-size:13px">Delayed
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['delayed_total']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-8">
+                        <div class="well well " style="height:100px;font-size:13px;color:black;">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-3">Revenue</div>
+                            <div class="col-sm-3">Number</div>
+                            <div class="col-sm-3">Rate</div>
+                            <div class="col-sm-3">Expected</div>
+
+                            <div class="col-sm-3" style="color:green">
+                                <span class="o_highlight" >
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['rev_after_three_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-6" style="color:green">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['prospect_after_three_month']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3">Earned</div>
+                            <div class="col-sm-3" style="color:red">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['rev_last_three_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:red">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['enrolled_last_three_month']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="col-sm-3" style="color:red">
+                                <span class="o_highlight">
+                                    <t t-if="!show_demo">
+                                        <t t-esc="values['rate_last_three_months']"/>
+                                    </t>
+                                    <t t-if="show_demo">
+                                        0
+                                    </t>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="container">
+                    <div class="panel-group-collapse">
+                        <div class="well well col-sm-3 text-white" style="background-color:#008040;font-size:13px">Lost
+                            <span class="o_highlight" style="font-size:20px">
+                                <t t-if="!show_demo">
+                                    <t t-esc="values['lost_opportunity']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-8" >
+                        <div class="well well text-white" style="background-color:#007acc;font-size:20px;align:center">
+                            <span><center>Revenue Quarter 1</center></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class=" well well text-white " style="background-color:#ff6666;font-size:17px;color:white;">No follows
+                            <div class=" col-sm-2 pull-right" style="font-size:25px">
+                                <t t-if="!show_demo" >
+                                    <t t-esc="values['no_follow']"/>
+                                </t>
+                                <t t-if="show_demo">
+                                    0
+                                </t>
+                            </div>
+                            <span>
+                                More than 30 days
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="color:black">
+                <h1>Health Sciences per week</h1><br></br>
+            </div>
+            <div class="col-lg-6" style="color:black">
+                <h1>Health Sciences per month</h1><br></br>
+            </div>
+            <div class="col-sm-6">
+                <div id="chartdiv7"></div>
+            </div>
+
+             <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv8"></div>
+            </div>
+
+            <div class="col-md-6" style="color:black">
+                <h1>Info technology per Week</h1><br></br>
+            </div>
+            <div class="col-lg-6" style="color:black">
+                <h1>Info technology per Month</h1><br></br>
+            </div>
+            <div class="col-sm-6">
+                <div id="chartdiv9"></div>
+            </div>
+
+             <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv10"></div>
+            </div>
+
+
+             <div class="col-md-6" style="color:black">
+                <h1>bussines Accounting per week</h1><br></br>
+            </div>
+            <div class="col-lg-6" style="color:black">
+                <h1>bussines Accounting per month</h1><br></br>
+            </div>
+            <div class="col-sm-6">
+                <div id="chartdiv11"></div>
+            </div>
+
+             <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv12"></div>
+            </div>
+
+            <div class="col-md-6" style="color:black">
+                <h1>Admitted student Quarterly</h1><br></br>
+            </div>
+            <div class="col-lg-6" style="color:black">
+                <h1></h1><br></br>
+            </div>
+            <div class="col-sm-6">
+                <div id="chartdiv13"></div>
+            </div>
+
+             <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv14"></div>
+            </div>
+
+
+            <div class="col-md-6" style="color:black">
+                <h1>Leads by diplomas</h1><br></br>
+            </div>
+
+            <div class="col-lg-6" style="color:black">
+                <h1>Leads by certifications</h1><br></br>
+            </div>
+
+            <div class="col-sm-6">
+                <div id="chartdiv1"></div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv2"></div>
+            </div>
+
+            <div class="col-md-6" style="color:black">
+                <h1>Local per faculty</h1><br></br>
+            </div>
+             <div class="col-lg-6" style="color:black">
+                <h1>International per faculty</h1><br></br>
+            </div>
+
+            <div class="col-sm-6">
+                <div id="chartdiv5"></div>
+            </div>
+
+            <div class="col-sm-6">
+                <div style="align:justify" id="chartdiv6"></div>
+            </div>
+             <!--<div class="col-mg-6" style="color:black">-->
+                <!--<h1>Agent per faculty</h1><br></br>-->
+            <!--</div>-->
+
+            <!--<div class="col-sm-6">-->
+                <!--<div id="chartdiv7"></div>-->
+            <!--</div>-->
+
+            <div class="col-sm-6" style="color:black">
+                <h1>Leads by month</h1><br></br>
+            </div>
+
+            <div class="col-sm-6" style="color:black">
+                <h1>Leads by source</h1><br></br>
+            </div>
+            <div class="col-sm-6" >
+                <div id="chartdiv3"></div>
+
+            </div>
+
+
+            <div class="col-sm-6" >
+                <div id="chartdiv4"></div>
+
+            </div>
+
+
+        </t>
+    </t>
+</templates>

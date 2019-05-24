@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--###########################################################-->
+      <!-- View for Updating Booking Form view -->
+      <record id="update_booking_form_view" model="ir.ui.view">
+        <field name="name">update.booking.form.view</field>
+        <field name="model">booking.info</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <header>
+                    <!--nothing-->
+            </header>
+            <sheet>
+                <div class="oe_title">
+                        <h1>
+                            <label for="customer"/>
+                            <field name="customer"/>
+                        </h1>
+                    </div>
+                <group>
+                    <group>
+                        <!--nothing-->
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <!--nothing-->
+                    </group>
+                    <group>
+                    </group>
+                </group>
+            </sheet>
+        </field>
+      </record>
+
+
+        <!--###########################################################-->
+      <!-- View for Booking Form view -->
+      <record id="booking_form_view" model="ir.ui.view">
+        <field name="name">booking.form.view</field>
+        <field name="model">booking.info</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <header>
+                <button name="insert_sale_order" 
+                  attrs="{'invisible':[('button_flag','=',2)]}" string="Confirm" type="object" class="btn-primary"/>
+                <button name="do_checkin" attrs="{'invisible':['|',('button_flag','!=',2),('room_booking_status','!=','new')]}"
+                  string="Check In" type="object" class="btn-primary"/>
+                <button name="do_checkout" attrs="{'invisible':['|',('room_booking_status','!=','checkin'),('payment_flag','=',2)]}"
+                  string="Check Out" type="object" class="btn-primary"/>
+                <!-- <button name="do_make_payment" attrs="{'invisible':['|',('button_flag','!=',2),('payment_flag','=',2)]}"
+                          string="Make Payment" type="object" class="btn-primary"/> -->
+                <field name="room_booking_status" widget="statusbar" statusbar_colors='{"new":"blue","checkin":"green","checkout":"red"}'/>
+            </header>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="customer" required = '1'
+                              attrs="{'readonly':[('button_flag','=',2)]}"/>
+                        <field name="start_date" 
+                          attrs="{'readonly':[('button_flag','=',2)]}"/>
+                        <field name="end_date" 
+                          attrs="{'readonly':[('button_flag','=',2)]}"/>
+                        <field name="product_id" 
+                          attrs="{'readonly':[('button_flag','=',2)], 'invisible': [('is_multiple', '=', True)]}"/>
+                        <field name="button_flag" invisible = '1'/>
+                        <field name="payment_flag" invisible = '1'/>
+                        <!--<field name="room_booking_status"/>-->
+                        <field name="is_multiple" invisible="1"/>
+                        <field name="multiple_booking_ids" invisible = '0' widget="many2many_tags" attrs="{'invisible': [('is_multiple', '=', False)],'readonly': [('button_flag', '=', 2)] }"/>
+                        <field name="amount_total" readonly="1" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                    </group>
+                </group>
+                           <field name="sale_order_line">
+                                <tree string="Room Info Lines" editable="bottom" create='false' edit='false' delete='false' open='false'>
+                                    <field name="product_id" string='Room' />
+				    <field name="start_date"  />
+				    <field name="end_date"  />
+				    <field name="room_booking_status" string='Status' />
+				    <field name="product_uom_qty" string="Number of Days"  />
+				    <field name="price_unit" />
+				    <field name="price_total" widget="monetary" />
+                                </tree>
+				</field>
+            </sheet>
+        </field>
+      </record>
+
+      <!-- View for Booking relation in product.product -->
+      <record id="booking_info" model="ir.ui.view">
+        <field name="name">booking.info</field>
+        <field name="model">booking.info</field>
+        <!-- <field name="inherit_id" ref="product.product_normal_form_view" /> -->
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+          <tree editable='bottom'>               
+            <field name="name"/>     
+            <field name="customer"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+          </tree>     
+        </field>
+      </record>     
+
+      <record id="product_booking_info" model="ir.ui.view">
+        <field name="name">product.booking.info</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+          <xpath expr="//form/sheet/notebook/page[3]" position="after">
+            <page string="Bookings">
+
+            <field name="booking_info"/>
+          </page>
+          </xpath>
+
+        </field>
+      </record>
+    </data>
+
+    <data>
+        <record id="view_order_inherit_form_view" model="ir.ui.view">
+            <field name="name">view.order.inherit.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after">
+                        <field name="room_booking_status"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                        <field name="room_booking_status"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+<data>
+
+<!--############################Product View#########################################-->
+    <record id="room_attribute_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.form.attribute</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="before">
+                <field name="capacity" attrs="{'invisible': [('is_room', '=', False )]}"/>
+                <field name="status" attrs="{'invisible': [('is_room', '=', False )]}"/>
+            </field>
+            <field name="categ_id" position="after">
+                <field name="is_dorm" />
+            </field>
+        </field>
+    </record>
+<!--####################################Product View End############################################-->
+</data>
+
+<data>
+     <!-- ==============View for Changing Room status========== -->
+      <record id="update_status_form_view" model="ir.ui.view">
+        <field name="name">update.status.form.view</field>
+        <field name="model">room.status.change</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <header>
+                    <!--nothing-->
+            </header>
+            <sheet>
+                <div class="oe_title">
+                        <h3>
+                            <field name="product_id"/>
+                        </h3>
+                </div>
+                <div class="row" style="padding-left:200px;text-align:center;display:inline-block;">
+                        <button name="change_to_dirty" string="Dirty" type="object"
+                                class="btn-primary" style="padding-right:20;"/>
+
+                        <button name="change_to_cleanup" string="Clean Up" type="object"
+                                class="btn-primary" style="padding-left:20;"/>
+
+                        <button name="change_to_ready" string="Ready" type="object"
+                                class="btn-primary" style="padding-left:20;"/>
+                </div>
+            </sheet>
+        </field>
+      </record>
+
+</data>
+    
+</odoo>

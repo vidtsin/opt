@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        
+<!--        <record id="view_myallocator_room_product_form" model="ir.ui.view">
+            <field name="name">myallocator.room.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='notes']" position="after">
+                <page name="room" string="Rooms">
+                    <group>
+                         <group>
+                            <field name="gender"/>
+                            <field name="private_room"/>
+                            <field name="occupancy"/>
+                            <field name="my_property_id"/>
+                            <field name="my_channel_id"/>
+                        </group>
+                        <group>
+                            <field name="room_id" readonly="1"/>
+                            <field name="unit"/>
+                            <field name="room_create" readonly="1"/>
+                            <field name="validate_only" readonly="1"/>
+                            <field name="authorize_bill" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            </field>
+        </record>-->
+        
+        
+        
+        
+         <record id="view_myallocator_property_tree" model="ir.ui.view">
+            <field name="name">myallocator.property.tree</field>
+            <field name="model">myallocator.property</field>
+            <field name="arch" type="xml">
+                <tree string="Property">
+                    <field name="name" />
+                    <field name="phone" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_myallocator_property_form" model="ir.ui.view">
+            <field name="name">myallocator.property.form</field>
+            <field name="model">myallocator.property</field>
+            <field name="arch" type="xml">
+                <form string="Property">
+                    <sheet>
+                        <field name="image" widget='image' class="oe_avatar" />
+                            <group>
+                            <group>
+                                 <field name="name" required="1"/>
+                                <label for="street" string="Address"/>
+                                <div class="o_address_format">
+
+                                <field name="street" placeholder="Street..." class="o_address_street"
+                                    />
+                                <field name="city" placeholder="City" class="o_address_city"
+                                    />
+                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'
+                                     context="{'country_id': country_id, 'zip': zip}" />
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                    />
+                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' required="1"
+                                    />
+                            </div>
+
+                            </group>
+                            <group>
+                                <field name="currency" required="1"/>
+                                <field name="breakfast"/>
+                                <field name="email"/>
+                                <field name="website_size_x" invisible="1"/>
+                                <field name="website_size_y" invisible="1"/>
+                                <field name="website_style_ids" invisible="1"/>
+                                <field name="website_sequence" invisible="1"/>
+                                <field name="is_property_created" readonly="1" attrs="{'invisible': [('is_property_created', '!=', True)]}"/>
+                                <field name="property_id" readonly="1" attrs="{'invisible': [('is_property_created', '!=', True)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+
+                            <page string="Rooms">
+                                <field name="room_ids" widget="one2many_list">
+                                    <tree string="Rooms new">
+                                       <field name="room_id" readonly="1"/>
+                                       <field name="product_id" required="1"/>
+                                       <field name="private_room" required="1"/>
+                                       <field name="gender" required="1"/>
+                                       <field name="occupancy" required="1"/>
+                                       <field name="unit" required="1"/>
+                                       <field name="property_id" required="1" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Channel List" widget="one2many_list">
+                                <field name="my_test_ids">
+                                    <tree string="Channel List">
+                                        <field name="my_channel_id" required="1"/>
+                                        <field name="currency" required="1"/>
+                                        <field name="status" required="1"/>
+                                        <!--<field name="my_property_id" readonly="1"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="User List">
+                                <field name="user_ids" widget="one2many_list">
+                                    <tree string="User List">
+                                       <field name="my_property_id"/>
+                                       <field name="res_user_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record id="action_myallocator_property" model="ir.actions.act_window">
+            <field name="name">MyAllocator</field>
+            <field name="res_model">myallocator.property</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_myallocator_property_tree"/>
+        </record>
+
+
+        <menuitem name="Booking Management"
+            id="main_menu_myallocator_property" parent="sales_team.menu_base_partner"
+            sequence="4"/>
+        <menuitem action="action_myallocator_property" id="menu_myallocator_property_form" parent="main_menu_myallocator_property" name="Property" sequence="1"/>
+</data>
+    </odoo>

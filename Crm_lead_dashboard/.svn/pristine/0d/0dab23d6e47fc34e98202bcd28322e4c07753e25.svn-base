@@ -1,0 +1,41 @@
+#chartdiv1 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv2 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv3 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv4 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv5 {
+  width: 490px;
+  height:63px;
+}
+
+#chartdiv6 {
+  width: 490px;
+  height:63px;
+}
+
+
+
+#chartdiv7 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv8 {
+    width: 100%;
+  height: 500px;
+}

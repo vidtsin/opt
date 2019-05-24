@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<odoo>
+
+        <record id="chart_of_accounts_import_view_qb" model="ir.ui.view">
+            <field name="name">chart.of.accounts.import.view.new.view</field>
+            <field name="model">chart.of.accounts.import</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Chart of Accounts">
+                    <h2>Select a chart of accounts file to import</h2>
+                    <field name="data_file" placeholder="Choose a file to import..."/>
+                    <footer>
+                        <button name="import_chart_of_accounts_file" string="_Import" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_chart_of_accounts_import_view_qb" model="ir.actions.act_window">
+            <field name="name">Import Chart of Accounts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">chart.of.accounts.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="chart_of_accounts_import_view_qb"/>
+        </record>
+
+        <menuitem id="quickbooks_menu_acc" name="QuickBooks Import" sequence = "9"  parent="account.menu_finance" groups="account.group_account_manager"/>
+        <menuitem id="quickbooks_chart_of_accounts_import_menu" name="Import Chart of Accounts" sequence = "1" action = "action_chart_of_accounts_import_view_qb" parent="quickbooks_menu_acc" groups="account.group_account_manager"/>
+
+
+</odoo>

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Thank You</title>
+</head>
+<body>
+<div id="wp" align="center" style="background-color:#ADD8E6">            
+            <form method="post" id="moc_data">
+               
+                 <table width ='100%'>
+                        <tr>
+                            <td style="height:50px"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align:center;">
+                                    <img src="https://cdn.jotfor.ms/img/check-icon.png" alt="" height="150" width="128"></img>
+                                </p>
+                                <h1 style="text-align: center;">Thank You!</h1>
+                            </td>
+                        </tr>
+                        
+                                            
+                        <tr>
+                            <td>
+                                <p style="text-align: center;">Your Transaction has been Approved.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:50px"></td>
+                        </tr>
+                        <tr style="height:500px">
+
+                        </tr>
+                        </table>
+
+            </form>
+       </div>
+</body>
+</html>

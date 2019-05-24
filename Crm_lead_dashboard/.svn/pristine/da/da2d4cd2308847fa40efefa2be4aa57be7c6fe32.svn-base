@@ -1,0 +1,183 @@
+odoo.define('pfs_Crm_lead_dashboard.dashboard', function (require) {
+"use strict";
+
+var core = require('web.core');
+var QWeb = core.qweb;
+
+var formats = require('web.formats');
+var session = require('web.session');
+//var WebClient = require('web.WebClient');
+var _t = core._t;
+var _lt = core._lt;
+var SalesTeamDashboardView = require('sales_team.dashboard');
+
+
+
+var lead_monthly_product=[];
+var lead_monthly_source=[];
+
+
+
+var SalesTeamDashboardView = SalesTeamDashboardView.include({
+
+    display_name: _lt('Dashboard'),
+    icon: 'fa-dashboard',
+    searchview_hidden: true,
+    events: {
+        'click .o_dashboard_action': 'on_dashboard_action_clicked',
+        'click .o_target_to_set': 'on_dashboard_target_clicked',
+            },
+
+    fetch_data: function() {
+
+        return new Model('crm.lead')
+            .call('retrieve_sales_dashboard', [], {context: this.session.user_context || {}});
+
+
+                },
+
+    monthleadproductFunction:function(){
+            var chart = AmCharts.makeChart("chartleadproduct", {
+            "type": "pie",
+             "theme": "light",
+            "dataProvider": lead_monthly_product,
+           "valueField": "count",
+            "titleField": "product_name",
+           "balloon":{
+           "fixedPosition":true
+          },
+
+                    });
+        },
+
+
+
+    monthleadsourceFunction:function(){
+            var chart = AmCharts.makeChart("chartleadsource", {
+            "type": "pie",
+             "theme": "light",
+            "dataProvider": lead_monthly_source,
+           "valueField": "count",
+            "titleField": "source_of_lead",
+           "balloon":{
+           "fixedPosition":true
+          },
+
+                    });
+        },
+
+
+
+
+
+
+
+
+
+
+
+    amcharts_leadmonthsource:function(){
+        var Model= require('web.Model');
+        var crm_model= new Model('crm.lead');
+        lead_monthly_source=[]
+        var self=this;
+        crm_model.call('retrieve_monthly_lead_source_data').then(function(result)
+        {
+
+          if (result == 'None')
+              {
+                lead_monthly_source=[]
+              }
+              else
+              {
+                  for (var i=0; result.length>i; i++)
+                    {
+                    console.log("-----------------------------------");
+                    console.log("%s",result[i]);
+//
+                    lead_monthly_source.push(result[i]);
+                    console.log(result[i]);
+//
+                  };
+                  console.log("----health opp");
+                  console.log(lead_monthly_product)
+              }
+
+                setTimeout(function() {self.monthleadsourceFunction();},300);
+
+            });
+        },
+
+
+
+    amcharts_leadmonthproduct:function(){
+        var Model= require('web.Model');
+        var crm_model= new Model('crm.lead');
+        lead_monthly_product=[]
+        var self=this;
+        crm_model.call('retrieve_monthly_lead_product_data').then(function(result)
+        {
+
+          if (result == 'None')
+              {
+                lead_monthly_product=[]
+              }
+              else
+              {
+                  for (var i=0; result.length>i; i++)
+                    {
+                    console.log("-----------------------------------");
+                    console.log("%s",result[i]);
+//
+                    lead_monthly_product.push(result[i]);
+                    console.log(result[i]);
+//
+                  };
+                  console.log("----health opp");
+                  console.log(lead_monthly_product)
+              }
+
+                setTimeout(function() {self.monthleadproductFunction();},300);
+
+            });
+        },
+
+
+
+
+
+
+
+    render: function() {
+        var super_render = this._super;
+        var self = this;
+        return this.fetch_data().then(function(result){
+
+            self.show_demo = result && result.nb_opportunities === 0;
+            var sales_dashboard = QWeb.render('sales_team.SalesDashboard', {
+                widget: self,
+                show_demo: self.show_demo,
+                values: result,
+            });
+            super_render.call(self);
+            $(sales_dashboard).prependTo(self.$el);
+            self.amcharts_leadmonthproduct();
+            self.amcharts_leadmonthsource();
+
+           });
+         },
+
+
+
+
+       });
+    });
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pfs_wizard_form_view" model="ir.ui.view">
+            <field name="name">pfs.wizard.form.view</field>
+            <field name="model">pfs.wizard</field>
+            <field name="arch" type="xml">
+                <form string="pfs wizard">
+
+                    <sheet>
+                        <group name=''>
+                            <group>
+                                <field name="recipient" required="1"/>
+                                <field name="subject"/>
+                                <!--<field name="phonno" />-->
+                                 <field name="body" widget="html"/>
+                                 <field name="template_use"/>
+                                  <!--context="{'default_body_html': body,'default_model':model,'default_subject':subject}"/>-->
+
+                            </group>
+                        </group>
+
+
+
+                        <footer>
+                             <button name="send_mail" class="btn btn-primary" string="Send" type="object"/>
+                        </footer>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_open_pfs_wizard" model="ir.actions.act_window">
+            <field name="name">pfs wizard</field>
+            <field name="res_model">pfs.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+         <!--<menuitem id="menu_open_pfs_wizard"-->
+                  <!--name="Create Student"  action="pfs_crm.action_open_pfs_wizard"  sequence="3"/>-->
+
+
+
+
+    </data>
+</odoo>

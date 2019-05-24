@@ -1,0 +1,15 @@
+<odoo>
+	<data>
+		<template id="mystyle_css" name="My style" inherit_id="website.assets_frontend">
+			<xpath expr="link[last()]" position="after">
+				<link type="text/css" href="/demo_module/static/css/style.css" />
+			</xpath>
+		</template>
+		<template id="my_js" inherit_id="website.assets_editor" name="My Js">
+			<xpath expr="script[last()]" position="after">
+				
+				<script type="text/javascript" src="/demo_module/static/js/pos.js" />
+			</xpath>
+		</template>
+	</data>
+</odoo>

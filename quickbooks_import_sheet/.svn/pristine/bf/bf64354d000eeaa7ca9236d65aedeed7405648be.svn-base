@@ -1,0 +1,28 @@
+<odoo>
+            <record id="customers_import_view_qb" model="ir.ui.view">
+            <field name="name">customers.import.view.new.view</field>
+            <field name="model">customers.import</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Customers">
+                    <h2>Select Customers file to import</h2>
+                    <field name="data_file" placeholder="Choose a file to import..."/>
+                    <footer>
+                        <button name="import_customers_file" string="_Import" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_customers_import_view_qb" model="ir.actions.act_window">
+            <field name="name">Import Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customers.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="customers_import_view_qb"/>
+        </record>
+        <menuitem id="quickbooks_customer_import_menu" name="Import Customers" action = "action_customers_import_view_qb" parent="quickbooks_menu_acc" groups="account.group_account_manager"/>
+</odoo>

@@ -1,0 +1,192 @@
+<openerp>
+  <data>
+  <!-- Clean Up of Menu Items-->
+    <menuitem name="Bookings" id="sure_book.menu_root" web_icon="sure_book,static/description/icon2.png" sequence="1"/>
+    <!--<menuitem id="mail.menu_contacts" parent="base.menu_base_partner" name="Contacts"/>-->
+    <menuitem id="mail.mail_channel_menu_root_chat" parent="sure_book.menu_root" name="Messaging" sequence="30"/>
+    <!--<menuitem id="product.menu_product_template_action" parent="sure_book.menu_root" name="Rooms" sequence="30"/>-->
+    <menuitem id="base.menu_management" parent="base.menu_administration" name="Apps"/>
+    <!--<menuitem id="stock.menu_stock_root" name="Stock Management" web_icon="sure_book,static/description/bag.png" sequence="5"/>-->
+    <menuitem id="point_of_sale.menu_point_root" web_icon="sure_book,static/description/card.png" name="Point Of Sale"/>
+
+<!-- ROOMS-->
+
+
+        <!-- templates -->
+
+        <record id="room_template_search_view" model="ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search string="Room">
+                    <field name="name" string="Product" filter_domain="['|',('default_code','ilike',self),('name','ilike',self)]"/>
+                    <separator/>
+                    <filter string="Room" name="is_a_room" domain="[('is_a_room','=',True)]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="room_template_tree_view" model="ir.ui.view">
+            <field name="name">product.template.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <tree string="Room">
+                    <field name="name"/>
+                    <field name="standard_price"/>
+                    <field name="categ_id"/>
+                    <field name="type"/>
+                    <!--<field name="state" invisible="1"/>not in 10-->
+                    <field name="uom_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="room_template_only_form_view" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+<!--             <field name="mode">primary</field>
+            <field name="priority" eval="8" /> -->
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="name">Room Template</attribute>
+                </xpath>
+                
+<!--                <field name="type" position="after">
+                    <field name="is_a_room"/>
+                </field>-->
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="string">Room Name</attribute>
+		    <attribute name="placeholder">Room Name</attribute>
+		    <attribute name="required">True</attribute>
+    		</xpath>
+    		<xpath expr="//field[@name='sale_ok']" position="attributes">
+                    <attribute name="string">Can be Rented</attribute>
+                    <attribute name="invisible">True</attribute>
+   		</xpath>
+<!--    		<xpath expr="//field[@name='invoice_policy']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+   		</xpath> -->
+<!--    		<xpath expr="//field[@name='warranty']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+   		</xpath> -->
+              <!--   <div name="button_box" position="inside">
+                    <button name="%(product.product_variant_action)d" type="action"
+                        icon="fa-sitemap" class="oe_stat_button"
+                        attrs="{'invisible': [('product_variant_count', '&lt;=', 1)]}"
+                        groups="product.group_product_variant">
+                        <field string="Variants" name="product_variant_count" widget="statinfo" />
+                    </button>
+                </div>
+
+                <xpath expr="//page[@name='sales']" position="after">
+                    <page name="variants" string="Beds" groups="product.group_product_variant">
+                        <field name="attribute_line_ids" widget="one2many_list" context="{'show_attribute': False}">
+                            <tree string="Beds" editable="bottom">
+                                <field name="attribute_id"/>
+                                <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                            </tree>
+                        </field>
+                            <p class="oe_grey">
+                            <strong>Warning</strong>: adding or deleting beds
+                            will delete and recreate existing beds and lead
+                            to the loss of their possible customizations.
+                        </p>
+                    </page>
+                </xpath> -->
+                <!--<xpath expr="//page[2]" position="attributes">
+		    <attribute name="invisible">True</attribute>
+		</xpath>
+		<xpath expr="//page[3]" position="attributes">
+		    <attribute name="invisible">True</attribute>
+		</xpath>
+                <xpath expr="//page[4]" position="attributes">
+		    <attribute name="invisible">True</attribute>
+		</xpath>-->
+            </field>
+        </record>
+
+        <record id="room_template_kanban_view" model="ir.ui.view">
+            <field name="name">Product.template.product.kanban</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="image_small"/>
+                    <field name="lst_price"/>
+                    <!--<field name="is_product_variant"/>not in 10-->
+                    <field name="product_variant_count"/>
+                    <field name="product_variant_ids"/>
+                    <field name="currency_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('product.template', 'image_small', record.id.value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <span t-if="record.default_code.value">[<field name="default_code"/>]</span>
+                                        <field name="name"/>
+                                    </strong>
+                                    <div t-if="record.product_variant_count.value &gt; 1">
+                                        <strong>
+                                            <t t-esc="record.product_variant_count.value"/> Variants
+                                        </strong>
+                                    </div>
+                                    <div name="tags"/>
+                                    <ul>
+                                        <li>Price: <field name="lst_price" widget="monetary"></field></li>
+                                    </ul>
+                                    <div name="tags"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="room_template_action" model="ir.actions.act_window">
+            <field name="name">Rooms</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="room_template_kanban_view"/>
+            <field name="context">{"search_default_is_a_room": 1, "default_room_acc":True}</field>
+            <field name="domain">['|',('is_a_room', '=', True),('is_dorm', '=', True)]</field> <!-- Domain for products of room and dorm type -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new Room.
+                </p><p>
+                    You must define a Room for everything you sell, whether it's a physical product, a consumable or a service you offer to  customers.               
+                </p><p>
+                    The Room form contains information to simplify the sale process: price, notes in the quotation, accounting data, procurement methods, etc.
+                </p>
+            </field>
+        </record>
+
+        <record id="room_template_action_product" model="ir.actions.act_window">
+            <field name="name">Rooms</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="context">{"search_default_is_a_room": 1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new Room.
+                </p>
+            </field>
+        </record>
+
+        
+        <menuitem action="room_template_action" 
+            id="menu_room_template_action"
+            parent="sure_book.menu_root" sequence="100" />
+            
+  </data>
+</openerp>

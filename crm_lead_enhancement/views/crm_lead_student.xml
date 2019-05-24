@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+
+
+
+
+
+        <record id="crm_lead_student_view" model="ir.ui.view">
+            <field name="name">crm.lead.student</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+
+                 <xpath expr="//field[@name='street2']" position="after">
+
+                 <field name="unit_apt" placeholder="Unit/Apt(Optional)"/>
+                 </xpath>
+
+
+
+
+
+                <xpath expr="//field[@name='phone']" position="after">
+
+                  <field name="cell_number"  placeholder="Mobile No"/>
+                  <field name="gender" placeholder="Gender"/>
+                 </xpath>
+
+
+                <xpath expr="//field[@name='priority']" position="before">
+                    <field name="dob" placeholder="Date of Birth" />
+                </xpath>
+
+
+                <xpath expr="//field[@name='team_id']" position="after">
+
+                         <field name="select_button"  widget="radio"/>
+
+                </xpath>
+
+                 <xpath expr="//notebook/page[@name='extra']" position="inside">
+                    <page name="agent_details" string="Agent Details">
+                        <group>
+                         <group name="knowledge_computers" string="Knowledge of Computers">
+                                  <field name="knowledge_computers"  widget="radio"/>
+                        </group>
+                        <group name="knowledge_english" string="Knowledge of English">
+                                  <field name="knowledge_english"  widget="radio"/>
+                        </group>
+
+                             <group name="program" colspan="4" string="Program Selection">
+                            <field name="program_id_1" colspan="4" placeholder="1st Choice "/>
+                            <field name="start_date_1"  placeholder="Start Date 1 "/>
+                            <field name="program_id_2" colspan="4" placeholder="2nd Choice "/>
+                            <field name="start_date_2" placeholder="Start Date 2 "/>
+                            <field name="program_id_3" colspan="4" placeholder="3rd Choice "/>
+                            <field name="start_date_3" placeholder="Start Date 3 "/>
+                         </group>
+
+
+
+                        <group  name="hear_about1" string="How did you hear about us">
+                                <field name="google" />
+                                <field name="facebook" />
+                                <field name="radio" />
+                                <field name="tv" />
+                                <field name="jobfair" />
+                                <label for="newspaper"></label>
+                                <div class="o_row">
+                                    <field name="newspaper" />
+                                    <field name="hear_about_newspaper" placeholder="Specify Newspaper Name"/>
+                                </div>
+                                <label for="other_hear" ></label>
+                                <div class ="o_row">
+                                    <field name="other_hear" />
+                                    <field name="hear_about_other" placeholder="Specify other Name"/>
+                                </div>
+                            </group>
+
+                        </group>
+
+                    </page>
+                 </xpath>
+
+
+
+     <!--Domestic Student;-->
+
+                <xpath expr="//notebook/page[2]" position="after">
+                    <page name="Domestic Student" string="Domestic Student" attrs="{'invisible': [('select_button', 'in', ['international_student','registered_student'])]}">
+
+                        <group>
+                             <field name="occupation" placeholder="Occupation"/>
+                        </group>
+                        <group>
+                        <group name="residency" string="Residency Status">
+                            <label for="residency_status"></label>
+                            <div class="o_row">
+                                  <field name="residency_status"  widget="radio"/>
+                                  <field name="residency_status_specify" placeholder="Please Specify"/>
+                            </div>
+                        </group>
+
+                         <group name="qualification" string="Highest Qualification">
+                            <label for="highest_qualification"></label>
+                            <div class="o_row">
+                                  <field name="highest_qualification" />
+                                  <field name="field_of_study" placeholder="Field Of Study"/>
+                            </div>
+                        </group>
+
+                        <!--<group name="knowledge_computers" string="Knowledge of Computers">-->
+                                  <!--<field name="knowledge_computers"  widget="radio"/>-->
+                        <!--</group>-->
+                        <!--<group name="knowledge_english" string="Knowledge of English">-->
+                                  <!--<field name="knowledge_english"  widget="radio"/>-->
+                        <!--</group>-->
+
+                         <group name="course_time" string="Course Time Preference">
+                                  <field name="course_time_preference_first" placeholder="First Priority"/>
+                                  <field name="course_time_preference_second" placeholder="Second Priority"/>
+                         </group>
+
+                         <group name="program_id"  colspan="4" string="Which Program/Course are you applying for?">
+                                  <field name="program_id" nolabel="1" />
+                        </group>
+
+
+
+                         <group name="referral_name" string="Referral">
+                             <field name="referral_name" nolabel="1" placeholder="Name of the Referral"/><br/>
+                                  <field name="referral_phone" nolabel="1" placeholder="Phone"/>
+                         </group>
+                         </group>
+                    </page>
+
+
+    <!--International Student -->
+
+
+                <page name="International Student" string="International Student" attrs="{'invisible': [('select_button', 'in', ['domestic_student','registered_student'])]}">
+                <group>
+                        <group>
+                            <field name="name_as_passport" placeholder="Passport Name "/>
+                            <field name="nationality" placeholder="Nationality "/>
+                        </group>
+
+                        <group name="apply01" string="Applied Before BizTech College ">
+                            <label for="apply_check"></label>
+                                <div class="o_row">
+                            <field name="apply_check" widget="radio" />
+                            <field name="student_id" placeholder="Specify Student Id " />
+                            </div>
+                        </group>
+
+                        <group name="address01" string="Current Mailing Address ">
+
+                            <field name="same_as_above"  />
+                            <label for="curr_street_name"></label>
+                                <div class="o_row">
+                                <field name="curr_street_name" placeholder="Stree Name And Number* " />
+                                <field name="curr_unit_apt" placeholder="Unit/Apt(Optional) " />
+                            </div>
+                             <label for="country_id"></label>
+                                <div class="o_row">
+                            <field name="curr_country_id" placeholder="Country " />
+                            <field name="curr_state_id" placeholder="State" />
+                                </div>
+                            <label for="city"></label>
+                                <div class="o_row">
+                            <field name="curr_city_id" placeholder="City " />
+                            <field name="curr_postal_code" placeholder="Postal Code* " />
+                                </div>
+                            <field name="curr_home_telephone_number" placeholder="Telephone Number* " />
+                            <field name="curr_cell_number" placeholder="Cell Number*" />
+
+                        </group>
+
+
+
+
+                         <group string="Educational Background" colspan="4">
+                           <field name="ref_education" nolabel="1" placeholder="Qualification " >
+                                <tree string="Add Qualification" editable="bottom" >
+                                    <field name="from_year"/>
+                                    <field name="to_year"/>
+                                    <field name="institution_name"/>
+                                    <field name="qualifications"/>
+                                    <field name="file"/>
+
+                                </tree>
+                           </field>
+                      </group>
+
+
+                        <group name="etest" string="English Language Test">
+                              <label for="eng_lang_test_name"></label>
+                            <div class="o_row">
+                                     <field name="eng_lang_test_name"/>
+                                     <field name="eng_lang_date_taken" placeholder="Date Taken"/>
+                            </div>
+                                     <field name="eng_lang_total_score" placeholder="Total Score "/>
+                             <label for="eng_lang_country" ></label>
+                                 <div class ="o_row">
+                                      <field name="eng_lang_city" placeholder="City "/>
+                                     <field name="eng_lang_country" placeholder="Country "/>
+                                 </div>
+                             <field name="eng_score_doc_id" placeholder="Score Report "/>
+                        </group>
+
+                        <group name="agent" string="Agent Information">
+                                     <field name="agent_name" placeholder="Agent Name "/>
+                                     <field name="agent_id" placeholder="Agent ID "/>
+                        </group>
+
+
+                        <group name="iddoc" string="Identification Documents">
+
+                             <field name="photograph_id" />
+                            <field name="iddocids">
+                            <tree string="Identification Documents" editable="bottom">
+                                <field name="identification_doc_id" />
+                                </tree>
+                            </field>
+                        </group>
+
+
+
+
+                </group>
+                </page>
+
+    <!--Register Agent-->
+
+
+                <page name="Registered Agent" string="Registered Agent" attrs="{'invisible': [('select_button', 'in', ['domestic_student','international_student'])]}" >
+                 <group>
+
+                        <group name="aregis1" string="AGENT INFORMATION">
+                             <field name="agency_name" placeholder="Name of the Agency"/>
+                             <field name="contact_name" placeholder="Contact's Full Name"/>
+                             <field name="contact_email" placeholder="Contact's Email"/>
+                             <field name="contact_home_number" placeholder="Contact's Home Number"/>
+                        </group>
+
+                      <group name="" string="Personal INFORMATION">>
+                            <field name="name_as_passport" placeholder="Passport Name "/>
+                            <field name="country_residence" placeholder="Country Residence "/>
+                            <field name="nationality" placeholder="Nationality "/>
+                        </group>
+
+
+                        <group name="apply01" string="Applied Before BizTech College ">
+                            <label for="apply_check"></label>
+                                <div class="o_row">
+                            <field name="apply_check" widget="radio" />
+                            <field name="student_id" placeholder="Specify Student Id " />
+                            </div>
+                        </group>
+
+
+                         <group name="address01" string="Current Mailing Address ">
+
+                            <field name="same_as_above"  />
+                            <label for="curr_street_name"></label>
+                                <div class="o_row">
+                                <field name="curr_street_name" placeholder="Stree Name And Number* " />
+                                <field name="curr_unit_apt" placeholder="Unit/Apt(Optional) " />
+                            </div>
+                             <label for="curr_country_id"></label>
+                                <div class="o_row">
+                            <field name="curr_country_id" placeholder="Country " />
+                            <field name="curr_state_id" placeholder="State" />
+                                </div>
+                            <label for="curr_city_id"></label>
+                                <div class="o_row">
+                            <field name="curr_city_id" placeholder="City " />
+                            <field name="curr_postal_code" placeholder="Postal Code* " />
+                                </div>
+                            <field name="curr_home_telephone_number" placeholder="Telephone Number* " />
+                            <field name="curr_cell_number" placeholder="Cell Number*" />
+
+                        </group>
+
+
+                      <group string="Educational Background" colspan="4">
+                           <field name="ref_education" nolabel="1" placeholder="Qualification " >
+                                <tree string="Add Qualification" editable="bottom" >
+                                    <field name="from_year"/>
+                                    <field name="to_year"/>
+                                    <field name="institution_name"/>
+                                    <field name="qualifications"/>
+                                    <field name="file"/>
+
+                                </tree>
+                           </field>
+                      </group>
+
+
+
+
+                       <group name="etest" string="English Language Test">
+                              <label for="eng_lang_test_name"></label>
+                            <div class="o_row">
+                                     <field name="eng_lang_test_name"/>
+                                     <field name="eng_lang_date_taken" placeholder="Date Taken"/>
+                            </div>
+                                     <field name="eng_lang_total_score" placeholder="Total Score "/>
+                             <label for="eng_lang_country" ></label>
+                                 <div class ="o_row">
+                                      <field name="eng_lang_city" placeholder="City "/>
+                                     <field name="eng_lang_country" placeholder="Country "/>
+                                 </div>
+                             <field name="eng_score_doc_id" placeholder="Score Report "/>
+                        </group>
+
+
+                        <group name="agent1" string="Agent Information">
+                             <field name="agent_name" placeholder="Agent Name "/>
+                             <field name="agent_id" placeholder="Agent ID "/>
+                        </group>
+
+
+                        <group name="iddoc" string="Identification Documents">
+                             <field name="photograph_id" />
+                            <field name="iddocids">
+                            <tree string="Identification Documents" editable="bottom">
+                                <field name="identification_doc_id" />
+                                </tree>
+                            </field>
+                        </group>
+
+
+                 </group>
+                 </page>
+
+                 </xpath>
+            </field>
+        </record>
+
+
+
+          <record id="res_partner_agent_details" model="ir.ui.view">
+            <field name="name">res.partner.agent</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                       <xpath expr="//field[@name='category_id']" position="after">
+
+                         <field name="select_button" string="Is a Agent"/>
+
+                </xpath>
+
+                           <!--<xpath expr="//notebook/page[@name='accounting']" position="replace">-->
+                       <!--<page string="Accounting" name="accounting" attrs="{'invisible': ['|','&amp;',('select_button','=',True),('is_company','=',False),('parent_id','!=',False)]}">-->
+                    <!--<group>-->
+                        <!--<group string="Sale" name="acc_sale">-->
+                            <!--<field name="property_payment_term_id" widget="selection"/>-->
+                            <!--<field name="credit" groups="base.group_no_one"/>-->
+                            <!--<field name="trust"/>-->
+                        <!--</group>-->
+                        <!--<group string="Purchase" name="acc_purchase">-->
+                            <!--<field name="property_supplier_payment_term_id" widget="selection"/>-->
+                            <!--<field name="debit" groups="base.group_no_one"/>-->
+                            <!--<field name="currency_id" invisible="1"/>-->
+                        <!--</group>-->
+                        <!--<group string="Fiscal Information" name="fiscal_information">-->
+                            <!--<field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"/>-->
+                        <!--</group>-->
+                        <!--<group string="Accounting Entries" name="accounting_entries" groups="account.group_account_manager">-->
+                            <!--<field name="property_account_receivable_id"/>-->
+                            <!--<field name="property_account_payable_id"/>-->
+                        <!--</group>-->
+                    <!--</group>-->
+                <!--</page>-->
+
+                    <!--</xpath>-->
+ <!--<xpath expr="//notebook/page[@name='accounting_disabled']" position="replace">-->
+                <!--<page string="Accounting" name="accounting_disabled" attrs="{'invisible': ['|','|',('is_company','=',True),('parent_id','=',False),('select_button','=',True)]}">-->
+                    <!--<div>-->
+                        <!--<p>Accounting-related settings are managed on <button name="open_commercial_entity" type="object" string="the parent company" class="oe_link"/></p>-->
+                    <!--</div>-->
+                <!--</page>-->
+ <!--</xpath>-->
+                             <!--<xpath expr="//notebook/page[@name='sales_purchases']" position="attributes">-->
+                        <!--<attribute name="invisible">1</attribute>-->
+                    <!--</xpath>-->
+
+                <xpath expr="//notebook/page[@name='internal_notes']" position="after" attrs="{'invisible': [('select_button', 'in', ['sales_purchases','accounting'])]}">
+                    <page name="Agent Details" string="Agent Details    ">
+
+                            <group>
+                            <group name="full_name" string="Agent Information">
+                                 <field name="full_name" placeholder="Full Name"/>
+                                </group>
+                            <group name="agent_contact" string="Contact details">
+                               <label for="email"></label>
+                                  <div class="o_row">
+                                 <field name="email" placeholder="Email"/>
+                                 <field name="phone_number" placeholder="Phone Number"/>
+                                  </div>
+                            </group>
+                                <group name="agent_detail" string="How long have you" colspan="4">
+                                       <field name="agency_name" nolabel="1" placeholder="Worked in the Immigration"/>
+                                       <field name="assist_int_students" nolabel="1" placeholder="been assisting International Student"/>
+                                       <field name="designation" nolabel="1" placeholder="What are your designation/Credential"/>
+                                </group>
+
+
+                            <group name="head_office" colspan="4" string="Are you registered to function as an education agency or business?">
+                                  <field name="head_office" nolabel="1" placeholder="Head office, Location of other office"/>
+                             </group>
+                            <group name="partner_sub_agencies" colspan="4" string="Do you have partnerships with sub-agencies?">
+                                  <field name="partner_sub_agencies" nolabel="1" placeholder="Specify"/>
+                             </group>
+                            <group name="recruit_post_secondary" colspan="4" string="How does your agency recruit post-secondary applicants?">
+                                  <field name="recruit_post_secondary" nolabel="1" placeholder="Specify tool used"/>
+                             </group>
+                            <group name="assist_last_year" colspan="4" string="How many students did you assist last year?">
+                                  <field name="assist_last_year" nolabel="1" placeholder="Number"/>
+                             </group>
+                            <group name="stu_sent_overseas" colspan="4" string="How many students were successfully sent overseas last year?">
+                                  <field name="stu_sent_overseas" nolabel="1" placeholder="Number/ Percentage"/>
+                             </group>
+                            <group name="country_send_stu_to" colspan="4" string="Which countries did you send students to?">
+                                  <field name="country_send_stu_to" nolabel="1" placeholder="Countries"/>
+                             </group>
+                             <group name="programs_interest" colspan="4" string="Which programs are of particular interest?">
+                                  <field name="programs_interest" nolabel="1" placeholder="Specify order" />
+                             </group>
+                             <group name="stu_anticipate_annually" colspan="4" string="How many students do you anticipate sending to us annually?">
+                                  <field name="stu_anticipate_annually" nolabel="1" />
+                             </group>
+
+
+                            <group name="familiar_permit_requirements" colspan="4" string="Are you familiar with Canada Study Permit requirements?">
+                                  <field name="familiar_permit_requirements" widget="radio" nolabel="1" />
+                             </group>
+                            <group name="edu_counselling_stu" colspan="4" string="Does your business belong to recognized, governing bodies concerning education counselling/student recruitment? ">
+                                  <field name="edu_counselling_stu" nolabel="1" />
+                             </group>
+
+
+
+
+                             <group name=""  string="Services Provided">
+                                           <field name="pro_coun" />
+                                           <field name="gath_req" />
+                                           <field name="pre_sub" />
+                                           <field name="gui_app" />
+                                           <field name="permit_pre" />
+                                           <field name="pre_ser" />
+                                           <field name="sou_gov" />
+                                           <field name="esl_test" />
+                             </group>
+                             <group name="hear_about" string="Is there assistance for students obtaining the following">
+                                           <field name="housing" />
+                                           <field name="med_ins" />
+                                           <field name="trav_iti" />
+                                           <field name="can_arr" />
+                                        <label for="esl_test"></label>
+                                        <div class="o_row">
+                                       <field name="esl_test" />
+                                       <field name="other_services_available" placeholder="Details"/>
+                                        </div>
+                                   </group>
+                                 <group name="stu_package_cost" colspan="4" string="Do you charge a fee for these services? Are students offered a package cost or are all fees separate? ">
+                                  <field name="stu_package_cost"  nolabel="1"/>
+                             </group>
+                             <group name="service_beside_recruit" colspan="4" string="Does your agency offer other services besides recruitment/education counselling ">
+                                  <field name="service_beside_recruit" nolabel="1" />
+                             </group>
+                                <group  name="hear_about1" string="How did you hear about us">
+                                       <field name="google" />
+                                       <field name="facebook" />
+                                       <field name="radio" />
+                                       <field name="tv" />
+                                       <field name="jobfair" />
+                                       <label for="newspaper"></label>
+                                       <div class="o_row">
+                                           <field name="newspaper" />
+                                           <field name="hear_about_newspaper" placeholder="Specify Newspaper Name"/>
+                                       </div>
+                                       <label for="other_hear" ></label>
+                                       <div class ="o_row">
+                                           <field name="other_hear" />
+                                           <field name="hear_about_other" placeholder="Specify other Name"/>
+                                       </div>
+                                   </group>
+
+                                <group string="References" colspan="4">
+                                  <field name="ref_contact" nolabel="1" placeholder="References 2 " >
+                                       <tree string="References" editable="bottom" >
+                                           <field name="ref_contact_name"/>
+                                           <field name="ref_position"/>
+                                           <field name="ref_agency"/>
+                                           <field name="ref_address"/>
+                                           <field name="ref_phone_number"/>
+                                           <field name="ref_fax_number"/>
+                                           <field name="ref_website"/>
+                                           <field name="ref_email"/>
+                                           <field name="ref_years_known"/>
+                                       </tree>
+                                  </field>
+                             </group>
+                                 <group string="Marketing Strategy" colspan="4">
+                                  <field name="marketing_strategy" nolabel="1" placeholder="Marketing Strategy" />
+                             </group>
+                             <group name="business_doc_id" colspan="4" string="Records of Excellence and Good Standing">
+                                  <field name="bussinessdocids" >
+                                      <tree string="Records of Excellence and Good Standing" editable="bottom">
+                                        <field name="business_doc_id"/>
+                                      </tree>
+                                  </field>
+                             </group>
+                        </group>
+
+
+
+
+
+
+
+                    </page>
+                </xpath>
+            </field>
+          </record>
+
+
+
+
+
+        <record id="account.view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+
+                           <xpath expr="//notebook/page[@name='sales_purchases']" position="after">
+                       <page string="Accounting" name="accounting" attrs="{'invisible': ['|','|',('is_company','=',False),('parent_id','!=',False),('select_button','=',True)]}">
+                    <group>
+                        <group string="Sale" name="acc_sale">
+                            <field name="property_payment_term_id" widget="selection"/>
+                            <field name="credit" groups="base.group_no_one"/>
+                            <field name="trust"/>
+                        </group>
+                        <group string="Purchase" name="acc_purchase">
+                            <field name="property_supplier_payment_term_id" widget="selection"/>
+                            <field name="debit" groups="base.group_no_one"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Fiscal Information" name="fiscal_information">
+                            <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group string="Accounting Entries" name="accounting_entries" groups="account.group_account_manager">
+                            <field name="property_account_receivable_id"/>
+                            <field name="property_account_payable_id"/>
+                        </group>
+                    </group>
+                </page>
+<page string="Accounting" name="accounting_disabled" attrs="{'invisible': ['|','|',('is_company','=',True),('parent_id','=',False),('select_button','=',True)]}">
+                                    <div>
+                                        <p>Accounting-related settings are managed on <button name="open_commercial_entity" type="object" string="the parent company" class="oe_link"/></p>
+                                    </div>
+                                </page>
+                    </xpath>
+
+            </field>
+        </record>
+
+
+
+        <record id="view_partner_crm_form" model="ir.ui.view">
+            <field name="name">res.partner.crm.form</field>
+            <field name="model">res.partner</field>
+
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+
+                       <xpath expr="//notebook/page[@name='sales_purchases']" position="replace">
+                            <page name='sales_purchases' string="Sales &amp; Purchases" attrs="{'invisible': [('select_button','=',True)]}">
+                            <group name="container_row_2">
+                                <group string="Sale" name="sale">
+                                    <field name="customer"/>
+                                    <field name="user_id"/>
+                                </group>
+                                <group string="Purchase" name="purchase">
+                                    <field name="supplier"/>
+                                </group>
+                                <group string="Misc">
+                                    <field name="ref"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                       </xpath>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

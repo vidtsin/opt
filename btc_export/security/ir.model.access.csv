@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_level,res.partner.level,model_res_partner_level,,1,1,1,1
+access_res_partner_active,res.partner.active,model_res_partner_active,,1,1,1,1
+access_x_programs_data,x.programs,model_x_programs,,1,1,1,1
+access_btc_ir_attach,btc.ir.attach,model_btc_ir_attach,,1,1,1,1
+access_btc_mail_messages,btc.mail.messages,model_btc_mail_messages,,1,1,1,1
+access_wizard_export_lead,wizard.lead.import,model_wizard_lead_import,,1,1,1,1
+access_wizard_prospect,wizard.prospect,model_wizard_prospect,,1,1,1,1
+access_wizard_prospect,wizard.prospect.new,model_wizard_prospect,,1,1,1,1
+access_wizard_res_import,wizard.res.import,model_wizard_res_import,,1,1,1,1
+access_wizard_prospect,wizard.user,model_wizard_prospect,,1,1,1,1

@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<odoo>
+
+
+    <record id="crm_case_form_view_oppor_1" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]" position="after">
+                     <page name="activities" string="Activities">
+                            <field name="activity_ids" string="Activities">
+                                <tree string="Activities">
+                                    <field name="crm_activity_id" />
+                                    <field name="date_action" />
+                                    <field name="time"/>
+                                    <field name="title_action" />
+                                    <field name="outcome" readonly="1"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
+                     </page>
+                 </xpath>
+            </field>
+        </record>
+
+
+
+
+
+    <record id="crm_case_form_view_leads_1" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='extra']" position="after">
+                     <page name="activities" string="Activities">
+                            <field name="activity_ids" string="Activities" context="{'user_id': user_id}">
+                                <tree string="Activities">
+                                    <field name="crm_activity_id" required="1"/>
+                                    <field name="date_action" required="1"/>
+                                    <field name="time"/>
+                                    <field name="title_action" required="1"/>
+                                    <field name="outcome" readonly="1"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
+                     </page>
+
+                 </xpath>
+            </field>
+    </record>
+
+
+
+
+
+        <!--<record id="crm_activities_form" model="ir.ui.view">-->
+            <!--<field name="name">crm.activities.form</field>-->
+            <!--<field name="model">crm.activities</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Crm Activity Outcome" create="false">-->
+                    <!--<group colspan="2">-->
+                        <!--<field name="outcome" required="1" attrs="{'readonly': [('state', '!=', 'open')],'required': [('state', '=', 'open')]}"/>-->
+                        <!--<field name="state" invisible="1"/>-->
+                    <!--</group>-->
+                    <!--<footer>-->
+
+                      <!--<button string="Mark as Done" name="mark_activity_done" type="object" states="open"/>-->
+                      <!--<button string="Mark as Cancelled" name="mark_activity_cancelled" type="object" states="open"/>-->
+                  <!--</footer>-->
+                <!--</form>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+
+
+    <record id="crm_activities_menu_form" model="ir.ui.view">
+            <field name="name">crm.activities.menu.form</field>
+            <field name="model">crm.activities</field>
+            <field name="arch" type="xml">
+                <form string="Crm Activities" create="false">
+                    <header>
+                      <button string="Mark as Done" name="mark_activity_done" type="object"  attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                      <button string="Mark as Cancelled" name="mark_activity_cancelled" type="object" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                      <field name="state" widget="statusbar" statusbar_visible="open,done,cancelled" readonly="1"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="crm_lead_id" readonly="1" attrs="{'invisible': [('crm_lead_id', '=', False)]}"/>
+                            <field name="crm_activity_id" attrs="{'readonly': [('state', '!=', 'open')]}"/>
+                            <field name="outcome" attrs="{'readonly': [('state', '!=', 'open')],'invisible': [('crm_activity_id', '=', False)]}" />
+                        </group>
+                        <group>
+                            <field name="date_action" attrs="{'readonly': [('state', '!=', 'open')]}"/>
+                            <label for="hours"></label>
+                                <div class="o_row">
+                                  <field name="hours" attrs="{'readonly': [('state', '!=', 'open')]}"/>:
+                                    <field name="mins" attrs="{'readonly': [('state', '!=', 'open')]}"/>
+                                </div>
+                            <field name="time" readonly="1" invisible="1"/>
+                            <field name="title_action"  attrs="{'readonly': [('state', '!=', 'open')]}"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="crm_activities_menu_tree" model="ir.ui.view">
+            <field name="name">crm.activities.menu.tree</field>
+            <field name="model">crm.activities</field>
+            <field name="arch" type="xml">
+                <tree string="Crm Activities" create="false" edit="false">
+                            <field name="crm_lead_id"/>
+                            <field name="crm_activity_id"/>
+                            <field name="outcome"/>
+                            <field name="date_action"/>
+                            <field name="time"/>
+                            <field name="title_action"/>
+                            <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="crm_activities_search_form_view" model="ir.ui.view">
+        <field name="name">crm.activities.search.form</field>
+        <field name="model">crm.activities</field>
+   	     <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Activity">
+                <filter name="today" string="Today's Activities to do"
+            domain="[('date_action','>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))),('date_action','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59))),('state','=','open')]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="crm_lead_activities_action" model="ir.actions.act_window">
+            <field name="name">Activities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.activities</field>
+            <field name="view_mode"> tree,form</field>
+            <field name="search_view_id" ref="crm_activities_search_form_view"/>
+            <field name="context">{"search_default_today":1}</field>
+            <field name="domain">[('crm_lead_id.user_id','=',uid)]</field>
+            <field name="view_id" ref="crm_activities_menu_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_crm_activities_tree">
+     <field name="sequence" eval="1"/>
+     <field name="view_mode">tree</field>
+     <field name="view_id" ref="crm_activities_menu_tree"/>
+     <field name="act_window_id" ref="crm_lead_activities_action"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_crm_activities_form">
+     <field name="sequence" eval="2"/>
+     <field name="view_mode">form</field>
+     <field name="view_id" ref="crm_activities_menu_form"/>
+     <field name="act_window_id" ref="crm_lead_activities_action"/>
+    </record>
+
+    <menuitem
+            id="crm_lead_activities_menu"
+            name="Activities"
+            parent="sales_team.menu_sales"
+            sequence="5"
+            action="crm_lead_activities_action" />
+
+
+</odoo>

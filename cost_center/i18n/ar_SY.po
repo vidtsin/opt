@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cost_center
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20170706\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-19 06:41+0000\n"
+"PO-Revision-Date: 2017-12-19 06:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cost_center
+#: model:ir.model.fields,field_description:cost_center.field_donation_donation_admin_id
+msgid "Admin User"
+msgstr "مستخدم المشرف"
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:172
+#, python-format
+msgid "Cannot validate the donation of %s because it doesn't have any lines!"
+msgstr "لا يمكن التحقق من صحة التبرع %s لأنه ليس لديها أي خطوط!"
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:184
+#, python-format
+msgid "Cannot validate the donation of %s because it is not in draft state."
+msgstr "لا يمكن التحقق من صحة التبرع %s لأنه ليس في حالة مشروع."
+
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:179
+#, python-format
+msgid "Cannot validate the donation of %s because the total amount is 0 !"
+msgstr "لا يمكن التحقق من صحة التبرع %s لأن المبلغ الإجمالي هو 0!"
+
+#. module: cost_center
+#: model:ir.model.fields,field_description:cost_center.field_donation_line_cost_core
+#: model:ir.model.fields,field_description:cost_center.field_product_product_cost_core
+#: model:ir.model.fields,field_description:cost_center.field_product_template_cost_core
+msgid "Cost Center"
+msgstr "مركز تحميل التكلفة"
+
+#. module: cost_center
+#: model:ir.model.fields,field_description:cost_center.field_donation_line_core_dept
+#: model:ir.model.fields,field_description:cost_center.field_product_product_core_dept
+#: model:ir.model.fields,field_description:cost_center.field_product_template_core_dept
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: cost_center
+#: model:ir.actions.report.xml,name:cost_center.report_donation_print_and_save
+#: model:ir.model,name:cost_center.model_donation_donation
+msgid "Donation"
+msgstr "التبرع"
+
+#. module: cost_center
+#: model:ir.model,name:cost_center.model_donation_line
+msgid "Donation Lines"
+msgstr "تفاصيل التبرع"
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:209
+#, python-format
+msgid "Full in-kind donation: no account move generated"
+msgstr "التبرع العيني الكامل: أي تحرك حساب ولدت"
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:38
+#, python-format
+msgid "Missing Default Debit Account on journal '%s'."
+msgstr "حساب الخصم الافتراضي المفقود في المجلة '%s'."
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:71
+#, python-format
+msgid "Missing income account on product '%s' or on it's related product category"
+msgstr "حساب الدخل المفقود على المنتج '%s' أو على فئة المنتج ذات الصلة"
+
+#. module: cost_center
+#: model:ir.model,name:cost_center.model_product_product
+msgid "Product"
+msgstr "المنتجات"
+
+#. module: cost_center
+#: model:ir.model,name:cost_center.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتجات"
+
+#. module: cost_center
+#: model:ir.model.fields,field_description:cost_center.field_donation_donation_user_id
+msgid "Related User"
+msgstr "المستخدم ذات الصلة"
+
+#. module: cost_center
+#: model:ir.model.fields,field_description:cost_center.field_donation_donation_core_sections
+msgid "Section"
+msgstr "الموضف"
+
+#. module: cost_center
+#: code:addons/cost_center/models/cost_center_product.py:191
+#, python-format
+msgid "The amount of the donation of %s (%s) is different from the sum of the donation lines (%s)."
+msgstr "مبلغ التبرع %s (%s) يختلف عن مجموع خطوط التبرع (%s)."

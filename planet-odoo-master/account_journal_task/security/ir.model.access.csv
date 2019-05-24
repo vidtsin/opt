@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_core_departments,Access.core.departments,model_core_departments,account.group_account_user,1,1,1,1
+access_core_cost_center,Access.core_cost_center,model_core_cost_center,account.group_account_user,1,1,1,1
+access_core_sections,Access.core.sections,model_core_sections,account.group_account_user,1,1,1,1

@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="view_sale_order_fsm" model="ir.ui.view">
+            <field name="name">view.sale.order.fsm</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <div class="oe_button_box"
+                    name="button_box"
+                    position="inside">
+
+                      <button name="action_create_fsm"  type="object"
+                              icon="fa-tasks" class="oe_stat_button">
+                          <field  name="sales_count" widget="statinfo"/>
+                      </button>
+                 </div>
+
+                <xpath expr="/form/header" position="inside">
+                    <button name="convert_to_job" type="object"
+                            string="Convert To Job" attrs="{'invisible': [('state', 'in', ['draft','sent'])]}" />
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="project_ref" invisible="1"/>
+                    <field name="date_deadline" invisible="1"/>
+                    <field name="job_name" invisible="1"/>
+                    </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

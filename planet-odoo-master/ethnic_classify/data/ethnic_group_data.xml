@@ -1,0 +1,55 @@
+<!--<?xml version="1.0" ?>-->
+<odoo>
+
+    <data >
+        <!--======================loan config data==============================-->
+        <record id="ethnic_classfify_data1" model="ethnic.classify">
+            <field name="name">American Indian or Alaska Native</field>
+            <field name="descrp" >
+                A person having origins in any of the original peoples of North and South America
+                (including Central America), and who maintains tribal affiliation or community attachment.
+            </field>
+        </record>
+        <record id="ethnic_classfify_data2" model="ethnic.classify">
+            <field name="name">Asian</field>
+            <field name="descrp" >
+                A person having origins in any of the original peoples of the Far East, Southeast
+                Asia, or the Indian subcontinent including, for example, Cambodia, China, India,
+                Japan, Korea, Malaysia, Pakistan,the Philippine Islands, Thailand, and Vietnam.
+            </field>
+        </record>
+        <record id="ethnic_classfify_data3" model="ethnic.classify">
+            <field name="name">Black or African American</field>
+            <field name="descrp" >
+                A person having origins in any of the black racial groups of Africa. Terms such
+                as "Haitian" or "Negro" can be used in addition to "Black or African American."
+            </field>
+        </record>
+        <record id="ethnic_classfify_data4" model="ethnic.classify">
+            <field name="name">Hispanic or Latino</field>
+            <field name="descrp" >
+                A person of Cuban, Mexican, Puerto Rican, Cuban, South or Central American,
+                or other Spanish culture or origin, regardless of race. The term, "Spanish origin,"
+                can be used in addition to "Hispanic or Latino."
+            </field>
+        </record>
+        <record id="ethnic_classfify_data5" model="ethnic.classify">
+            <field name="name">Native Hawaiian or Other Pacific Islander</field>
+            <field name="descrp" >
+                A person having origins in any of the original peoples of Hawaii,
+                Guam, Samoa, or other Pacific Islands.
+            </field>
+        </record>
+        <record id="ethnic_classfify_data6" model="ethnic.classify">
+            <field name="name">White</field>
+            <field name="descrp" >
+                 A person having origins in any of the original peoples of Europe,
+                 the Middle East, or North Africa.
+            </field>
+        </record>
+
+
+
+    </data>
+
+</odoo>

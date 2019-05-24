@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_compensation_type_form">
+            <field name="name">compensation.type.form</field>
+            <field name="model">compensation.type</field>
+            <field name="arch" type="xml">
+                <form string="Compensation Form">
+
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"  attrs="{'invisible':[('test','=',False)]}"/>
+                                 <field name="pension_journal" required="1" attrs="{'invisible':[('test','=',False)]}"/>
+                            </group>
+                            <group>
+                                <field name="amount" attrs="{'invisible':[('test','=',False)]}"/>
+                            </group>
+                        </group>
+
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+         <record id="view_compensation_type_tree" model="ir.ui.view">
+            <field name="name">compensation.type.tree</field>
+            <field name="model">compensation.type</field>
+            <field name="arch" type="xml">
+                <tree String="Compensation Tree">
+                      <field name="name"/>
+                    <field name="amount"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="action_compensation_type_view" model="ir.actions.act_window">
+            <field name="name">Compensation</field>
+            <field name="res_model">compensation.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_compensation_type_tree"/>
+        </record>
+
+        <!--<menuitem  id="main_menu_employee_and_resignation" name="Relieving Management"/>-->
+        <!--<menuitem  id="sub_menu_compensation" name="Relieving Management" parent="main_menu_employee_and_resignation"/>-->
+        <menuitem  id="sub_menu_compensation-type" name="Compensation" parent="hr_payroll.menu_hr_payroll_root" action="action_compensation_type_view"/>
+        </data>
+    </openerp>
+
+
+

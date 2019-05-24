@@ -1,0 +1,28 @@
+<odoo>
+            <record id="invoices_import_view_qb" model="ir.ui.view">
+            <field name="name">invoices.import.view.new.view</field>
+            <field name="model">invoice.import</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Invoices">
+                    <h2>Select Invoices file to import</h2>
+                    <field name="data_file" placeholder="Choose a file to import..."/>
+                    <footer>
+                        <button name="import_invoices_file" string="_Import" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_invoices_import_view_qb" model="ir.actions.act_window">
+            <field name="name">Import Invoices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">invoice.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="invoices_import_view_qb"/>
+        </record>
+        <menuitem id="quickbooks_invoice_import_menu" name="Import Invoices" action = "action_invoices_import_view_qb" parent="quickbooks_menu_acc" groups="account.group_account_manager"/>
+</odoo>

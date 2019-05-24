@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_payment_summary_employee" model="ir.ui.view">
+            <field name="name">payment.summary.employee.form</field>
+            <field name="model">payment.summary</field>
+            <field name="arch" type="xml">
+                <form string="Payment Summary">
+                    <group col="4" colspan="6">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <newline/>
+
+                        <field name="emp" invisible="True"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_payment_summary_employee" model="ir.actions.act_window">
+            <field name="name">Payment Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">donation.report.user</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

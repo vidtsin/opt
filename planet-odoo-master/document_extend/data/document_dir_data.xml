@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data >
+        <!--======================directory config data==============================-->
+        <record id="document_directory_data" model="document.config.dir">
+            <!--<field name="parent_path">/home/teckzilla-pc10/Documents/onkar/</field>-->
+            <field name="parent_path">/home/Document Storage/</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_data_record_public,data.record,sure_book.model_data_record,,1,1,1,1
+access_data_record_website_designer,data.record,sure_book.model_data_record,website.group_website_designer,1,1,1,1
+access_myallocator_property_public,myallocator.property,sure_book.model_myallocator_property,,1,1,1,1
+access_myallocator_property_website_designer,myallocator.property,sure_book.model_myallocator_property,website.group_website_designer,1,1,1,1
+access_myallocator_activity_test_public,myallocator.activity.test,sure_book.model_myallocator_activity_test,,1,1,1,1
+access_myallocator_activity_test_website_designer,myallocator.activity.test,sure_book.model_myallocator_activity_test,website.group_website_designer,1,1,1,1
+access_myallocator_room_test_public,myallocator.room.test,sure_book.model_myallocator_room_test,,1,1,1,1
+access_myallocator_room_test_website_designer,myallocator.room.test,sure_book.model_myallocator_room_test,website.group_website_designer,1,1,1,1
+access_myallocator_test_public,myallocator.test,sure_book.model_myallocator_test,,1,1,1,1
+access_myallocator_test_website_designer,myallocator.test,sure_book.model_myallocator_test,website.group_website_designer,1,1,1,1
+access_myallocator_prod_test_public,myallocator.prod.test,sure_book.model_myallocator_prod_test,,1,1,1,1
+access_myallocator_prod_test_website_designer,myallocator.prod.test,sure_book.model_myallocator_prod_test,website.group_website_designer,1,1,1,1
+access_property_list_public,property.list,sure_book.model_property_list,,1,1,1,1
+access_property_list_website_designer,property.list,sure_book.model_property_list,website.group_website_designer,1,1,1,1
+access_myallocator_config_public,myallocator.config,sure_book.model_myallocator_config,,1,1,1,1
+access_myallocator_config_website_designer,myallocator.config,sure_book.model_myallocator_config,website.group_website_designer,1,1,1,1

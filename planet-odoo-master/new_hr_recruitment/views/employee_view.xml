@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+             <record id="view_employee_inherit_form" model="ir.ui.view">
+            <field name="name">hr.employee.inherit.form.</field>
+            <field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='personal_information']" position="inside">
+                <group>
+              <group string="Second Bank Details">
+                    <field name="name_of_bank"/>
+                    <field name="account_holder"/>
+                    <field name="bank_account_no"/>
+                    <field name="bank_identifier_code"/>
+                    <field name="phone_number"/>
+                    <field name="email"/>
+
+                </group>
+                    <group>
+
+                    </group>
+
+                </group>
+                </xpath>
+
+                  <xpath expr="//field[@name='address_home_id']" position="after">
+                       <label for="street" string="Address"/>
+                                <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                          <field name="phone"/>
+                          <field name="mobile_no"/>
+                          <field name="alternative_mob_no"/>
+                          </xpath>
+
+                <xpath expr="//field[@name='job_id']" position="after">
+                        <field name="job_description"/>
+                        </xpath>
+
+                 <xpath expr="//field[@name='calendar_id']" position="after">
+                     <field name="shift"/>
+                     <field name="employee_category"/>
+
+                         </xpath>
+
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page string="Experience and Skills">
+                        <group string="Experience Information">
+                            <group>
+                                <field name="joining_date"/>
+                                <field name="employment_date"/>
+                                    <field name="gap"/>
+                                    <field name="experience"/>
+                            </group>
+                            <group>
+                                <field name="previous_expr"/>
+                                <field name="current_expr"/>
+                                <field name="total_expr"/>
+                            </group>
+                        </group>
+                        <!--<group string="skills">-->
+                            <!--<group>-->
+                                <!--<field name="description" placeholder="Skill description..."/>-->
+                            <!--</group>-->
+
+                        <!--</group>-->
+
+                         <!--<group>-->
+                                <field name="emp_skills_details">
+                                            <tree editable="bottom">
+                                            <field name="skill"/>
+                                            <field name="rating"/>
+                                            </tree>
+                                         </field>
+                            <!--</group>-->
+                    </page>
+
+                    <page string="Education Details">
+
+                                            <field name="emp_education_data">
+                                            <tree editable="bottom">
+                                            <field name="degree"/>
+                                            <field name="institute"/>
+                                            <field name="passing_year"/>
+                                            <field name="grade"/>
+                                            <field name="subject"/>
+
+                                            </tree>
+                                         </field>
+
+                    </page>
+
+                    <page string="Employee Details">
+
+                                            <field name="emp_details">
+                                            <tree editable="bottom">
+                                            <field name="organization"/>
+                                            <field name="start_date"/>
+                                            <field name="end_date"/>
+                                            <field name="responsibilities"/>
+                                            <field name="supervisor"/>
+
+                                            </tree>
+                                         </field>
+
+                    </page>
+                    <page string="Family Details">
+                         <field name="family_details">
+                        <tree editable="bottom">
+                        <field name="relation"/>
+                        <field name="name"/>
+                        <field name="age"/>
+                        </tree>
+                        </field>
+                    </page>
+
+                    <page string="Medical Checklists">
+                         <field name="medical_data">
+                        <tree editable="bottom">
+                        <field name="medical_test"/>
+                        <field name="result"/>
+                        </tree>
+                        </field>
+                    </page>
+
+                     <page string="Insurance Details">
+                         <group>
+                                 <group>
+                        <field name="policy"/>
+                        <field name="amount"/>
+                         <field name="dependent"/>
+
+                         </group>
+                         <group>
+                             <field name="start_date"/>
+                             <field name="close_date"/>
+                             <field name="dependent_name"/>
+                         </group>
+                         </group>
+
+
+                    </page>
+
+                      <page string="Performance">
+                          <group string="Skills">
+                              <group>
+                        <field name="technical" widget="priority"/>
+                        <field name="functional" widget="priority"/>
+                        <field name="analytical" widget="priority"/>
+                        <field name="communication" widget="priority"/>
+                                  <field name="remarks"/>
+                          </group>
+                          </group>
+
+
+                    </page>
+
+
+                        </xpath>
+
+                <xpath expr="//field[@name='address_id']" position="before">
+                    <field name="identification_no"/>
+                        </xpath>
+
+                 <xpath expr="//page[@name='hr_settings']" position="inside">
+                     <group string="Other Info">
+                        <group>
+                  <field name="review_date"/>
+                  <field name="last_raise"/>
+                  <field name="last_promotion"/>
+                             <field name="hire_date"/>
+
+              </group>
+                <group>
+                    <field name="last_class_change"/>
+                  <field name="last_paycheck"/>
+                    <field name="termination_date"/>
+                </group>
+                </group>
+
+                         </xpath>
+
+
+
+            </field>
+        </record>
+        </data>
+    </odoo>

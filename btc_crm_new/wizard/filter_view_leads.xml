@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="crm_case_form_view_filter" model="ir.ui.view">
+            <field name="name">Filter Leads</field>
+            <field name="model">filter.leads</field>
+            <!--<field name="inherit_id" ref="crm.crm_case_form_view_leads"/>-->
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="filter_faculty_id"/>
+                            <field name="filter_program_id"/>
+                            <field name="filter_team_id"/>
+                        </group>
+                        <footer>
+                            <button string="View Leads" name="view_lead" type="object"  class="oe_highlight btn-group button"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_filter_leads">
+            <field name="name">Filter Leads</field>
+            <field name="res_model">filter.leads</field>
+            <field name="view_mode">form</field>
+            <!--<field name="domain">[('type','=','opportunity'),('team_id.name','ilike','local')]</field>-->
+            <!--<field name="search_view_id" ref="crm_lead_website_integration.crm_leads_search_1"/>-->
+            <!--<field name="context">{-->
+            <!--'default_type': 'opportunity',-->
+            <!--'default_user_id': uid-->
+            <!--}-->
+            <!--</field>-->
+            <field name="help" type="html">
+                <p>
+                    Odoo helps you keep track of your sales pipeline to follow
+                    up potential sales and better forecast your future revenues.
+                </p><p>
+                You will be able to plan meetings and phone calls from
+                opportunities, convert them into quotations, attach related
+                documents, track all discussions, and much more.
+            </p>
+            </field>
+        </record>
+        <menuitem
+                id="filter_lead"
+                name="View Leads"
+                parent="crm.menu_crm_leads"
+                sequence="1"
+                action="action_filter_leads"/>
+    </data>
+</odoo>

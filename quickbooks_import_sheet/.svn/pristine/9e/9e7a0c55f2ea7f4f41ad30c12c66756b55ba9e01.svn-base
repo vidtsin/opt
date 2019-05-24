@@ -1,0 +1,28 @@
+<odoo>
+            <record id="journal_entry_import_view_qb" model="ir.ui.view">
+            <field name="name">journal.entry.import.view.new.view</field>
+            <field name="model">journal.entry.import</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Journal Entry">
+                    <h2>Select Journal Entry file to import</h2>
+                    <field name="data_file" placeholder="Choose a file to import..."/>
+                    <footer>
+                        <button name="import_customers_file" string="_Import" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_journal_entry_import_view_qb" model="ir.actions.act_window">
+            <field name="name">Import Journal Entry</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">journal.entry.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="journal_entry_import_view_qb"/>
+        </record>
+        <menuitem id="quickbooks_journal_entry_import_menu" name="Import Journal Entries" action = "action_journal_entry_import_view_qb" parent="quickbooks_menu_acc" groups="account.group_account_manager"/>
+</odoo>

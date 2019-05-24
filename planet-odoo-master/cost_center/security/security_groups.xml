@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="tax_receipt_menu" model="res.groups">
+			<field name="name">Tax Receipts menu</field>
+		</record>
+		<!--<record id="user_principal" model="res.groups">-->
+			<!--<field name="name">Principal</field>-->
+		<!--</record>-->
+	</data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="donation_donation_inherit_add-related_user" model="ir.ui.view">
+            <field name="name">donation.donation.add.related.user</field>
+            <field name="model">donation.donation</field>
+            <field name="inherit_id" ref="donation.donation_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+
+                    <field name="rel_user_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="domain">['|',('customer','=',True),('is_a_donor','=',True)]</attribute>
+
+                    <!--<field name="domain">[('is_a_donor','=',True)]</field>-->
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="sections_form_view" model="ir.ui.view">
+		<field name="name">sections.form</field>
+		<field name="model">core.sections</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" required="1"/>
+						<field name="code" required="1"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="sections_tree_view" model="ir.ui.view">
+		<field name="name">sections.tree</field>
+		<field name="model">core.sections</field>
+		<field name="arch" type="xml">
+			<tree string="Student tree">
+				<field name="name" />
+				<field name="code" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_sections" model="ir.actions.act_window">
+		<field name="name">Action</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">core.sections</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="action"></field>
+	</record>
+
+	<!-- menus -->
+	<menuitem id="sections_menu" name="Sections" parent="account_journal_task.top_menu"
+		sequence="4" />
+	<menuitem id="sections_sub_menu" name="Sections" action="action_sections"
+		parent="account.menu_finance_configuration" sequence="5" groups="account.group_account_user"/>
+</odoo>

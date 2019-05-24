@@ -1,0 +1,10 @@
+# import wizard_export
+import wizard_import_lead
+import wizard_lead
+import wizard_res_partner
+import wizard_pipeline
+import wizard_prospect
+import wizard_prospect_new
+import wizard_user
+import btc_ir_attach
+import btc_mail_messages

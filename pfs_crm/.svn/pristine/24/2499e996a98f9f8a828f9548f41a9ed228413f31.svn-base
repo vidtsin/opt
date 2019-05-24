@@ -1,0 +1,61 @@
+
+<odoo>
+    <data>
+
+
+<!--Form view lead to opportunity-->
+
+        <record id="convert_lead_to_oppo_Form_view" model="ir.ui.view">
+            <field name="name">convert.lead.to.opportunity.form</field>
+            <field name="model">convert.lead.opportunity</field>
+            <field name="arch" type="xml">
+               <form string="Convert to Opportunity">
+                    <group name="name">
+                        <field name="name" widget="radio"/>
+                    </group>
+                    <group string="Assign this opportunity to">
+
+                   <field name="user_id" domain="[('share', '=', False)]"/>
+                        <field name="team_id" widget="selection"/>
+                    </group>
+                    <group string="Opportunities" attrs="{'invisible': [('name', '!=', 'merge')]}">
+                        <field name="opportunity_ids" nolabel="1">
+                            <tree>
+                                <field name="create_date"/>
+                                <field name="name"/>
+                                <field name="type"/>
+                                <!--<field name="contact_name"/>-->
+                                <!--<field name="country_id" invisible="context.get('invisible_country', True)"/>-->
+                                <field name="primary_email"/>
+                                <field name="primary_mobile"/>
+                                <field name="stage_id"/>
+                                <field name="user_id"/>
+                                <field name="team_id"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <footer>
+                        <button string="Convert Stage" name="action_apply" type="object"  class="oe_highlight btn-group button"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+
+        <!--Action Window-->
+
+
+        <record id="convert_lead_to_oppo_action" model="ir.actions.act_window">
+            <field name="name">Convert Stage</field>
+            <field name="res_model">convert.lead.opportunity</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+   </data>
+</odoo>

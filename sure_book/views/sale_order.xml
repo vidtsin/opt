@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<record id="view_order_form_attribute" model="ir.ui.view">
+    <field name="name">backing.the.packers.view_order_form</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form" />
+    <field name="arch" type="xml">
+    	<xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+	    <attribute name="states">checked_in</attribute>
+        </xpath>
+<!--        <xpath expr="//button[@name='action_confirm']" position="after">
+	    <button name="sale_check_in" states="draft,sent" string="Check In" type="object"/>
+	</xpath>-->
+	<xpath expr="//button[@name='action_cancel']" position="attributes">
+            <attribute name="states">manual,progress,checked_in</attribute>
+	</xpath>
+<!--	<xpath expr="//field[@name='state']" position="attributes">
+	    <attribute name='statusbar_visible'>draft,sent,checked_in,sale,done</attribute>
+	</xpath>-->
+        
+    </field>
+</record>
+
+
+
+
+
+
+<record model="ir.ui.view" id="view_sale_order_form_inherit_room">
+        <field name="name">sale.order.form.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='confirmation_date']" position="before">
+                <field name="room_no"/>
+            </xpath>
+
+           <xpath expr="//notebook" position="inside">
+                <page string="POS Orders">
+                    <field name="pos_order_ids">
+                        <tree string="POS Orders">
+                            <field name="pos_reference" />
+                            <field name="partner_id" />
+                            <field name="date_order" />
+                            <field name="amount_total" string="Amount"/>
+                            <field name="parent_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

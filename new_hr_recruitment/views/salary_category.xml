@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+             <record id="view_salary_inherit_form" model="ir.ui.view">
+            <field name="name">hr.salary.inherit.form.</field>
+            <field name="model">hr.salary.rule.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_category_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                        <field name="type" attrs="{'invisible':[('name','!=','Deduction')]}"/>
+                    <field name="premium_type" attrs="{'invisible':[('type','!=','insurance')]}"/>
+                     <!--<field name="test" invisible="1"/>-->
+                 </xpath>
+
+                    <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="other_premium_type" placeholder="define your premium type.." attrs="{'invisible':[('premium_type','!=','other')]}"/>
+                        </xpath>
+
+                </field>
+                 </record>
+        </data>
+    </odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="add_boolean_pos_config_form_for_room_no">
+         <field name="name">allocator.pos.config</field>
+         <field name="model">pos.config</field>
+         <field name="inherit_id" ref="point_of_sale.view_pos_config_form" />
+         <field name="arch" type="xml">
+                <xpath expr="//field[@name='iface_display_categ_images']" position="after">
+                        <field name = "iface_room_no"/>
+                </xpath>
+         </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

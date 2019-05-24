@@ -1,0 +1,121 @@
+#chartleadproduct {
+    width: 119%;
+    height: 353px;
+    margin-left: -83px;
+    margin-top: -17px;
+    }
+
+#chartleadsource {
+        width: 119%;
+    height: 353px;
+    margin-left: -175px;
+    margin-top: -18px;
+    }
+
+#chartleads {
+     width: 119%;
+    height: 353px;
+    margin-left: -85px;
+    margin-top: -45px;
+    }
+
+#chartopportunity {
+     width: 119%;
+    height: 353px;
+    margin-left: -113px;
+    margin-top: -47px;
+    }
+
+#charthealthoppo{
+     width: 119%;
+    height: 353px;
+    margin-left: -113px;
+    margin-top: -47px;
+    }
+#chartcurrentmonth{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+#chartmonthlylead{
+    width: 115%;
+    height: 285px;
+    margin-left: 421px;
+    margin-top: -304px;
+    }
+#chartcurrentmonthsource{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+
+#chartmonthlyhealthoppo{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+#chartdiv2 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv3 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv4 {
+  width: 80%;
+  height:200px;
+}
+
+#chartdiv5 {
+  width: 490px;
+  height:63px;
+}
+
+#chartdiv6 {
+  width: 490px;
+  height:63px;
+}
+
+
+
+#chartdiv7 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv8 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv9 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv10 {
+    width: 100%;
+  height: 500px;
+}
+#chartdiv11 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv12 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdiv13 {
+    width: 50%;
+  height: 500px;
+}
+
+#chartdiv14 {
+    width: 100%;
+  height: 500px;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="pos_order_view_form">
+         <field name="name">allocator.pos.order</field>
+         <field name="model">pos.order</field>
+         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+         <field name="arch" type="xml">
+                <xpath expr="//field[@name='fiscal_position_id']" position="after">
+                        <field name = "room_id"/>
+                        <field name = "sale_order_id" invisible="1"/>
+                        <field name = "pos_order_id" invisible="1"/>
+                        <field name = "parent_id" invisible="1"/>
+                </xpath>
+         </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+

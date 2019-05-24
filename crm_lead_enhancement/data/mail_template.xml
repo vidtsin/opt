@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Email template -->
+        <record id="email_template_crm_lead" model="mail.template">
+            <field name="name">Biztech</field>
+            <field name="email_from"></field>
+            <field name="subject">BizTech College: We Look Forward To Helping You!</field>
+            <field name="partner_to"></field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="body_html"><![CDATA[
+Dear ${object.contact_name},
+</br>
+<p>I am happy to send along these program details with our international student '1-2-3 admission' steps and our application form for your review! We
+understand this is a big decision, included are helpful links to Canada's immigration department and of course with any questions, or wishing an application for admission,  please contact back.
+</br>
+*It must be noted, the college cannot advise on any matters concerning immigration, study visas or post-graduate work permits, this is decided entirely by Canada's immigration department<p>
+</br>
+</br>
+</br>
+<center><img src="/crm_lead_enhancement/static/src/img/mailimage.jpg" style="width: 770px;height: 224px;" /></center>
+</br>
+</br>
+</br>
+<center><u><b><span style="font-size:12.0pt;color:#005ba3;">Program Name: COMPUTER NETWORK AND INTERNET SECURITY ENGINEER DIPLOMA</span></b></u></center>
+</br>
+</br>
+1.       <b><span style="font-size:12.0pt;color:#005ba3;">Program Pre-Requisites</span></b>:
+</br>
+</br>
+-          18 years or older
+</br>
+</br>
+-          Post-secondary degree in I.T., computer sciences or equivalent
+</br>
+</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-          ESL results as indicated:
+</br>
+</br>
+</br>
+<b><span style="font-size:12.0pt;color:#005ba3;">Program Length</span></b>:
+</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;76 weeks , full-time only.
+</br>
+</br>
+<b><span style="font-size:12.0pt;color:#005ba3;">Program Cost: CDN. (includes tuition, fees, books/software)</span></b>
+</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTAL COST:
+
+</br>
+</br>
+</br>
+<b><span style="font-size:12.0pt;color:#005ba3;">English Proficiency Requirements (For ESL students):</span></b>
+</br>
+&nbsp;&nbsp;&nbsp;A minimum TOEFL score of 550
+</br>
+&nbsp;&nbsp;&nbsp;OR an IELTS score of 6.0, with no band less than 5.0
+</br>
+&nbsp;&nbsp;&nbsp;OR completion of the BizTech Entrance English Level 3 for people with no English test results
+
+</br>
+</br>
+&nbsp;&nbsp;&nbsp;We are a designated learning institution with the Canadian Government, <b>#019304029082.</b>
+
+</br>
+</br>
+&nbsp;&nbsp;&nbsp;*Program Cost indicates the post-secondary program ONLY.  These amounts do not include the  study permit fee, or living costs while attending school.
+
+</br>
+</br>
+<b><span style="font-size:12.0pt;color:#005ba3;">International Admission Steps:</span></b>
+</br>
+&nbsp;&nbsp;&nbsp;<b>Step 1 -</b> application is made to the school (there is a $100 fee), including your pre-requisites documents for consideration: identification, official copy transcripts/accreditations; ESL results are required.
+</br>
+&nbsp;&nbsp;&nbsp;<b>Step 2 -</b> upon consideration, the college will issue a 'Letter of Offer' to the applicant, it contains program details and an invoice for the program's first year;
+</br>
+&nbsp;&nbsp;&nbsp;<b>Step 3 -</b> the college will issue its international student acceptance letter once:
+</br>
+&nbsp;&nbsp;&nbsp;- When 25% of your program fees have been submitted
+</br>
+&nbsp;&nbsp;&nbsp;- Another 25% of your program fees (or 50% of your program costs)  are due fifteen (15) days after Canada’s Study Permit has been issued
+</br>
+</br>
+
+<b><span style="font-size:12.0pt;color:#005ba3;">Useful For Review:</span></b>
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=496&top=15">http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=496&top=15</a>
+
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/study/study.asp">http://www.cic.gc.ca/english/study/study.asp</a>
+
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/study/study-who.asp">http://www.cic.gc.ca/english/study/study-who.asp</a>
+
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/information/applications/student.asp">http://www.cic.gc.ca/english/information/applications/student.asp</a>
+
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=031&top=3">http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=031&top=3</a>
+
+</br>
+</br>
+<a href="http://www.cic.gc.ca/english/resources/tools/temp/students/post-grad.asp">http://www.cic.gc.ca/english/resources/tools/temp/students/post-grad.asp</a>
+
+</br>
+</br>
+
+Looking forward to assisting your Canadian education future!
+</br>
+</br>
+
+
+]]></field>
+        </record>
+    </data>
+</odoo>

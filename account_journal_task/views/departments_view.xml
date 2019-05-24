@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="departments_form_view" model="ir.ui.view">
+		<field name="name">departments.form</field>
+		<field name="model">core.departments</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" required="1"/>
+						<field name="code" required="1"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="departments_tree_view" model="ir.ui.view">
+		<field name="name">departments.tree</field>
+		<field name="model">core.departments</field>
+		<field name="arch" type="xml">
+			<tree string="Student tree">
+				<field name="name" />
+				<field name="code" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_departments" model="ir.actions.act_window">
+		<field name="name">Action</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">core.departments</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="action"></field>
+	</record>
+
+	<!-- menus -->
+	<menuitem id="top_menu" name="Account Journal" sequence="1" />
+	<menuitem id="departments_menu" name="Departments" parent="account_journal_task.top_menu"
+		sequence="2" />
+	<menuitem id="departments_sub_menu" name="Departments" action="action_departments"
+		parent="account.menu_finance_configuration" sequence="3" groups="account.group_account_user"/>
+</odoo>

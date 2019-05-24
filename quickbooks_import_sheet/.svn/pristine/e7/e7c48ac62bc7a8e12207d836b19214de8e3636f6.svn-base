@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
+import logging
+_logger = logging.getLogger(__name__)
+
+
+class AccountAccount(models.Model):
+    _inherit = 'account.account'
+
+    quickbooks_import = fields.Boolean('QuickBooks Import', default=False)
+
+
+class CustomerCustomer(models.Model):
+    _inherit = 'res.partner'
+
+    quickbooks_import = fields.Boolean('QuickBooks Import', default=False)
+
+class ProductProduct(models.Model):
+    _inherit = 'product.template'
+
+    quickbooks_import = fields.Boolean('QuickBooks Import', default=False)

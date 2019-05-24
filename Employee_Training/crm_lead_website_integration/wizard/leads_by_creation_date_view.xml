@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="leads_creation_period_wizard_form_view" model="ir.ui.view">
+            <field name="name">leads.creation.period.report.form</field>
+            <field name="model">leads.creation.period.report</field>
+            <field name="arch" type="xml">
+             <form string="Program Details" >
+                 <sheet>
+                     <group>
+                         <field name="all_programs"/>
+                         <field name="program" attrs="{'invisible': [('all_programs', '=', True)]}"/>
+                         <field name="start_date"/>
+                         <field name="end_date"/>
+                         <field name="by_period"/>
+                     </group>
+                     <footer>
+                         <button string="Generate Report" name="generate_report" type="object"  attrs="{'invisible': ['|',('start_date', '=', False),('end_date', '=', False)]}" />
+                     </footer>
+                 </sheet>
+             </form>
+            </field>
+     </record>
+
+
+        <record id="leads_creation_period_wizard_action" model="ir.actions.act_window">
+            <field name="name">Leads Report By Creation Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">leads.creation.period.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem id="leads_creation_period_wizard_menu" action="leads_creation_period_wizard_action" name="Leads By Period" parent="sales_team.menu_sale_report" sequence="53"/>
+
+
+
+
+
+    </data>
+</odoo>

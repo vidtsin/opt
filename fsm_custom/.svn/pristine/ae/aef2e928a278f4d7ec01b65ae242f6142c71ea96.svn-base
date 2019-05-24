@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <record id="cancel_purchase_order_custom_svn" model="ir.actions.server">
+            <field name="name">Additional Site Visit</field>
+            <field name="model_id" ref="model_project_task"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">object.browse(object.env.context['active_ids']).copy_custom()</field>
+        </record>
+
+        <record model="ir.values" id="test_more_item">
+            <field name="name">Test Item</field>
+            <field name="model" eval="'project.task'" />
+            <field name="key" >action</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.server,%d'%cancel_purchase_order_custom_svn" />
+            <field name="object" eval="True" />
+        </record>
+    </data>
+</odoo>

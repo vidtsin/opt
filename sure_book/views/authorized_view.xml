@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data >
+
+         <record id="view_partner_form_inherit_peachpayment" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']" position="after" >
+                    <page String = 'Peach Payment'>
+                        <group>
+                            <field name="payment_ids" nolabel="1">
+                            <tree string = 'Payment Token' editable="bottom">
+                                <field name="name" />
+                            </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="form_view_peachpayment_configuration">
+            <field name="name">form.view.peachpayment.configuration</field>
+            <field name="model">peachpayment.configuration</field>
+            <field name="arch" type="xml">
+                <form string="Peach Payment Configuration">
+                    <group string="Authentication" col="4" colspan="4">
+                        <field name="user_id" required="1"/>
+                        <field name="password" required="1"/>
+                        <field name="mode" required="1"/>
+                        <field name="threeD_channel_id" required="1"/>
+                        <field name="recurring_channel_id" required="1"/>
+                        <field name="ip_address" required="1"/>
+                        <field name="path" required="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="tree_view_peachpayment_configuration">
+            <field name="name">tree.view.peachpayment.configuration</field>
+            <field name="model">peachpayment.configuration</field>
+            <field name="arch" type="xml">
+                <tree string="Peach Payment Configuration">
+                    <field name = "user_id"/>
+                    <field name = "mode"/>
+                </tree>
+            </field>
+        </record>
+        
+
+        
+        <record id="act_peachpayment_configuration" model="ir.actions.act_window">
+            <field name="name">Peach Payment Configuration</field>
+            <field name="res_model">peachpayment.configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="menu_peachpayment_configuration" name=">Peach Payment Configuration" parent="account.menu_finance_configuration" action="act_peachpayment_configuration"  />
+        
+        
+    </data>
+</openerp>

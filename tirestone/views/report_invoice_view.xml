@@ -1,0 +1,13 @@
+<odoo>
+    <template id="validate_invoice_report_inherit" inherit_id="account.report_invoice_document">
+    <xpath expr="//p[@t-if='o.payment_term_id']" position="after">
+       <div class="row-xs-4">
+           <span>
+               <strong>General Terms and Conditions</strong>
+               <span t-field="o.company_id.sale_note"/>
+           </span>
+       </div>
+
+    </xpath>
+    </template>
+</odoo>

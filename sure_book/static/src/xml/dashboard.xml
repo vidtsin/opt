@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="DashboardWidget">
+        
+        <div style="margin-top: 20px;">
+            <div class="main" >
+                <div class="container" >
+                    
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="panel panel-success">
+                                <div class="panel-body btn-success">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="margin-top: 8px; font-size:30px;">
+                                        <i class="fa fa-bell" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!--<input type="hidden" id="arrival_count" />-->
+                                            <h2 id="arrival_count"></h2>
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <h3>Arrivals</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="panel panel-warning">
+                                <div class="panel-body btn-warning">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="margin-top: 8px; font-size:30px;">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!--<input type="hidden" id="departure_count" />-->
+                                            <h2 id="departure_count"></h2>
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <h3>Departures</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="panel panel-info">
+                                <div class="panel-body btn-info">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="margin-top: 8px; font-size:30px;">
+                                        <i class="fa fa-database" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!--<input type="hidden" id="occupied_count" />-->
+                                            <h2 id="occupied_count"></h2>
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <h3>Occupied</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="panel-body btn-primary">
+                                    <div class="row">
+
+                                    </div>
+                                    <div align="center">
+                                        <h3>Total number of travellers</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="panel-body btn-primary">
+                                    <div class="row">
+
+                                    </div>
+                                    <div align="center">
+                                        <h3>Total number of company</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <img class="img-responsive"  src="/sure_book/static/src/img/surebook.png"/>
+                        </div>
+                    </div>
+                    <div id="dp">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-info" style="height:450px; max-height:450px; overflow-y:scroll;">
+                                <div class="panel-heading">Reservation</div>
+                                
+                                <div class="panel-body">
+                                    
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#arrivals">Arrivals</a></li>
+                                        <li><a data-toggle="tab" href="#departure">Departure</a></li>
+                                        <li><a data-toggle="tab" href="#stayovers">Stayovers</a></li>
+                                        <li><a data-toggle="tab" href="#customers">Customers</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                      <div id="arrivals" class="tab-pane fade in active">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Guest</th>
+                                                    <th>Conf#</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="arrival_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                      <div id="departure" class="tab-pane fade">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Guest</th>
+                                                    <th>Conf#</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="departure_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                      <div id="stayovers" class="tab-pane fade">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Guest</th>
+                                                    <th>Conf#</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="occupied_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                      <div id="customers" class="tab-pane fade">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Guest</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="customer_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="panel panel-info" style="height:450px; max-height:450px; overflow-y:scroll;">
+                                <div class="panel-heading">Today's Activity</div>
+                                <div class="panel-body">
+                                    
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#sales">Sales</a></li>
+                                        <li><a data-toggle="tab" href="#cancel">Cancellations</a></li>
+                                        <li><a data-toggle="tab" href="#stayovers1">Room Overbooking</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                      <div id="sales" class="tab-pane fade in active">
+                                        <table class="table table-condensed" >
+                                            <thead>
+                                                <tr>
+                                                    <th>Sale</th>
+                                                    <th>Guest</th>
+                                                    <th>Revenue</th>
+                                                    <th>Check In</th>
+                                                    <th>Nights</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="sales_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                      <div id="cancel" class="tab-pane fade">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sale</th>
+                                                    <th>Guest</th>
+                                                    <th>Check In</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cancel_data">
+                                                
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                      <div id="stayovers1" class="tab-pane fade">
+                                        <h3>Menu 2</h3>
+                                        <p>Some content in menu 2.</p>
+                                      </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+        
+        <script src="/sure_book/static/src/js/animationCounter.js"></script>
+
+        <script>
+<!--            $( document ).ready(function() {
+            
+                var arrival_count = $('#arrival_count').val();
+                $('#arrival_counter').animationCounter({
+                    start: 0,
+                    end: arrival_count,
+                    delay: 30
+                });
+                var departure_count = $('#departure_count').val();
+                $('#departure_counter').animationCounter({
+                    start: 0,
+                    end: departure_count,
+                    delay: 30
+                });
+                var occupied_count = $('#occupied_count').val();
+                $('#occupied_counter').animationCounter({
+                    start: 0,
+                    end: occupied_count,
+                    delay: 30
+                });
+            
+                
+            });-->
+            
+            
+<!--            $( document ).ready(function() {
+            
+            $('.count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+            });
+            });-->
+    
+
+            function checkin(id){
+                
+                if(id){
+                    $.ajax({
+                    type: 'POST',
+                    url: '/dashboard_check_in',
+                    timeout: 1000,
+                    data : {'id': id}
+                        })
+                    .done(function(data){
+                    if(data == 'True'){
+                        window.location.reload();
+                    }else {
+                        alert('Error!!!');
+                    }
+                    })
+<!--                    .fail(function(){
+                        alert('Process Error!!!');
+                    });-->
+                }
+            }
+            
+            
+            function checkout(id){
+                
+                if(id){
+
+                   $.ajax({
+                   type: 'POST',
+                    url: '/dashboard_check_out',
+                    timeout: 1000,
+                    data : {'id': id}
+                        })
+                    .done(function(data){
+                    if(data == 'True'){
+                        window.location.reload();
+                    }else {
+                        alert('Error!!!');
+                    }
+                    })
+<!--                    .fail(function(){
+                        alert('Process Error!!!');
+                    });-->
+                }
+            }
+            
+            
+            function split_bill(id){
+                
+                if(id){
+
+                   $.ajax({
+                   type: 'POST',
+                    url: '/dashboard_split_bill',
+                    timeout: 1000,
+                    data : {'id': id}
+                        })
+                    .done(function(data){
+                    if(data == 'True'){
+                        window.location.reload();
+                    }else {
+                        alert('Error!!!');
+                    }
+                    })
+<!--                    .fail(function(){
+                        alert('Process Error!!!');
+                    });-->
+                }
+            }
+            
+            
+        </script>
+    </t>
+</templates>

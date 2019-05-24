@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!--Add Room No. button in POS-->
+    <t t-name="RoomNoButton">
+        <div class='control-button roombtn'>
+            Room No.
+        </div>
+    </t>
+
+</templates>

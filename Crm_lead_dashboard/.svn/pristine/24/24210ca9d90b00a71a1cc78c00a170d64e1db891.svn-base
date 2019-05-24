@@ -1,0 +1,165 @@
+
+#chartdiv1 {
+  width: 80%;
+    height: 150px;
+}
+
+#chartdiv1 {
+  width: 80%;
+  height:200px;
+}
+
+#chartleadproduct {
+    width: 119%;
+    height: 353px;
+    margin-left: -83px;
+    margin-top: -17px;
+    }
+
+
+#chartleadsource {
+        width: 119%;
+    height: 353px;
+    margin-left: -175px;
+    margin-top: -18px;
+    }
+
+#chartleads {
+     width: 119%;
+    height: 353px;
+    margin-left: -85px;
+    margin-top: -45px;
+    }
+
+#chartopportunity {
+     width: 119%;
+    height: 353px;
+    margin-left: -113px;
+    margin-top: -47px;
+    }
+
+#charthealthoppo{
+     width: 119%;
+    height: 353px;
+    margin-left: -113px;
+    margin-top: -47px;
+    }
+#chartcurrentmonth{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+#chartmonthlylead{
+      width: 100%;
+    height: 285px;
+    margin-left: -90px;
+    margin-top: 42px;
+    }
+
+#chartmonthlysource{
+      width: 100%;
+    height: 285px;
+    margin-left: -90px;
+    margin-top: 42px;
+    }
+#chartcurrentmonthsource{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+
+#chartmonthlyhealthoppo{
+    width: 92%;
+    height: 350px;
+    margin-left: -23px;
+    }
+#chartdiv2 {
+  width: 80%;
+    height: 150px;
+}
+
+#chartdiv3 {
+      width: 80%;
+    height: 150px;
+}
+
+#chartmonthcertification{
+      width: 80%;
+    height: 150px;
+}
+#chartsourcediploma{
+      width: 80%;
+    height: 150px;
+}
+#chartsourcecertification {
+   width: 80%;
+    height: 150px;
+}
+
+#chartdiv5 {
+      width: 550px;
+    height: 63px;
+}
+
+#chartdiv6 {
+      width: 550px;
+    height: 63px;
+}
+
+
+
+#chartdiv7 {
+       width: 50%;
+    height: 450px;
+}
+
+#chartdiv8 {
+   width: 60%;
+    height: 450px;
+}
+
+#chartdiv9 {
+   width: 50%;
+    height: 450px;
+}
+
+#chartdiv10 {
+        width: 60%;
+    height: 450px;
+}
+#chartdiv11 {
+       width: 50%;
+    height: 450px;
+}
+
+#chartdiv12 {
+       width: 60%;
+    height: 450px;
+}
+
+#chartdiv13 {
+
+      width: 50%;
+    height: 450px;
+
+    width: 100%;
+  height: 500px;
+
+    width: 50%;
+  height: 500px;
+
+}
+
+#chartdiv14 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdivtotalbusiness {
+      width: 550px;
+    height: 63px;
+}
+    #chartdiv15 {
+    width: 550px;
+    height: 63px;;
+}

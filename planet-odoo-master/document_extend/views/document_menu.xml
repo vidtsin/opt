@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_document_config_directory_dms" model="ir.ui.view">
+            <field name="name">document.config.dir</field>
+            <field name="model">document.config.dir</field>
+            <field name="arch" type="xml">
+                <form string="Configure Document Directory" create="false" delete="false">
+
+                    <sheet>
+                        <group string="Documents" name="directories">
+                            <field name="parent_path" required="1"/>
+
+                        </group>
+                        <div>
+                            <span>*Make sure that the parent directory path given <is></is> accurate and exists in the system.</span>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="document_config_directory_dms_tree" model="ir.ui.view">
+            <field name="name">document.config.dir</field>
+            <field name="model">document.config.dir</field>
+            <field name="arch" type="xml">
+                <tree string="Document Directory" delete="true" create="false">
+                    <field name="parent_path"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_doc_dir_config" model="ir.actions.act_window">
+            <field name="name">Configure Document Directory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.config.dir</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="menu_doc_directory_config_settings_new" name="Document Store" parent="base.menu_custom"
+            sequence="6" action="action_doc_dir_config"/>
+        <!--<menuitem id="menu_loan_general_settings_new" name="Settings" parent="menu_loan_directory_config_settings_new"-->
+            <!--sequence="1" action="action_loan_directory_config_directory"/>-->
+    </data>
+</odoo>

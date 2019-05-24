@@ -1,0 +1,76 @@
+from odoo import api, fields, models
+
+
+
+class CrmDirectMail(models.TransientModel):
+    _name='crm.direct.mail'
+
+
+    leads_ids = fields.Many2many('crm.lead', string='Leads')
+    recipents = fields.Char(string='Recipents')
+    subject = fields.Char(string="subject")
+    body = fields.Html('Contents')
+
+    # @api.onchange('leads_ids')
+    # def onchange_lead_email_send(self):
+    #     if self.leads_ids:
+    #         leads=[]
+    #         for rec in self.leads_ids:
+    #             lead_tuple=rec.primary_email
+    #             leads.append(lead_tuple)
+    #
+    #         self.recipents_ids=leads
+    #
+    #
+    #         print"receipent",self.recipents_ids
+
+
+    @api.multi
+    def send_mail(self):
+        if self.leads_ids:
+            list=[]
+            for rec in self.leads_ids:
+                self.recipents=rec.primary_email
+                if not self.subject:
+                    self.subject="Next Activity will be on ."
+                    mail_values = {
+                        'subject': self.subject,
+                        'body_html': self.body,
+                        'email_to': self.recipents,
+
+                    }
+                    create_and_send_email = self.env['mail.mail'].create(mail_values).send()
+                else:
+
+                    mail_values = {
+                        'subject': self.subject,
+                        'body_html': self.body,
+                        'email_to': self.recipents,
+
+                    }
+                    create_and_send_email = self.env['mail.mail'].create(mail_values).send()
+
+        else:
+            view_id = self.env['crm.lead'].search([('name','!=',False)])
+            for rec in view_id:
+                self.recipents = rec.primary_email
+                if not self.subject:
+                    self.subject = "Next Activity will be on ."
+                    mail_values = {
+                        'subject': self.subject,
+                        'body_html': self.body,
+                        'email_to': self.recipents,
+
+                    }
+                    create_and_send_email = self.env['mail.mail'].create(mail_values).send()
+                else:
+
+                    mail_values = {
+                        'subject': self.subject,
+                        'body_html': self.body,
+                        'email_to': self.recipents,
+
+                    }
+                    create_and_send_email = self.env['mail.mail'].create(mail_values).send()
+
+        return {'type': 'ir.actions.act_window_close'}

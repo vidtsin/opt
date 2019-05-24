@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+                        <html>
+                        <body>
+                         <form action="http://localhost:8069/sure_book/static/src/xml/thankyou.html" class="paymentWidgets" data-brands="VISA MASTER AMEX">
+                        </form>
+                        <script>
+                        var wpwlOptions ={registrations: { requireCvv: true,hideInitialPaymentForms: false}}
+                        </script>
+                        <script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=14AE7992FCA26AA1DCCEAA866D3CA46E.sbg-vm-tx01">
+                        </script>
+                        
+                        </body>
+                        </html>

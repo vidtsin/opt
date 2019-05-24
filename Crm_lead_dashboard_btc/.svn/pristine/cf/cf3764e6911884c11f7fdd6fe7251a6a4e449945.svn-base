@@ -1,0 +1,87 @@
+#chartdiv1 {
+  width: 80%;
+    height: 150px;
+}
+
+#chartdiv2 {
+  width: 80%;
+    height: 150px;
+}
+
+#chartdiv3 {
+      width: 80%;
+    height: 150px;
+}
+
+#chartmonthcertification{
+      width: 80%;
+    height: 150px;
+}
+#chartsourcediploma{
+      width: 80%;
+    height: 150px;
+}
+#chartsourcecertification {
+   width: 80%;
+    height: 150px;
+}
+
+#chartdiv5 {
+      width: 550px;
+    height: 63px;
+}
+
+#chartdiv6 {
+      width: 550px;
+    height: 63px;
+}
+
+
+
+#chartdiv7 {
+       width: 50%;
+    height: 450px;
+}
+
+#chartdiv8 {
+   width: 60%;
+    height: 450px;
+}
+
+#chartdiv9 {
+   width: 50%;
+    height: 450px;
+}
+
+#chartdiv10 {
+        width: 60%;
+    height: 450px;
+}
+#chartdiv11 {
+       width: 50%;
+    height: 450px;
+}
+
+#chartdiv12 {
+       width: 60%;
+    height: 450px;
+}
+
+#chartdiv13 {
+      width: 50%;
+    height: 450px;
+}
+
+#chartdiv14 {
+    width: 100%;
+  height: 500px;
+}
+
+#chartdivtotalbusiness {
+      width: 550px;
+    height: 63px;
+}
+    #chartdiv15 {
+    width: 550px;
+    height: 63px;;
+}
